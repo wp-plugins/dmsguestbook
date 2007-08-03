@@ -5,7 +5,7 @@ Tags: guestbook, plugin
 Requires at least: 2.0
 Tested up to: 2.2.1
 Stable tag: 1.0
-
+ 
 == Description ==
 You can customize the whole DMSGuestbook to your desire.
 * DMSGuestbook and separator width
