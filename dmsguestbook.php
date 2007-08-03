@@ -2,7 +2,7 @@
 /*
 Plugin Name: DMSGuestbook
 Plugin URI: http://danielschurter.net/
-Description: The administration panel is found on the top of this site.
+Description: The administration panel is found on the top of this site...
 Version: 1.0
 Author: Daniel M. Schurter
 Author URI: http://danielschurter.net/
