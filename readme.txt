@@ -31,7 +31,7 @@ Requirement:<br />
 3.) Activate the DMSGuestbook in the plugins section of wordpress.<br />
 4.) You will see in the top of navigation the DMSGuestbook admin link.<br />
 
-== Frequently Asked Question ==
+== Frequently Asked Questions ==
 none
 
 == Screenshots ==
