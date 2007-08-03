@@ -9,8 +9,7 @@ Stable tag: 1.0
 DMSGuestbook is an easy configurable guestbook with a lot of features.
 
 == Description ==
-DMSGuestbook is an easy configurable guestbook with a lot of features.
-
+DMSGuestbook is an easy configurable guestbook with a lot of features.<br />
 You can customize the whole DMSGuestbook to your desire
 
 Features:
@@ -39,8 +38,6 @@ Requirement:
 3. Activate the DMSGuestbook in the plugins section of wordpress.
 4. You will see in the top of navigation the DMSGuestbook admin link.
 
-Enjoy it :-)
-
 == Frequently Asked Questions ==
 none
 
@@ -50,20 +47,17 @@ none
 
 == Credits ==
 
-Author: Daniel Schurter
-
-Email: DMSGuestbook@danielschurter.net
-
-Url: http://DanielSchurter.net
+Author: Daniel Schurter<br />
+Email: DMSGuestbook@danielschurter.net<br />
+Url: http://DanielSchurter.net<br />
 
 DMSGuestbook is released under the GNU General Public License
-http://www.gnu.org/licenses/gpl.html
-
+http://www.gnu.org/licenses/gpl.html<br />
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 See the GNU General Public License for more details.
+This plugin is run and tested under Wordpress 2.2.1
 
-Thanks to NoGray for the fine color picker, i like it!
-
+Thanks to NoGray for the fine color picker, i like it!<br />
 URL: http://www.nogray.com
