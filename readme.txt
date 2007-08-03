@@ -35,5 +35,5 @@ Requirement:<br />
 none
 
 == Screenshots ==
-screenshot1.png
-screenshot2.png
+1. Screenshot Admin the DMSGuestbook
+2. Screenshot Manage the guestbook entries 
