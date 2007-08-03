@@ -27,6 +27,8 @@ Features:
 * Set text hidden in the DMSGuestbook (e.g. IP adress)
 * Manage the DMSGuestbook user entries. (e.g. Name, Message, Url, IP adress)
 
+Enjoy it :-)
+
 == Installation ==
 Requirement:
 
@@ -43,7 +45,7 @@ none
 
 == Screenshots ==
 1. Screenshot Admin the DMSGuestbook
-2. Screenshot Manage the guestbook entries 
+2. Screenshot Manage the guestbook entries
 
 == Credits ==
 
