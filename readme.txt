@@ -61,7 +61,6 @@ This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 See the GNU General Public License for more details.
-This plugin is run and tested under Wordpress 2.2.1
 
 Thanks to NoGray for the fine color picker, i like it!
 
