@@ -1,4 +1,4 @@
-=== Plugin Name ===
+=== DMSGuestbook ===
 Contributors: danielschurter
 Donate link: http://danielschurter.net/
 Tags: guestbook, plugin
@@ -9,7 +9,10 @@ Stable tag: 1.0
 DMSGuestbook is an easy configurable guestbook with a lot of features.
 
 == Description ==
+DMSGuestbook is an easy configurable guestbook with a lot of features.
+
 You can customize the whole DMSGuestbook to your desire
+
 Features:
 
 * DMSGuestbook and separator width
@@ -45,6 +48,12 @@ none
 
 == Credits ==
 
+Author: Daniel Schurter
+
+Email: DMSGuestbook@danielschurter.net
+
+Url: http://DanielSchurter.net
+
 DMSGuestbook is released under the GNU General Public License
 http://www.gnu.org/licenses/gpl.html
 
@@ -54,9 +63,6 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 See the GNU General Public License for more details.
 This plugin is run and tested under Wordpress 2.2.1
 
-Author: Daniel Schurter<br />
-Email: DMSGuestbook@danielschurter.net<br />
-Url: http://DanielSchurter.net<br />
+Thanks to NoGray for the fine color picker, i like it!
 
-Thanks to NoGray for the fine color picker, i like it!<br />
 URL: http://www.nogray.com
