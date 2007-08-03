@@ -7,19 +7,19 @@ Tested up to: 2.2.1
 Stable tag: 1.0
 
 == Description ==
-You can customize the whole DMSGuestbook to your desire.<br />
-- DMSGuestbook and separator width<br />
-- Position on the page<br />
-- Post per page<br />
-- Text and border color<br />
-- Text color of antispam (anti robot, captcha) text<br />
-- Navigation style and size<br />
-- Date and time format<br />
-- Choose your own DMSGuestbook caption text<br />
-- Preset DMSGuestbook caption text in german, english and swissgerman :-)<br />
-- Set mandatory fields where must be filled out<br />
-- Set text hidden in the DMSGuestbook (e.g. IP adress)<br />
-- Manage the DMSGuestbook user entries. (e.g. Name, Message, Url, IP adress)<br />
+You can customize the whole DMSGuestbook to your desire.
+* DMSGuestbook and separator width
+* Position on the page
+* Post per page
+* Text and border color
+* Text color of antispam (anti robot, captcha) text
+* Navigation style and size
+* Date and time format
+* Choose your own DMSGuestbook caption text
+* Preset DMSGuestbook caption text in german, english and swissgerman :-)
+* Set mandatory fields where must be filled out
+* Set text hidden in the DMSGuestbook (e.g. IP adress)
+* Manage the DMSGuestbook user entries. (e.g. Name, Message, Url, IP adress)
 
 == Installation ==
 Requirement:<br />
