@@ -43,9 +43,9 @@ Requirement:
 == Frequently Asked Questions ==
 = Why i don't see my guestbook on my page? =
 - Have you download the Exec-PHP? Exec-PHP (http://bluesome.net/post/2005/08/18/50/)
-- Have you set the right page id? 
+- Have you set the right page id?
 = 05.08.07 - When i select the DMSGuestbook in the plugins section of Wordpress, there is not create a DMSGuestbook database. Whats happen? =
-This was my fault :-) This problem is solved, sorry for this circumstance.
+This was my mistake :-) This problem is solved, sorry for this circumstance.
 
 == Screenshots ==
 1. Screenshot Admin the DMSGuestbook
