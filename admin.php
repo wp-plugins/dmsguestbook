@@ -29,7 +29,7 @@ function add_dmsguestbook() {
 
 
 //DB beim aktivieren des Plugins erstellen
-add_action('activate_dmsguestbook/dmsguestbook.php', 'dmsguestbook_install');
+add_action('activate_dmsguestbook/admin.php', 'dmsguestbook_install');
 
 function dmsguestbook_meta_description_option_page() {
 ?>
