@@ -44,8 +44,10 @@ Requirement:
 = Why i don't see my guestbook on my page? =
 - Have you download the Exec-PHP? Exec-PHP (http://bluesome.net/post/2005/08/18/50/)
 - Have you set the right page id?
-= When i save my page with this code <? DMSGuestBook(); ?>, a blank char is set inside < ? and the code doesn't run.
-Disable the "WordPress should correct invalidly nested XHTML automatically" under "Options -> Writing" 
+
+= When i save my page with this code &lt;? DMSGuestBook(); ?&gt;, a blank char is set inside &lt;? and the code doesn't run. =
+Disable "WordPress should correct invalidly nested XHTML automatically" under "Options -> Writing"
+
 = 05.08.07 - When i select the DMSGuestbook in the plugins section of Wordpress, there is not create a DMSGuestbook database. Whats happen? =
 This was my mistake :-) This problem is solved, sorry for this circumstance.
 
