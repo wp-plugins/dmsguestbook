@@ -1,7 +1,7 @@
 === DMSGuestbook ===
 Contributors: danielschurter
 Donate link: http://danielschurter.net/
-Tags: guestbook, plugin
+Tags: guestbook, plugin, manage, admin, page
 Requires at least: 2.0
 Tested up to: 2.2.1
 Stable tag: 1.0
