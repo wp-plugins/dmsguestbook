@@ -1,4 +1,22 @@
 <?php
+#################################################################
+/*
+Author: Daniel Schurter
+Email: DMSGuestbook@danielschurter.net
+Url: http://DanielSchurter.net
+
+DMSGuestbook is released under the GNU General Public License
+http://www.gnu.org/licenses/gpl.html
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU General Public License for more details.
+*/
+#################################################################
+
+
+
+
 @session_start();
 $gb_step 				= get_option("DMSGuestbook_step");
 $gb_page_id 			= get_option("DMSGuestbook_page_id");
