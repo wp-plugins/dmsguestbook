@@ -29,7 +29,7 @@ function add_dmsguestbook() {
 
 
 //DB beim aktivieren des Plugins erstellen
-add_action('activate_dmsguestbook/admin.php', 'dmsguestbook_install');
+add_action('activate_dmsguestbook/dmsguestbook.php', 'dmsguestbook_install');
 
 function dmsguestbook_meta_description_option_page() {
 ?>
@@ -460,11 +460,11 @@ function DMSGuestBook()
 	$page_id=get_option("DMSGuestbook_page_id");
 
 	#Prüfe ob DMSGuestBook(); in der posts Tabelle ist
-	$query_posts = mysql_query("SELECT * FROM $table_name2 WHERE ID = '$page_id' AND post_content LIKE '<? DMSGuestBook(); ?>'");
+	$query_posts = mysql_query("SELECT * FROM $table_name2 WHERE id = '$page_id'");
 	$num_rows_posts = mysql_affected_rows();
 		if($num_rows_posts!=0)
 		{
-		include_once ("wp-content/plugins/dmsguestbook/dmsguestbook.php");
+		include_once ("dmsguestbook.php");
 		}
 		else	{
 				echo "Wrong page id or missing <b style='color:#0000ee; text-decoration:none;'>&lt;? DMSGuestBook(); ?&gt;</b> in the guestbook page.";
