@@ -60,6 +60,9 @@ $_SESSION[gb_captcha_color] = get_option("DMSGuestbook_captcha_color");
 global $wpdb;
 $table_name = $wpdb->prefix . "dmsguestbook";
 
+//URL
+$url=get_bloginfo('url');
+
 if($gb_fontcolor1!="none") {
 echo "<body style='color:$gb_fontcolor1;'>"; }
 
@@ -152,7 +155,7 @@ if($_REQUEST[newentry]==1)
 <?php echo "<div style='$errormessage'>$success</div>";?>
 <br />
 <div style="text-align:left;padding:0px 0px 0px 0px;">
-<form action="index.php?page_id=<?php echo $gb_page_id; ?>" method="post"></div>
+<form action="<? echo $url; ?>/index.php?page_id=<?php echo $gb_page_id; ?>" method="post"></div>
 
 <div style="text-align:left;padding:0px 0px 5px 0px;">
 <input style="border:1px solid <? echo $gb_bordercolor2; ?>;" type="text" name="gbname" value="<?php echo $_REQUEST[gbname]; ?>" maxlength="30"> <? echo $gb_name; ?> *</div>
@@ -178,7 +181,7 @@ if($gb_require_antispam==1)
 	{
 ?>
 <div style="text-align:center;"><? echo $gb_antispam; ?></div>
-<div style="text-align:center;padding:5px 0px; margin:0px 0px;"><img style='border:1px solid <? echo $gb_bordercolor2; ?>' src="wp-content/plugins/dmsguestbook/captcha/captcha.php" title="Sicherheitscode"></div>
+<div style="text-align:center;padding:5px 0px; margin:0px 0px;"><img style='border:1px solid <? echo $gb_bordercolor2; ?>' src="<?echo $url; ?>/wp-content/plugins/dmsguestbook/captcha/captcha.php" title="Sicherheitscode"></div>
 <div style="text-align:center;"><input style="width:60px; border:1px solid <? echo $gb_bordercolor2; ?>" type="text" name="sicherheitscode"></div>
 <?
 if($gb_require_antispam==1)
@@ -218,10 +221,10 @@ if($gb_require_antispam==1)
 	{
 	$y++;
 		if($_REQUEST[select]==$y) {
-		echo "<a style='color:#bb1100; text-decoration:none;' href='index.php?page_id=$gb_page_id&from=$x&select=$y'>$y</a> ";
+		echo "<a style='color:#bb1100; text-decoration:none;' href='$url/index.php?page_id=$gb_page_id&from=$x&select=$y'>$y</a> ";
 		}
 		else {
-			 echo "<a style='color:#000000; text-decoration:none;' href='index.php?page_id=$gb_page_id&from=$x&select=$y'>$y</a> ";
+			 echo "<a style='color:#000000; text-decoration:none;' href='$url/index.php?page_id=$gb_page_id&from=$x&select=$y'>$y</a> ";
 			 }
 
 	}
@@ -233,12 +236,12 @@ if($gb_require_antispam==1)
 	//DMSGuestbook Seiten-Link's
 	if($_REQUEST[next]>=$num_rows1) {} else {
 	$_REQUEST[select_forward]=$_REQUEST[select]+1;
-	$forward ="<a style='color:$gb_bordercolor3; font-size:$gb_arrowsize; text-decoration:none; font-weight:bold;' href='index.php?page_id=$gb_page_id&from=$_REQUEST[next]&select=$_REQUEST[select_forward]'>$gb_forwardarrowchar</a>";
+	$forward ="<a style='color:$gb_bordercolor3; font-size:$gb_arrowsize; text-decoration:none; font-weight:bold;' href='$url/index.php?page_id=$gb_page_id&from=$_REQUEST[next]&select=$_REQUEST[select_forward]'>$gb_forwardarrowchar</a>";
 	}
 
 	if($_REQUEST[back]<=-1) {} else {
 	$_REQUEST[select_backward]=$_REQUEST[select]-1;
-	$backward = "<a style='color:$gb_bordercolor3; font-size:$gb_arrowsize; text-decoration:none; font-weight:bold;' href='index.php?page_id=$gb_page_id&from=$_REQUEST[back]&select=$_REQUEST[select_backward]'>$gb_backwardarrowchar</a>";
+	$backward = "<a style='color:$gb_bordercolor3; font-size:$gb_arrowsize; text-decoration:none; font-weight:bold;' href='$url/index.php?page_id=$gb_page_id&from=$_REQUEST[back]&select=$_REQUEST[select_backward]'>$gb_backwardarrowchar</a>";
 	}
 
 //Navigation
@@ -259,10 +262,12 @@ $dbresult[$gb] = mysql_fetch_array($query2);
 echo "<div style='$embedded2'>";
 $displaydate=date($gb_dateformat, "{$dbresult[$gb][4]}");
 
+$url=get_bloginfo('url');
+
 	if($gb_show_ip==1) 		{$slash="&nbsp;/&nbsp;";} else {$slash="";}
 	if($gb_show_ip==1) 		{$show_ip="{$dbresult[$gb][5]}&nbsp;";} else {$show_ip="";}
-	if($gb_show_email==1) 	{$show_email="<a href='mailto:{$dbresult[$gb][2]}'><img style='heigh:15px; width:15px;border:0px;'src='wp-content/plugins/dmsguestbook/img/mail_generic.gif' alt='Email'></a>";} else {$show_email="";}
-	if($gb_show_url==1) 	{$show_url="<a href='{$dbresult[$gb][3]}' target='_blank'><img style='heigh:15px; width:15px;border:0px;' src='wp-content/plugins/dmsguestbook/img/gohome.gif' alt='Url'></a>&nbsp;";} else {$show_url="";}
+	if($gb_show_email==1) 	{$show_email="<a href='mailto:{$dbresult[$gb][2]}'><img style='heigh:15px; width:15px;border:0px;'src='$url/wp-content/plugins/dmsguestbook/img/mail_generic.gif' alt='Email'></a>";} else {$show_email="";}
+	if($gb_show_url==1) 	{$show_url="<a href='{$dbresult[$gb][3]}' target='_blank'><img style='heigh:15px; width:15px;border:0px;' src='$url/wp-content/plugins/dmsguestbook/img/gohome.gif' alt='Url'></a>&nbsp;";} else {$show_url="";}
 
 	echo "<div style='font-size:11px;'>";
 	echo "<table style='margin:0px 0px; padding:0px 0px; border:0px; width:100%;' cellspacing='0' cellpadding='0' border='0'>";
