@@ -35,7 +35,7 @@
 
 
    $rgb=html2rgb($_SESSION[gb_captcha_color]);
-   
+
    $text = randomString(5);  //Die Zahl bestimmt die Anzahl stellen
    $_SESSION['captcha_spam'] = $text;
 
