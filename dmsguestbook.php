@@ -28,22 +28,22 @@ $gb_bordercolor1		= "#" . get_option("DMSGuestbook_bordercolor1");
 $gb_bordercolor2		= "#" . get_option("DMSGuestbook_bordercolor2");
 $gb_bordercolor3		= "#" . get_option("DMSGuestbook_bordercolor3");
 $gb_fontcolor1			= "#" . get_option("DMSGuestbook_fontcolor1");
-$gb_forwardarrowchar	= get_option("DMSGuestbook_forwardarrowchar");
-$gb_backwardarrowchar	= get_option("DMSGuestbook_backwardarrowchar");
+$gb_forwardarrowchar	= html_entity_decode(get_option("DMSGuestbook_forwardarrowchar"), ENT_QUOTES);
+$gb_backwardarrowchar	= html_entity_decode(get_option("DMSGuestbook_backwardarrowchar"), ENT_QUOTES);
 $gb_arrowsize			= get_option("DMSGuestbook_arrowsize") . "px";
-$gb_name 				= get_option("DMSGuestbook_name");
-$gb_email 				= get_option("DMSGuestbook_email");
-$gb_url 				= get_option("DMSGuestbook_url");
-$gb_message 			= get_option("DMSGuestbook_message");
-$gb_antispam 			= get_option("DMSGuestbook_antispam");
-$gb_require 			= get_option("DMSGuestbook_require");
-$gb_submit	 			= get_option("DMSGuestbook_submit");
-$gb_name_error 			= get_option("DMSGuestbook_name_error");
-$gb_email_error 		= get_option("DMSGuestbook_email_error");
-$gb_url_error 			= get_option("DMSGuestbook_url_error");
-$gb_message_error 		= get_option("DMSGuestbook_message_error");
-$gb_antispam_error 		= get_option("DMSGuestbook_antispam_error");
-$gb_success		 		= get_option("DMSGuestbook_success");
+$gb_name 				= html_entity_decode(get_option("DMSGuestbook_name"), ENT_QUOTES);
+$gb_email 				= html_entity_decode(get_option("DMSGuestbook_email"), ENT_QUOTES);
+$gb_url 				= html_entity_decode(get_option("DMSGuestbook_url"), ENT_QUOTES);
+$gb_message 			= html_entity_decode(get_option("DMSGuestbook_message"), ENT_QUOTES);
+$gb_antispam 			= html_entity_decode(get_option("DMSGuestbook_antispam"), ENT_QUOTES);
+$gb_require 			= html_entity_decode(get_option("DMSGuestbook_require"), ENT_QUOTES);
+$gb_submit	 			= html_entity_decode(get_option("DMSGuestbook_submit"), ENT_QUOTES);
+$gb_name_error 			= html_entity_decode(get_option("DMSGuestbook_name_error"), ENT_QUOTES);
+$gb_email_error 		= html_entity_decode(get_option("DMSGuestbook_email_error"), ENT_QUOTES);
+$gb_url_error 			= html_entity_decode(get_option("DMSGuestbook_url_error"), ENT_QUOTES);
+$gb_message_error 		= html_entity_decode(get_option("DMSGuestbook_message_error"), ENT_QUOTES);
+$gb_antispam_error 		= html_entity_decode(get_option("DMSGuestbook_antispam_error"), ENT_QUOTES);
+$gb_success		 		= html_entity_decode(get_option("DMSGuestbook_success"), ENT_QUOTES);
 $gb_require_email		= get_option("DMSGuestbook_require_email");
 $gb_require_url			= get_option("DMSGuestbook_require_url");
 $gb_require_antispam	= get_option("DMSGuestbook_require_antispam");
@@ -114,14 +114,19 @@ if($_REQUEST[newentry]==1)
 					if(preg_match ("/^(http(s)?:\/\/)/i", $_REQUEST[gburl]))
 					{$newurl = $_REQUEST[gburl];} else {$newurl="http://" . $_REQUEST[gburl];}
 
-
+				//$mmu=htmlentities($_REQUEST[gbmsg], ENT_QUOTES);
+				//$mmu=addslashes($_REQUEST[gbmsg]);
 				$message_o_html=strip_tags($_REQUEST[gbmsg]);
 				$message_m_umbrueche = str_replace("\n", "<br>", $message_o_html);
+				
+				$nname=addslashes($_REQUEST[gbname]);
+				$mmu=addslashes($message_m_umbrueche);
+				
 				$date=date("U");
 				$ip = getenv('REMOTE_ADDR');
 
 				$sql="INSERT INTO $table_name (name, email, url, date, ip, message)
-				VALUES ('$_REQUEST[gbname]', '$_REQUEST[gbemail]', '$newurl', '$date', '$ip', '$message_m_umbrueche')";
+				VALUES ('$nname', '$_REQUEST[gbemail]', '$newurl', '$date', '$ip', '$mmu')";
 				require_once(ABSPATH . 'wp-admin/upgrade-functions.php');
       			dbDelta($sql);
 
