@@ -186,7 +186,7 @@ if($gb_require_antispam==1)
 	{
 ?>
 <div style="text-align:center;"><? echo $gb_antispam; ?></div>
-<div style="text-align:center;padding:5px 0px; margin:0px 0px;"><img style='border:1px solid <? echo $gb_bordercolor2; ?>' src="<?echo $url; ?>/wp-content/plugins/dmsguestbook/captcha/captcha.php" title="Sicherheitscode"></div>
+<div style="text-align:center;padding:5px 0px; margin:0px 0px;"><img style='border:1px solid <? echo $gb_bordercolor2; ?>' src="<? echo $url; ?>/wp-content/plugins/dmsguestbook/captcha/captcha.php" title="Sicherheitscode"></div>
 <div style="text-align:center;"><input style="width:60px; border:1px solid <? echo $gb_bordercolor2; ?>" type="text" name="sicherheitscode"></div>
 <?
 if($gb_require_antispam==1)
