@@ -39,10 +39,12 @@
    $text = randomString(5);  //Die Zahl bestimmt die Anzahl stellen
    $_SESSION['captcha_spam'] = $text;
 
+   $abspath = getcwd();
+   
    header('Content-type: image/png');
    $img = ImageCreateFromPNG('captcha.png'); //Backgroundimage
    $color = ImageColorAllocate($img, $rgb[0], $rgb[1], $rgb[2]); //Farbe
-   $ttf = "XFILES.TTF"; //Schriftart
+   $ttf = "$abspath/XFILES.TTF"; //Schriftart
    $ttfsize = 25; //Schriftgrösse
    $angle = rand(0,5);
    $t_x = rand(5,30);
