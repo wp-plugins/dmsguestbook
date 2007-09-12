@@ -490,7 +490,7 @@ function dmsguestbook_install () {
 	  ip varchar(15) DEFAULT '' NOT NULL,
 	  message longtext NOT NULL,
 	  UNIQUE KEY id (id)
-	  );";
+	  ) COLLATE utf8_general_ci;";
 
       require_once(ABSPATH . 'wp-admin/upgrade-functions.php');
       dbDelta($sql);
