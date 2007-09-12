@@ -177,9 +177,10 @@ function dmsguestbook_meta_description_option_page() {
      <td <? echo $tbc1; ?>>Antispam image text color</td>
      </tr><tr>
 
+
      <td <? echo $tbc2; ?>>Navigation char style:</td>
-     <td <? echo $tbc2; ?>><input style="width:50px;" name="DMSGuestbook_backwardarrowchar" value="<?=get_option("DMSGuestbook_backwardarrowchar");?>" type="text" />
-     <input style="width:50px;" name="DMSGuestbook_forwardarrowchar" value="<?=get_option("DMSGuestbook_forwardarrowchar");?>" type="text" /></td>
+     <td <? echo $tbc2; ?>><input style="width:50px;" name="DMSGuestbook_backwardarrowchar" value="<?=html_entity_decode(get_option("DMSGuestbook_backwardarrowchar"), ENT_QUOTES);?>" type="text" />
+     <input style="width:50px;" name="DMSGuestbook_forwardarrowchar" value="<?=html_entity_decode(get_option("DMSGuestbook_forwardarrowchar"), ENT_QUOTES);?>" type="text" /></td>
      <td <? echo $tbc2; ?>>Use a char, number or word</td>
      </tr><tr>
 
@@ -194,19 +195,20 @@ function dmsguestbook_meta_description_option_page() {
      </tr><tr>
 
      <td <? echo $tbc1; ?>>Caption: *</td>
-     <td <? echo $tbc1; ?>><input style="width:350px;" name="DMSGuestbook_name" value="<?=get_option("DMSGuestbook_name");?>" type="text" /> Name text<br />
-     <input style="width:350px;" name="DMSGuestbook_email" value="<?=get_option("DMSGuestbook_email");?>" type="text" /> Email text<br />
-     <input style="width:350px;" name="DMSGuestbook_url" value="<?=get_option("DMSGuestbook_url");?>" type="text" /> Url text<br />
-     <input style="width:350px;" name="DMSGuestbook_message" value="<?=get_option("DMSGuestbook_message");?>" type="text" /> Message text<br />
-     <textarea style="width:350px;" name="DMSGuestbook_antispam" rows="4"/><?=get_option("DMSGuestbook_antispam");?></textarea> Antispam text<br />
-     <input style="width:350px;" name="DMSGuestbook_require" value="<?=get_option("DMSGuestbook_require");?>" type="text" /> Mandatory text<br />
-     <input style="width:350px;" name="DMSGuestbook_submit" value="<?=get_option("DMSGuestbook_submit");?>" type="text" /> Submit text<br />
-	 <input style="width:350px;" name="DMSGuestbook_name_error" value="<?=get_option("DMSGuestbook_name_error");?>" type="text" /> Name error text<br />
-	 <input style="width:350px;" name="DMSGuestbook_email_error" value="<?=get_option("DMSGuestbook_email_error");?>" type="text" /> Email error text<br />
-	 <input style="width:350px;" name="DMSGuestbook_url_error" value="<?=get_option("DMSGuestbook_url_error");?>" type="text" /> Url error text<br />
-	 <input style="width:350px;" name="DMSGuestbook_message_error" value="<?=get_option("DMSGuestbook_message_error");?>" type="text" /> Message error text<br />
-	 <input style="width:350px;" name="DMSGuestbook_antispam_error" value="<?=get_option("DMSGuestbook_antispam_error");?>" type="text" /> Antispam error text<br />
-	 <input style="width:350px;" name="DMSGuestbook_success" value="<?=get_option("DMSGuestbook_success");?>" type="text" /> Success text<br />
+     <td <? echo $tbc1; ?>><input style="width:350px;" name="DMSGuestbook_name" value="<?=html_entity_decode(get_option("DMSGuestbook_name"), ENT_QUOTES);?>" type="text" /> Name text<br />
+     <input style="width:350px;" name="DMSGuestbook_email" value="<?=html_entity_decode(get_option("DMSGuestbook_email"), ENT_QUOTES);?>" type="text" /> Email text<br />
+     <input style="width:350px;" name="DMSGuestbook_url" value="<?=html_entity_decode(get_option("DMSGuestbook_url"), ENT_QUOTES);?>" type="text" /> Url text<br />
+     <input style="width:350px;" name="DMSGuestbook_message" value="<?=html_entity_decode(get_option("DMSGuestbook_message"), ENT_QUOTES);?>" type="text" /> Message text<br />
+     <textarea style="width:350px;" name="DMSGuestbook_antispam" rows="4"/><?=html_entity_decode(get_option("DMSGuestbook_antispam"), ENT_QUOTES);?></textarea> Antispam text<br />
+     <input style="width:350px;" name="DMSGuestbook_require" value="<?=html_entity_decode(get_option("DMSGuestbook_require"), ENT_QUOTES);?>" type="text" /> Mandatory text<br />
+     <input style="width:350px;" name="DMSGuestbook_submit" value="<?=html_entity_decode(get_option("DMSGuestbook_submit"), ENT_QUOTES);?>" type="text" /> Submit text<br />
+	 <input style="width:350px;" name="DMSGuestbook_name_error" value="<?=html_entity_decode(get_option("DMSGuestbook_name_error"), ENT_QUOTES);?>" type="text" /> Name error text<br />
+	 <input style="width:350px;" name="DMSGuestbook_email_error" value="<?=html_entity_decode(get_option("DMSGuestbook_email_error"), ENT_QUOTES);?>" type="text" /> Email error text<br />
+	 <input style="width:350px;" name="DMSGuestbook_url_error" value="<?=html_entity_decode(get_option("DMSGuestbook_url_error"), ENT_QUOTES);?>" type="text" /> Url error text<br />
+	 <input style="width:350px;" name="DMSGuestbook_message_error" value="<?=html_entity_decode(get_option("DMSGuestbook_message_error"), ENT_QUOTES);?>" type="text" /> Message error text<br />
+	 <input style="width:350px;" name="DMSGuestbook_antispam_error" value="<?=html_entity_decode(get_option("DMSGuestbook_antispam_error"), ENT_QUOTES);?>" type="text" /> Antispam error text<br />
+	 <input style="width:350px;" name="DMSGuestbook_success" value="<?=html_entity_decode(get_option("DMSGuestbook_success"), ENT_QUOTES);?>" type="text" /> Success text<br />
+
      </td>
      <td <? echo $tbc1; ?>>
      Set the text caption for name, email address, url address,<br />
@@ -320,7 +322,7 @@ $dmsguestbook_arrowsize= get_option('DMSGuestbook_arrowsize');
 $dmsguestbook_name= get_option('DMSGuestbook_name');
 $dmsguestbook_email= get_option('DMSGuestbook_email');
 $dmsguestbook_url= get_option('DMSGuestbook_url');
-$dmsguestbook_message= get_option('DMSGuestbook_message');
+$dmsguestbook_message=get_option('DMSGuestbook_message');
 $dmsguestbook_antispam= get_option('DMSGuestbook_antispam');
 $dmsguestbook_require= get_option('DMSGuestbook_require');
 $dmsguestbook_submit= get_option('DMSGuestbook_submit');
@@ -410,40 +412,87 @@ Vor em Abs&auml;nde vom Geschtebuech Ihtrag, d Buechstabe -und Zahl&auml;kombina
 
 if ('insert' == $HTTP_POST_VARS['action'])
 {
-        update_option("DMSGuestbook_step",$HTTP_POST_VARS['DMSGuestbook_step']);
-		update_option("DMSGuestbook_page_id",$HTTP_POST_VARS['DMSGuestbook_page_id']);
-		update_option("DMSGuestbook_width",$HTTP_POST_VARS['DMSGuestbook_width']);
-		update_option("DMSGuestbook_width2",$HTTP_POST_VARS['DMSGuestbook_width2']);
-		update_option("DMSGuestbook_position",$HTTP_POST_VARS['DMSGuestbook_position']);
-		update_option("DMSGuestbook_hairlinecolor",$HTTP_POST_VARS['DMSGuestbook_hairlinecolor']);
-		update_option("DMSGuestbook_bordercolor1",$HTTP_POST_VARS['DMSGuestbook_bordercolor1']);
-		update_option("DMSGuestbook_bordercolor2",$HTTP_POST_VARS['DMSGuestbook_bordercolor2']);
-		update_option("DMSGuestbook_bordercolor3",$HTTP_POST_VARS['DMSGuestbook_bordercolor3']);
-		update_option("DMSGuestbook_fontcolor1",$HTTP_POST_VARS['DMSGuestbook_fontcolor1']);
-		update_option("DMSGuestbook_forwardarrowchar",$HTTP_POST_VARS['DMSGuestbook_forwardarrowchar']);
-		update_option("DMSGuestbook_backwardarrowchar",$HTTP_POST_VARS['DMSGuestbook_backwardarrowchar']);
-		update_option("DMSGuestbook_arrowsize",$HTTP_POST_VARS['DMSGuestbook_arrowsize']);
-		update_option("DMSGuestbook_name",$HTTP_POST_VARS['DMSGuestbook_name']);
-		update_option("DMSGuestbook_email",$HTTP_POST_VARS['DMSGuestbook_email']);
-		update_option("DMSGuestbook_url",$HTTP_POST_VARS['DMSGuestbook_url']);
-		update_option("DMSGuestbook_message",$HTTP_POST_VARS['DMSGuestbook_message']);
-		update_option("DMSGuestbook_antispam",$HTTP_POST_VARS['DMSGuestbook_antispam']);
-		update_option("DMSGuestbook_require",$HTTP_POST_VARS['DMSGuestbook_require']);
-		update_option("DMSGuestbook_submit",$HTTP_POST_VARS['DMSGuestbook_submit']);
-		update_option("DMSGuestbook_name_error",$HTTP_POST_VARS['DMSGuestbook_name_error']);
-		update_option("DMSGuestbook_email_error",$HTTP_POST_VARS['DMSGuestbook_email_error']);
-		update_option("DMSGuestbook_url_error",$HTTP_POST_VARS['DMSGuestbook_url_error']);
-		update_option("DMSGuestbook_message_error",$HTTP_POST_VARS['DMSGuestbook_message_error']);
-		update_option("DMSGuestbook_antispam_error",$HTTP_POST_VARS['DMSGuestbook_antispam_error']);
-		update_option("DMSGuestbook_success",$HTTP_POST_VARS['DMSGuestbook_success']);
-		update_option("DMSGuestbook_require_email",$HTTP_POST_VARS['DMSGuestbook_require_email']);
-		update_option("DMSGuestbook_require_url",$HTTP_POST_VARS['DMSGuestbook_require_url']);
-		update_option("DMSGuestbook_require_antispam",$HTTP_POST_VARS['DMSGuestbook_require_antispam']);
-		update_option("DMSGuestbook_show_ip",$HTTP_POST_VARS['DMSGuestbook_show_ip']);
-		update_option("DMSGuestbook_show_email",$HTTP_POST_VARS['DMSGuestbook_show_email']);
-		update_option("DMSGuestbook_show_url",$HTTP_POST_VARS['DMSGuestbook_show_url']);
-		update_option("DMSGuestbook_captcha_color",$HTTP_POST_VARS['DMSGuestbook_captcha_color']);
-		update_option("DMSGuestbook_dateformat",$HTTP_POST_VARS['DMSGuestbook_dateformat']);
+
+$value1 = htmlentities($HTTP_POST_VARS['DMSGuestbook_forwardarrowchar'], ENT_QUOTES);
+$value1 = str_replace("\"", "&amp;quot;", $HTTP_POST_VARS['DMSGuestbook_forwardarrowchar']);
+
+$value2 = htmlentities($HTTP_POST_VARS['DMSGuestbook_backwardarrowchar'], ENT_QUOTES);
+$value2 = str_replace("\"", "&amp;quot;", $HTTP_POST_VARS['DMSGuestbook_backwardarrowchar']);
+
+$value3 = htmlentities($HTTP_POST_VARS['DMSGuestbook_name'], ENT_QUOTES);
+$value3 = str_replace("\"", "&amp;quot;", $HTTP_POST_VARS['DMSGuestbook_name']);
+
+$value4 = htmlentities($HTTP_POST_VARS['DMSGuestbook_email'], ENT_QUOTES);
+$value4 = str_replace("\"", "&amp;quot;", $HTTP_POST_VARS['DMSGuestbook_email']);
+
+$value5 = htmlentities($HTTP_POST_VARS['DMSGuestbook_url'], ENT_QUOTES);
+$value5 = str_replace("\"", "&amp;quot;", $HTTP_POST_VARS['DMSGuestbook_url']);
+
+$value6 = htmlentities($HTTP_POST_VARS['DMSGuestbook_message'], ENT_QUOTES);
+$value6 = str_replace("\"", "&amp;quot;", $HTTP_POST_VARS['DMSGuestbook_message']);
+
+$value7 = htmlentities($HTTP_POST_VARS['DMSGuestbook_antispam'], ENT_QUOTES);
+$value7 = str_replace("\"", "&amp;quot;", $HTTP_POST_VARS['DMSGuestbook_antispam']);
+
+$value8 = htmlentities($HTTP_POST_VARS['DMSGuestbook_require'], ENT_QUOTES);
+$value8 = str_replace("\"", "&amp;quot;", $HTTP_POST_VARS['DMSGuestbook_require']);
+
+$value9 = htmlentities($HTTP_POST_VARS['DMSGuestbook_submit'], ENT_QUOTES);
+$value9 = str_replace("\"", "&amp;quot;", $HTTP_POST_VARS['DMSGuestbook_submit']);
+
+$value10 = htmlentities($HTTP_POST_VARS['DMSGuestbook_name_error'], ENT_QUOTES);
+$value10 = str_replace("\"", "&amp;quot;", $HTTP_POST_VARS['DMSGuestbook_name_error']);
+
+$value11 = htmlentities($HTTP_POST_VARS['DMSGuestbook_email_error'], ENT_QUOTES);
+$value11 = str_replace("\"", "&amp;quot;", $HTTP_POST_VARS['DMSGuestbook_email_error']);
+
+$value12 = htmlentities($HTTP_POST_VARS['DMSGuestbook_url_error'], ENT_QUOTES);
+$value12 = str_replace("\"", "&amp;quot;", $HTTP_POST_VARS['DMSGuestbook_url_error']);
+
+$value13 = htmlentities($HTTP_POST_VARS['DMSGuestbook_message_error'], ENT_QUOTES);
+$value13 = str_replace("\"", "&amp;quot;", $HTTP_POST_VARS['DMSGuestbook_message_error']);
+
+$value14 = htmlentities($HTTP_POST_VARS['DMSGuestbook_antispam_error'], ENT_QUOTES);
+$value14 = str_replace("\"", "&amp;quot;", $HTTP_POST_VARS['DMSGuestbook_antispam_error']);
+
+$value15 = htmlentities($HTTP_POST_VARS['DMSGuestbook_success'], ENT_QUOTES);
+$value15 = str_replace("\"", "&amp;quot;", $HTTP_POST_VARS['DMSGuestbook_success']);
+
+        update_option("DMSGuestbook_step",htmlentities($HTTP_POST_VARS['DMSGuestbook_step'], ENT_QUOTES));
+		update_option("DMSGuestbook_page_id",htmlentities($HTTP_POST_VARS['DMSGuestbook_page_id'], ENT_QUOTES));
+		update_option("DMSGuestbook_width",htmlentities($HTTP_POST_VARS['DMSGuestbook_width'], ENT_QUOTES));
+		update_option("DMSGuestbook_width2",htmlentities($HTTP_POST_VARS['DMSGuestbook_width2'], ENT_QUOTES));
+		update_option("DMSGuestbook_position",htmlentities($HTTP_POST_VARS['DMSGuestbook_position'], ENT_QUOTES));
+		update_option("DMSGuestbook_hairlinecolor",htmlentities($HTTP_POST_VARS['DMSGuestbook_hairlinecolor'], ENT_QUOTES));
+		update_option("DMSGuestbook_bordercolor1",htmlentities($HTTP_POST_VARS['DMSGuestbook_bordercolor1'], ENT_QUOTES));
+		update_option("DMSGuestbook_bordercolor2",htmlentities($HTTP_POST_VARS['DMSGuestbook_bordercolor2'], ENT_QUOTES));
+		update_option("DMSGuestbook_bordercolor3",htmlentities($HTTP_POST_VARS['DMSGuestbook_bordercolor3'], ENT_QUOTES));
+		update_option("DMSGuestbook_fontcolor1",htmlentities($HTTP_POST_VARS['DMSGuestbook_fontcolor1'], ENT_QUOTES));
+		update_option("DMSGuestbook_forwardarrowchar",$value1);
+		update_option("DMSGuestbook_backwardarrowchar",$value2);
+		update_option("DMSGuestbook_arrowsize",htmlentities($HTTP_POST_VARS['DMSGuestbook_arrowsize'], ENT_QUOTES));
+		update_option("DMSGuestbook_name",$value3);
+		update_option("DMSGuestbook_email",$value4);
+		update_option("DMSGuestbook_url",$value5);
+		update_option("DMSGuestbook_message",$value6);
+		update_option("DMSGuestbook_antispam",$value7);
+		update_option("DMSGuestbook_require",$value8);
+		update_option("DMSGuestbook_submit",$value9);
+		update_option("DMSGuestbook_name_error",$value10);
+		update_option("DMSGuestbook_email_error",$value11);
+		update_option("DMSGuestbook_url_error",$value12);
+		update_option("DMSGuestbook_message_error",$value13);
+		update_option("DMSGuestbook_antispam_error",$value14);
+		update_option("DMSGuestbook_success",$value15);
+
+		update_option("DMSGuestbook_require_email",htmlentities($HTTP_POST_VARS['DMSGuestbook_require_email'], ENT_QUOTES));
+		update_option("DMSGuestbook_require_url",htmlentities($HTTP_POST_VARS['DMSGuestbook_require_url'], ENT_QUOTES));
+		update_option("DMSGuestbook_require_antispam",htmlentities($HTTP_POST_VARS['DMSGuestbook_require_antispam'], ENT_QUOTES));
+		update_option("DMSGuestbook_show_ip",htmlentities($HTTP_POST_VARS['DMSGuestbook_show_ip'], ENT_QUOTES));
+		update_option("DMSGuestbook_show_email",htmlentities($HTTP_POST_VARS['DMSGuestbook_show_email'], ENT_QUOTES));
+		update_option("DMSGuestbook_show_url",htmlentities($HTTP_POST_VARS['DMSGuestbook_show_url'], ENT_QUOTES));
+		update_option("DMSGuestbook_captcha_color",htmlentities($HTTP_POST_VARS['DMSGuestbook_captcha_color'], ENT_QUOTES));
+		update_option("DMSGuestbook_dateformat",htmlentities($HTTP_POST_VARS['DMSGuestbook_dateformat'], ENT_QUOTES));
 		$date=date("H:i:s");
 		echo "<div style='position:absolute; top:200px; left:800px;' id='message' class='updated fade'><p><b>saved...</b> <br /></p><p style='font-size:10px;'>[$date]</p><img  style='position:absolute; top:-5px; left:5px; height:13px; width:9px;' src='../wp-content/plugins/dmsguestbook/img/icon_pin.png'></div>";
 }
@@ -490,7 +539,7 @@ function dmsguestbook_install () {
 	  ip varchar(15) DEFAULT '' NOT NULL,
 	  message longtext NOT NULL,
 	  UNIQUE KEY id (id)
-	  ) COLLATE utf8_general_ci;";
+	  )DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
 
       require_once(ABSPATH . 'wp-admin/upgrade-functions.php');
       dbDelta($sql);
