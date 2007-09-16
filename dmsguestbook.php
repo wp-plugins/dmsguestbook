@@ -70,7 +70,7 @@ $embedded1 = "width:$gb_width; font-size:12px; text-align:left; padding:0px 10px
 $embedded2 = "width:$gb_width; font-size:12px; text-align:left; padding:10px 10px; margin:0px 0px 0px 0px; line-height:1.4em; border:1px solid $gb_bordercolor1;";
 $errormessage = "color:#ee0000; font-size: 11px; text-decoration: none; font-weight:bold;";
 
-		
+
 
 // Neuer DMSGuestbook Eintrag
 if($_REQUEST[newentry]==1)
@@ -95,7 +95,7 @@ if($_REQUEST[newentry]==1)
 
 				if(strlen($_REQUEST[gburl])>=1 OR $gb_require_url == 1)
 				{
-					if(preg_match ("/^([a-z0-9-.:\/]*)\.?+([a-z0-9-]+)*\.([a-z]{2,6})$/i", $_REQUEST[gburl]))
+					if(preg_match ("/^([^.-:\/][a-z0-9-.:\/]*)\.?+([a-z0-9-]+)*\.([a-z]{2,6})(\/)?([a-z0-9-_,.?&%=\/]*)$/i", $_REQUEST[gburl]))
 					{$urlcheck="1";}
 					else {$error3 = "$gb_url_error<br />";}
 				}
@@ -106,14 +106,14 @@ if($_REQUEST[newentry]==1)
 				$messagecheck="1"; }
 				else {$error4 = "$gb_message_error<br />";}
 
-				
+
 				if($namecheck=='1' AND $emailcheck=='1' AND $urlcheck=='1' AND $messagecheck=='1')
 				{
 					if(preg_match ("/^(http(s)?:\/\/)/i", $_REQUEST[gburl]))
 					{$newurl = $_REQUEST[gburl];} else {$newurl="http://" . $_REQUEST[gburl];}
 
 				$message_o_html=strip_tags($_REQUEST[gbmsg]);
-				
+
 				$nname=addslashes($_REQUEST[gbname]);
 				$mmu=addslashes($message_o_html);
 
