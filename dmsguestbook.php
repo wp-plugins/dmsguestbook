@@ -70,8 +70,7 @@ $embedded1 = "width:$gb_width; font-size:12px; text-align:left; padding:0px 10px
 $embedded2 = "width:$gb_width; font-size:12px; text-align:left; padding:10px 10px; margin:0px 0px 0px 0px; line-height:1.4em; border:1px solid $gb_bordercolor1;";
 $errormessage = "color:#ee0000; font-size: 11px; text-decoration: none; font-weight:bold;";
 
-
-
+		
 
 // Neuer DMSGuestbook Eintrag
 if($_REQUEST[newentry]==1)
@@ -96,29 +95,27 @@ if($_REQUEST[newentry]==1)
 
 				if(strlen($_REQUEST[gburl])>=1 OR $gb_require_url == 1)
 				{
-					if(preg_match ("/^(http(s)?:\/\/|www\.)+([a-z0-9-]+)*\.([a-z]{2,4})$/i", $_REQUEST[gburl]))
+					if(preg_match ("/^([a-z0-9-.:\/]*)\.?+([a-z0-9-]+)*\.([a-z]{2,6})$/i", $_REQUEST[gburl]))
 					{$urlcheck="1";}
 					else {$error3 = "$gb_url_error<br />";}
 				}
 				else {$urlcheck=1;}
 
 
-
 				if(strlen($_REQUEST[gbmsg])>=1) {
 				$messagecheck="1"; }
 				else {$error4 = "$gb_message_error<br />";}
 
-
+				
 				if($namecheck=='1' AND $emailcheck=='1' AND $urlcheck=='1' AND $messagecheck=='1')
 				{
 					if(preg_match ("/^(http(s)?:\/\/)/i", $_REQUEST[gburl]))
 					{$newurl = $_REQUEST[gburl];} else {$newurl="http://" . $_REQUEST[gburl];}
 
 				$message_o_html=strip_tags($_REQUEST[gbmsg]);
-				$message_m_umbrueche = str_replace("\n", "<br>", $message_o_html);
-
+				
 				$nname=addslashes($_REQUEST[gbname]);
-				$mmu=addslashes($message_m_umbrueche);
+				$mmu=addslashes($message_o_html);
 
 				$date=date("U");
 				$ip = getenv('REMOTE_ADDR');
@@ -142,6 +139,8 @@ if($_REQUEST[newentry]==1)
 
 }
 
+$_REQUEST[gbmsg] = str_replace("\r\n", "&#10;", $_REQUEST[gbmsg]);
+
 
 ?>
 <!-- Das ganze Gästebuch ausrichten (relative) -->
@@ -164,14 +163,14 @@ if($_REQUEST[newentry]==1)
 <input style="border:1px solid <? echo $gb_bordercolor2; ?>;" type="text" name="gbname" value="<?php echo $_REQUEST[gbname]; ?>" maxlength="30"> <? echo $gb_name; ?> *</div>
 
 <div style="text-align:left;padding:0px 0px 5px 0px;">
-<input style="border:1px solid <? echo $gb_bordercolor2; ?>;" type="text" name="gbemail" value="<?php echo $_REQUEST[gbemail]; ?>" maxlength="30"> <? echo $gb_email; ?> <? if($gb_require_email==1) {echo "*"; } else {echo ""; } ?> </div>
+<input style="border:1px solid <? echo $gb_bordercolor2; ?>;" type="text" name="gbemail" value="<?php echo $_REQUEST[gbemail]; ?>" > <? echo $gb_email; ?> <? if($gb_require_email==1) {echo "*"; } else {echo ""; } ?> </div>
 
 <div style="text-align:left;padding:0px 0px 5px 0px;">
-<input style="border:1px solid <? echo $gb_bordercolor2; ?>;" type="text" name="gburl" value="<?php echo $_REQUEST[gburl]; ?>" maxlength="50"> <? echo $gb_url; ?> <? if($gb_require_url==1) {echo "*"; } else {echo ""; } ?></div>
+<input style="border:1px solid <? echo $gb_bordercolor2; ?>;" type="text" name="gburl" value="<?php echo $_REQUEST[gburl]; ?>" > <? echo $gb_url; ?> <? if($gb_require_url==1) {echo "*"; } else {echo ""; } ?></div>
 
 
 <div style="text-align:left;padding:0px 0px 5px 0px;">
-<textarea style="border:1px solid <? echo $gb_bordercolor2; ?>; width:80%" name="gbmsg" rows="10"><?php echo "$_REQUEST[gbmsg]"; ?></textarea> <? echo $gb_message; ?> *</div>
+<textarea style="border:1px solid <? echo $gb_bordercolor2; ?>; width:80%" name="gbmsg" rows="10"><?php echo $_REQUEST[gbmsg]; ?></textarea> <? echo $gb_message; ?> *</div>
 
 <input type="hidden" name="newentry" value="1">
 <input type="hidden" name="Itemid" value="<?php echo "$submitid"; ?>"><div style="text-align:left;">* <? echo $gb_require; ?></div>
