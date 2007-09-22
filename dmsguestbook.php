@@ -1,4 +1,5 @@
 <?php
+if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You are not allowed to call this page directly.'); }
 #################################################################
 /*
 Author: Daniel Schurter
@@ -14,10 +15,9 @@ See the GNU General Public License for more details.
 */
 #################################################################
 
-
-
-
 @session_start();
+
+// collect some variables
 $gb_step 				= get_option("DMSGuestbook_step");
 $gb_page_id 			= get_option("DMSGuestbook_page_id");
 $gb_width				= get_option("DMSGuestbook_width") . "%";
@@ -26,10 +26,10 @@ $gb_position 			= get_option("DMSGuestbook_position") . "px";
 $gb_hairlinecolor		= "#" . get_option("DMSGuestbook_hairlinecolor");
 $gb_bordercolor1		= "#" . get_option("DMSGuestbook_bordercolor1");
 $gb_bordercolor2		= "#" . get_option("DMSGuestbook_bordercolor2");
-$gb_bordercolor3		= "#" . get_option("DMSGuestbook_bordercolor3");
+$gb_navicolor			= "#" . get_option("DMSGuestbook_bordercolor3");
 $gb_fontcolor1			= "#" . get_option("DMSGuestbook_fontcolor1");
-$gb_forwardarrowchar	= html_entity_decode(get_option("DMSGuestbook_forwardarrowchar"), ENT_QUOTES);
-$gb_backwardarrowchar	= html_entity_decode(get_option("DMSGuestbook_backwardarrowchar"), ENT_QUOTES);
+$gb_forwardarrowchar	= get_option("DMSGuestbook_forwardarrowchar");
+$gb_backwardarrowchar	= get_option("DMSGuestbook_backwardarrowchar");
 $gb_arrowsize			= get_option("DMSGuestbook_arrowsize") . "px";
 $gb_name 				= html_entity_decode(get_option("DMSGuestbook_name"), ENT_QUOTES);
 $gb_email 				= html_entity_decode(get_option("DMSGuestbook_email"), ENT_QUOTES);
@@ -51,40 +51,140 @@ $gb_show_ip				= get_option("DMSGuestbook_show_ip");
 $gb_show_email			= get_option("DMSGuestbook_show_email");
 $gb_show_url			= get_option("DMSGuestbook_show_url");
 $gb_dateformat			= get_option("DMSGuestbook_dateformat");
+$gb_setlocale			= get_option("DMSGuestbook_setlocale");
 
-
-unset($_SESSION[gb_captcha_color]);
-$_SESSION[gb_captcha_color] = get_option("DMSGuestbook_captcha_color");
-
-
+// global var
 global $wpdb;
 $table_name = $wpdb->prefix . "dmsguestbook";
 
-//URL
+// URL
 $url=get_bloginfo('url');
 
+// END collect some variables
+
+
+############################################################################################
+// css settings
+include_once ("options.php");
+############################################################################################
+
+// windows system
+$guestbook_font_color=str_replace("\r\n", "", $guestbook_font_color);
+$guestbook_position=str_replace("\r\n", "", $guestbook_position);
+$namefield=str_replace("\r\n", "", $namefield);
+$emailfield=str_replace("\r\n", "", $emailfield);
+$urlfield=str_replace("\r\n", "", $urlfield);
+$textfieldspace=str_replace("\r\n", "", $textfieldspace);
+$messagefield=str_replace("\r\n", "", $messagefield);
+$antispamtext=str_replace("\r\n", "", $antispamtext);
+$antispamcontent=str_replace("\r\n", "", $antispamcontent);
+$antispamcontent_position=str_replace("\r\n", "", $antispamcontent_position);
+$antispam_inputfield=str_replace("\r\n", "", $antispam_inputfield);
+$submit_position=str_replace("\r\n", "", $submit_position);
+$submit=str_replace("\r\n", "", $submit);
+$errormessage=str_replace("\r\n", "", $errormessage);
+$successmessage=str_replace("\r\n", "", $successmessage);
+$navigation_overview=str_replace("\r\n", "", $navigation_overview);
+$navigation_totalcount=str_replace("\r\n", "", $navigation_totalcount);
+$navigation_select=str_replace("\r\n", "", $navigation_select);
+$navigation_notselect=str_replace("\r\n", "", $navigation_notselect);
+$navigation_char=str_replace("\r\n", "", $navigation_char);
+$navigation_char_position=str_replace("\r\n", "", $navigation_char_position);
+$guestbook_message_nr_name=str_replace("\r\n", "", $guestbook_message_nr_name);
+$guestbook_message_email=str_replace("\r\n", "", $guestbook_message_email);
+$guestbook_message_url=str_replace("\r\n", "", $guestbook_message_url);
+$guestbook_message_date_ip=str_replace("\r\n", "", $guestbook_message_date_ip);
+$guestbook_email=str_replace("\r\n", "", $guestbook_email);
+$guestbook_url=str_replace("\r\n", "", $guestbook_url);
+$guestbook_message_hairline=str_replace("\r\n", "", $guestbook_message_hairline);
+$guestbook_message_body=str_replace("\r\n", "", $guestbook_message_body);
+$embedded1=str_replace("\r\n", "", $embedded1);
+$embedded2=str_replace("\r\n", "", $embedded2);
+
+// unix systems
+$guestbook_font_color=str_replace("\n", "", $guestbook_font_color);
+$guestbook_position=str_replace("\n", "", $guestbook_position);
+$namefield=str_replace("\n", "", $namefield);
+$emailfield=str_replace("\n", "", $emailfield);
+$urlfield=str_replace("\n", "", $urlfield);
+$textfieldspace=str_replace("\n", "", $textfieldspace);
+$messagefield=str_replace("\n", "", $messagefield);
+$antispamtext=str_replace("\n", "", $antispamtext);
+$antispamcontent=str_replace("\n", "", $antispamcontent);
+$antispamcontent_position=str_replace("\n", "", $antispamcontent_position);
+$antispam_inputfield=str_replace("\n", "", $antispam_inputfield);
+$submit_position=str_replace("\n", "", $submit_position);
+$submit=str_replace("\n", "", $submit);
+$errormessage=str_replace("\n", "", $errormessage);
+$successmessage=str_replace("\n", "", $successmessage);
+$navigation_overview=str_replace("\n", "", $navigation_overview);
+$navigation_totalcount=str_replace("\n", "", $navigation_totalcount);
+$navigation_select=str_replace("\n", "", $navigation_select);
+$navigation_notselect=str_replace("\n", "", $navigation_notselect);
+$navigation_char=str_replace("\n", "", $navigation_char);
+$navigation_char_position=str_replace("\n", "", $navigation_char_position);
+$guestbook_message_nr_name=str_replace("\n", "", $guestbook_message_nr_name);
+$guestbook_message_email=str_replace("\n", "", $guestbook_message_email);
+$guestbook_message_url=str_replace("\n", "", $guestbook_message_url);
+$guestbook_message_date_ip=str_replace("\n", "", $guestbook_message_date_ip);
+$guestbook_email=str_replace("\n", "", $guestbook_email);
+$guestbook_url=str_replace("\n", "", $guestbook_url);
+$guestbook_message_hairline=str_replace("\n", "", $guestbook_message_hairline);
+$guestbook_message_body=str_replace("\n", "", $guestbook_message_body);
+$embedded1=str_replace("\n", "", $embedded1);
+$embedded2=str_replace("\n", "", $embedded2);
+
+
+	// reset captcha text / mathematics text color
+	unset($_SESSION[gb_captcha_color]);
+	$_SESSION[gb_captcha_color] = get_option("DMSGuestbook_captcha_color");
+
+
+
+
+
+
 if($gb_fontcolor1!="none") {
-echo "<body style='color:$gb_fontcolor1;'>"; }
-
-$embedded1 = "width:$gb_width; font-size:12px; text-align:left; padding:0px 10px; margin:0px 0px 0px 0px; line-height:1.4em; border:1px solid $gb_bordercolor1;";
-$embedded2 = "width:$gb_width; font-size:12px; text-align:left; padding:10px 10px; margin:0px 0px 0px 0px; line-height:1.4em; border:1px solid $gb_bordercolor1;";
-$errormessage = "color:#ee0000; font-size: 11px; text-decoration: none; font-weight:bold;";
+echo "<body style='$guestbook_font_color'>"; }
 
 
 
-// Neuer DMSGuestbook Eintrag
-if($_REQUEST[newentry]==1)
-{
 
-	if(isset($_SESSION['captcha_spam']) AND $_POST["sicherheitscode"] == $_SESSION['captcha_spam'] OR $gb_require_antispam!=1){
-	unset($_SESSION['captcha_spam']);
 
+		// --------- save the guestbook entry --------
+		if($_REQUEST[newentry]==1)
+		{
+			// check the result of visual antispam
+			if($gb_require_antispam==1) {
+				if(isset($_SESSION['captcha_spam']) && $_POST["securecode"] == $_SESSION['captcha_spam']) {
+					$antispam_result=1;
+					unset($_SESSION['captcha_spam']);
+				}else { $antispam_result=0;}
+			}
+
+
+			// check the result of mathematic antispam
+			if($gb_require_antispam==2) {
+				if(($_SESSION[rand1] + $_SESSION[rand2]) == $_POST["securecode"]) {
+					$antispam_result=1;
+				} else { $antispam_result=0; }
+			}
+
+
+			if($gb_require_antispam==0){
+				$antispam_result=1;
+			}
+
+			// if antispam valid or off
+			if($antispam_result==1) {
+
+				// check name text lenght min. 1 char
 				if(strlen($_REQUEST[gbname])>=1) {
 				$namecheck="1"; }
 				else {$error1 = "$gb_name_error<br />";}
 
-
-				if(strlen($_REQUEST[gbemail])>=1 OR $gb_require_email == 1)
+				// check email email adress were is valid
+				if(strlen($_REQUEST[gbemail])>=1 || $gb_require_email == 1)
 				{
 					if(preg_match("/^([a-zA-Z0-9])+([\.a-zA-Z0-9_-])*@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-]+)*\.([a-zA-Z]{2,6})$/", $_REQUEST[gbemail]))
 					{$emailcheck="1";}
@@ -92,8 +192,8 @@ if($_REQUEST[newentry]==1)
 				}
 				else {$emailcheck=1;}
 
-
-				if(strlen($_REQUEST[gburl])>=1 OR $gb_require_url == 1)
+				// check url adress were is valid
+				if(strlen($_REQUEST[gburl])>=1 || $gb_require_url == 1)
 				{
 					if(preg_match ("/^([^.-:\/][a-z0-9-.:\/]*)\.?+([a-z0-9-]+)*\.([a-z]{2,6})(\/)?([a-z0-9-_,.?&%=\/]*)$/i", $_REQUEST[gburl]))
 					{$urlcheck="1";}
@@ -101,132 +201,156 @@ if($_REQUEST[newentry]==1)
 				}
 				else {$urlcheck=1;}
 
-
+				// check message text lengt. min. 1 char
 				if(strlen($_REQUEST[gbmsg])>=1) {
 				$messagecheck="1"; }
 				else {$error4 = "$gb_message_error<br />";}
 
 
-				if($namecheck=='1' AND $emailcheck=='1' AND $urlcheck=='1' AND $messagecheck=='1')
-				{
-					if(preg_match ("/^(http(s)?:\/\/)/i", $_REQUEST[gburl]))
-					{$newurl = $_REQUEST[gburl];} else {$newurl="http://" . $_REQUEST[gburl];}
+					if($namecheck=='1' && $emailcheck=='1' && $urlcheck=='1' && $messagecheck=='1')
+					{
+						//set the http:// string if is missing
+						if(preg_match ("/^(http(s)?:\/\/)/i", $_REQUEST[gburl]))
+						{$newurl = $_REQUEST[gburl];} else {$newurl="http://" . $_REQUEST[gburl];}
 
-				$message_o_html=strip_tags($_REQUEST[gbmsg]);
+						// remove all html tags from the name and message field
+						// quote slashes and replace ;
+						$message_o_html=strip_tags($_REQUEST[gbmsg]);
+						$nname=addslashes($_REQUEST[gbname]);
+						$nname=str_replace(";", "&#59", $nname);
+						$mmu=addslashes($message_o_html);
+						$mmu = str_replace(";", "&#59", $mmu);
 
-				$nname=addslashes($_REQUEST[gbname]);
-				$mmu=addslashes($message_o_html);
+						$date=date("U");
+						$ip = getenv('REMOTE_ADDR');
 
-				$date=date("U");
-				$ip = getenv('REMOTE_ADDR');
+						$sql="INSERT INTO $table_name (name, email, url, date, ip, message)
+						VALUES ('$nname', '$_REQUEST[gbemail]', '$newurl', '$date', '$ip', '$mmu')";
+						require_once(ABSPATH . 'wp-admin/upgrade-functions.php');
+      					dbDelta($sql);
 
-				$sql="INSERT INTO $table_name (name, email, url, date, ip, message)
-				VALUES ('$nname', '$_REQUEST[gbemail]', '$newurl', '$date', '$ip', '$mmu')";
-				require_once(ABSPATH . 'wp-admin/upgrade-functions.php');
-      			dbDelta($sql);
+						// success text
+						$success = "$gb_success<br />";
 
-				$success = "$gb_success<br />";
-
-				#clear
-				unset($_REQUEST[gbname]);
-				unset($_REQUEST[gbemail]);
-				unset($_REQUEST[gburl]);
-				unset($_REQUEST[gbmsg]);
-				}
+						// unset variables
+						unset($_REQUEST[gbname]);
+						unset($_REQUEST[gbemail]);
+						unset($_REQUEST[gburl]);
+						unset($_REQUEST[gbmsg]);
+					}
 
 	}
 	else {$error5 =  "$gb_antispam_error<br />";}
 
 }
 
-$_REQUEST[gbmsg] = str_replace("\r\n", "&#10;", $_REQUEST[gbmsg]);
+	// replace <br /> from the message box if submit failed
+	$_REQUEST[gbmsg] = str_replace("\r\n", "&#10;", $_REQUEST[gbmsg]);
 
 
 ?>
-<!-- Das ganze Gästebuch ausrichten (relative) -->
-<div style="position:relative; top:0px; left:<? echo $gb_position; ?>;">
 
-<div style="padding:20px 0px 0px 0px;"></div>
-<div style="<?php echo $embedded1; ?>">
-<div style="padding:10px 0px 0px 0px;"> </div>
-<?php echo "<div style='$errormessage'>$error1</div>";?>
-<?php echo "<div style='$errormessage'>$error2</div>";?>
-<?php echo "<div style='$errormessage'>$error3</div>";?>
-<?php echo "<div style='$errormessage'>$error4</div>";?>
-<?php echo "<div style='$errormessage'>$error5</div>";?>
-<?php echo "<div style='$errormessage'>$success</div>";?>
-<br />
-<div style="text-align:left;padding:0px 0px 0px 0px;">
-<form action="<? echo $url; ?>/index.php?page_id=<?php echo $gb_page_id; ?>" method="post"></div>
+	<? # DMSGuestbook main input block ?>
+	<div style="<?=$guestbook_position;?>;">
+	<div style="<?=$embedded1;?>">
+	<div style="<?=$textfieldspace;?>"></div>
 
-<div style="text-align:left;padding:0px 0px 5px 0px;">
-<input style="border:1px solid <? echo $gb_bordercolor2; ?>;" type="text" name="gbname" value="<?php echo $_REQUEST[gbname]; ?>" maxlength="30"> <? echo $gb_name; ?> *</div>
+	<? # error & success messages ?>
+	<div style="<?=$errormessage;?>"><?=$error1;?></div>
+	<div style="<?=$errormessage;?>"><?=$error2;?></div>
+	<div style="<?=$errormessage;?>"><?=$error3;?></div>
+	<div style="<?=$errormessage;?>"><?=$error4;?></div>
+	<div style="<?=$errormessage;?>"><?=$error5;?></div>
+	<div style="<?=$successmessage;?>"><?=$success;?></div>
+	<br />
 
-<div style="text-align:left;padding:0px 0px 5px 0px;">
-<input style="border:1px solid <? echo $gb_bordercolor2; ?>;" type="text" name="gbemail" value="<?php echo $_REQUEST[gbemail]; ?>" > <? echo $gb_email; ?> <? if($gb_require_email==1) {echo "*"; } else {echo ""; } ?> </div>
+	<? #form ?>
+	<form action="<?=$url;?>/index.php?page_id=<?=$gb_page_id;?>" method="post">
 
-<div style="text-align:left;padding:0px 0px 5px 0px;">
-<input style="border:1px solid <? echo $gb_bordercolor2; ?>;" type="text" name="gburl" value="<?php echo $_REQUEST[gburl]; ?>" > <? echo $gb_url; ?> <? if($gb_require_url==1) {echo "*"; } else {echo ""; } ?></div>
+	<? # name ?>
+	<div style="<?=$textfieldspace;?>">
+	<input style="<?=$namefield;?>" type="text" name="gbname" value="<?=$_REQUEST[gbname];?>" maxlength="50">&nbsp;<?=$gb_name;?> *</div>
+
+	<? #email ?>
+	<div style="<?=$textfieldspace;?>">
+	<input style="<?=$emailfield;?>" type="text" name="gbemail" value="<?=$_REQUEST[gbemail];?>">&nbsp;<?=$gb_email;?>
+		<? # email mandatory or not ?>
+		<? if($gb_require_email==1) {echo "*"; } else {echo ""; } ?></div>
+
+	<? #url ?>
+	<div style="<?=$textfieldspace;?>">
+	<input style="<?=$urlfield;?>" type="text" name="gburl" value="<?=$_REQUEST[gburl];?>">&nbsp;<?=$gb_url;?>
+		<? # url mandatory or not ?>
+		<? if($gb_require_url==1) {echo "*"; } else {echo ""; } ?></div>
+
+	<? #message ?>
+	<div style="<?=$textfieldspace;?>">
+	<textarea style="<?=$messagefield;?>" name="gbmsg"><?=$_REQUEST[gbmsg];?></textarea>&nbsp;<?=$gb_message;?> *</div>
+
+	<input type="hidden" name="newentry" value="1">
+	<input type="hidden" name="Itemid" value="<?=$submitid;?>"><div style="text-align:left;">* <?=$gb_require;?></div>
+	<br /><br /><br />
 
 
-<div style="text-align:left;padding:0px 0px 5px 0px;">
-<textarea style="border:1px solid <? echo $gb_bordercolor2; ?>; width:80%" name="gbmsg" rows="10"><?php echo $_REQUEST[gbmsg]; ?></textarea> <? echo $gb_message; ?> *</div>
-
-<input type="hidden" name="newentry" value="1">
-<input type="hidden" name="Itemid" value="<?php echo "$submitid"; ?>"><div style="text-align:left;">* <? echo $gb_require; ?></div>
-<br />
-<br />
-<br />
-
-<?
-if($gb_require_antispam==1)
-	{
+		<? # image antispam switch ?>
+<?		if($gb_require_antispam==1)
+		{
+?>		<div style="<?=$antispamtext;?>"><?=$gb_antispam;?></div>
+		<div style="<?=$antispamcontent_position;?>">
+		<img style="<?=$antispamcontent;?>" src="<?=$url;?>/wp-content/plugins/dmsguestbook/captcha/captcha.php"></div>
+		<div style="<?=$antispamcontent_position;?>">
+		<input style="<?=$antispam_inputfield;?>" type="text" name="securecode"></div>
+<?		}
 ?>
-<div style="text-align:center;"><? echo $gb_antispam; ?></div>
-<div style="text-align:center;padding:5px 0px; margin:0px 0px;"><img style='border:1px solid <? echo $gb_bordercolor2; ?>' src="<? echo $url; ?>/wp-content/plugins/dmsguestbook/captcha/captcha.php" title="Sicherheitscode"></div>
-<div style="text-align:center;"><input style="width:60px; border:1px solid <? echo $gb_bordercolor2; ?>" type="text" name="sicherheitscode"></div>
-<?
-if($gb_require_antispam==1)
-{
-	}
-}
+
+		<? # mathematic antispam switch ?>
+<?		if($gb_require_antispam==2)
+		{
+?>		<div style="<?=$antispamtext;?>"><?=$gb_antispam;?></div>
+		<div style="<?=$antispamcontent_position;?>">
+		<? captcha2(); ?><input style="<?=$antispam_inputfield;?>" type="text" name="securecode"></div>
+<?		}
 ?>
 
+		<? # no antispam ?>
+<?		if($gb_require_antispam==0) {}
+?>
 
-<div style="text-align:center;padding:20px 0px 10px 0px;"><input type="submit" value="<? echo $gb_submit; ?>"></form></div>
-<br /><br />
-<div style="padding:10px 0px 0px 0px;"> </div>
-</div>
-<div style="padding:30px 0px 0px 0px;"> </div>
+	<? # submit button ?>
+	<div style="<?=$submit_position;?>"><input style="<?=$submit;?>" type="submit" value="<?=$gb_submit;?>"></div></form>
+	<br /><br />
+		<div style="padding:10px 0px 0px 0px;"> </div>
+	</div>
+	<div style="padding:30px 0px 0px 0px;"> </div>
 
 <?php
 
 
-	#Initialisieren
+	# start init
 	if($_REQUEST[from]=="") {$_REQUEST[from]=0; $_REQUEST[select]=1;}
 
-	#Die Anzahl Datensätze aus der DB lesen
+	# count all guestbook entrys
 	$query1 = mysql_query("SELECT * FROM  $table_name");
 	$num_rows1 = mysql_affected_rows();
 
-	#Das Gästebuch aus der DB auslesen.
+	# read the guestbook
 	$query2 = mysql_query("SELECT * FROM $table_name ORDER BY id DESC LIMIT $_REQUEST[from],$gb_step;");
 	$num_rows2 = mysql_affected_rows();
 
 	$_REQUEST[next]=$_REQUEST[from]+$gb_step;
 	$_REQUEST[back]=$_REQUEST[from]-$gb_step;
-
-
-	echo "<div style='width:$gb_width; text-align:center;'>";
-	echo "<div style='font-size:11px;'>($num_rows1)</div>";
+?>
+	<div style="<?=$navigation_overview;?>">
+	<div style="<?=$navigation_totalcount;?>">(<?=$num_rows1;?>)</div>
+<?
 	for($x=0; $x<$num_rows1; ($x=$x+$gb_step))
 	{
 	$y++;
 		if($_REQUEST[select]==$y) {
-		echo "<a style='color:#bb1100; text-decoration:none;' href='$url/index.php?page_id=$gb_page_id&from=$x&select=$y'>$y</a> ";
+		echo "<a style='$navigation_select' href='$url/index.php?page_id=$gb_page_id&from=$x&select=$y'>$y</a> ";
 		}
 		else {
-			 echo "<a style='color:#000000; text-decoration:none;' href='$url/index.php?page_id=$gb_page_id&from=$x&select=$y'>$y</a> ";
+			 echo "<a style='$navigation_notselect' href='$url/index.php?page_id=$gb_page_id&from=$x&select=$y'>$y</a> ";
 			 }
 
 	}
@@ -235,66 +359,127 @@ if($gb_require_antispam==1)
 
 
 
-	//DMSGuestbook Seiten-Link's
+	// navigation char forward construct
 	if($_REQUEST[next]>=$num_rows1) {} else {
 	$_REQUEST[select_forward]=$_REQUEST[select]+1;
-	$forward ="<a style='color:$gb_bordercolor3; font-size:$gb_arrowsize; text-decoration:none; font-weight:bold;' href='$url/index.php?page_id=$gb_page_id&from=$_REQUEST[next]&select=$_REQUEST[select_forward]'>$gb_forwardarrowchar</a>";
+	$forward ="<a style='$navigation_char' href='$url/index.php?page_id=$gb_page_id&from=$_REQUEST[next]&select=$_REQUEST[select_forward]'>$gb_forwardarrowchar</a>";
 	}
 
+	// navigation char backward construct
 	if($_REQUEST[back]<=-1) {} else {
 	$_REQUEST[select_backward]=$_REQUEST[select]-1;
-	$backward = "<a style='color:$gb_bordercolor3; font-size:$gb_arrowsize; text-decoration:none; font-weight:bold;' href='$url/index.php?page_id=$gb_page_id&from=$_REQUEST[back]&select=$_REQUEST[select_backward]'>$gb_backwardarrowchar</a>";
+	$backward = "<a style='$navigation_char' href='$url/index.php?page_id=$gb_page_id&from=$_REQUEST[back]&select=$_REQUEST[select_backward]'>$gb_backwardarrowchar</a>";
 	}
 
-//Navigation
-if($num_rows1 > $gb_step) {
-echo "<div style='text-align:center; width:$gb_width;'>";
-echo "$backward $forward";
-echo "</div>";}
-echo "<div style='padding:0px 0px; margin:0px 0px 20px 0px;'></div>";
+	// show top navigation
+	navigation($num_rows1, $gb_step, $gb_width, $backward, $forward, $navigation_char_position);
+
+	// setlocale
+	setlocale(LC_TIME, "$gb_setlocale");
+
+
+	// show DMSGuestbook entrys
+	for ($gb=0; $gb<$num_rows2; $gb++) {
+		$_REQUEST[itemnr]=($_REQUEST[from]++)+1;
+		$dbresult[$gb] = mysql_fetch_array($query2);
+
+		// DMSGuestbook post container
+		echo "<div style='$embedded2'>";
+
+		// buid the dta / time variable
+		$sec=date("s", "{$dbresult[$gb][4]}");
+		$min=date("i", "{$dbresult[$gb][4]}");
+		$hour=date("H", "{$dbresult[$gb][4]}");
+		$day=date("d", "{$dbresult[$gb][4]}");
+		$month=date("m", "{$dbresult[$gb][4]}");
+		$year=date("Y", "{$dbresult[$gb][4]}");
+		$displaydate = strftime ("$gb_dateformat", mktime ($hour, $min, $sec, $month, $day, $year));
+		$displaydate=htmlentities($displaydate, ENT_QUOTES);
+
+		// remove quote /
+		$message_name=stripslashes($dbresult[$gb][1]);
+		$message_text=stripslashes($dbresult[$gb][6]);
+
+		// add slash if ip is visible
+		if($gb_show_ip==1) {
+			$slash="&nbsp;/&nbsp;";
+			$show_ip="{$dbresult[$gb][5]}&nbsp;";
+		} else {
+			   $show_ip=""; $slash="";
+			   }
+
+		// show email icon
+		if($gb_show_email==1 && $dbresult[$gb][2]!="") {
+			$show_email="<a href='mailto:{$dbresult[$gb][2]}'><img style='$guestbook_email' src='$guestbook_email_image'></a>";
+		} else {
+			   $show_email="";
+			   }
+
+		// show url icon
+		if($gb_show_url==1 && $dbresult[$gb][3]!="http://") {
+			$show_url="<a href='{$dbresult[$gb][3]}' target='_blank'><img style='$guestbook_url' src='$guestbook_url_image' alt='url'></a>&nbsp;";
+		} else {
+			   $show_url="";
+			   }
 
 
 
-// DMSGuestbook Post's anzeigen
-for ($gb=0; $gb<$num_rows2; $gb++)
-{
-$_REQUEST[itemnr]=($_REQUEST[from]++)+1;
-
-$dbresult[$gb] = mysql_fetch_array($query2);
-echo "<div style='$embedded2'>";
-$displaydate=date($gb_dateformat, "{$dbresult[$gb][4]}");
-
-$url=get_bloginfo('url');
-
-	if($gb_show_ip==1) 		{$slash="&nbsp;/&nbsp;";} else {$slash="";}
-	if($gb_show_ip==1) 		{$show_ip="{$dbresult[$gb][5]}&nbsp;";} else {$show_ip="";}
-	if($gb_show_email==1) 	{$show_email="<a href='mailto:{$dbresult[$gb][2]}'><img style='heigh:15px; width:15px;border:0px;'src='$url/wp-content/plugins/dmsguestbook/img/mail_generic.gif' alt='Email'></a>";} else {$show_email="";}
-	if($gb_show_url==1) 	{$show_url="<a href='{$dbresult[$gb][3]}' target='_blank'><img style='heigh:15px; width:15px;border:0px;' src='$url/wp-content/plugins/dmsguestbook/img/gohome.gif' alt='Url'></a>&nbsp;";} else {$show_url="";}
-
-	echo "<div style='font-size:11px;'>";
-	echo "<table style='margin:0px 0px; padding:0px 0px; border:0px; width:100%;' cellspacing='0' cellpadding='0' border='0'>";
-	echo "<tr><td style='font-size:11px;'>($_REQUEST[itemnr]) {$dbresult[$gb][1]}</td>";
-	echo "<td style='width:1px;'></td><td style='width:20px;font-size:11px;'>" . $show_url . "</td>" .  "<td style='width:20px; font-size:11px;'>" . $show_email . "</td></tr>";
-	echo "<tr><td style='font-size:11px;'>$displaydate" . "$slash" . "$show_ip</td></tr>";
-
-	echo "</table>";
-	echo "<hr style='border:solid $gb_hairlinecolor 1px; height:1px; width:$gb_width2; text-align:left; margin:5px 0px;'>";
+	// guestbook entrys
+	echo "<div>";
+		echo "<table style='margin:0px 0px; padding:0px 0px; border:0px; width:100%;' cellspacing='0' cellpadding='0' border='0'>";
+			// header
+			echo "<tr><td style='$guestbook_message_nr_name'>($_REQUEST[itemnr]) $message_name</td>";
+			// email & url
+			echo "<td style='width:1px;'></td><td style='$guestbook_message_email'>"
+			. $show_url . "</td>" . "<td style='$guestbook_message_url'>" . $show_email . "</td></tr>";
+			// date & ip
+			echo "<tr><td style='$guestbook_message_date_ip'>$displaydate" . $slash . $show_ip . "</td></tr>";
+		echo "</table>";
+		// hairline
+		echo "<hr style='$guestbook_message_hairline'>";
+		echo "</div>";
+		// message body
+		echo "<div style='$guestbook_message_body'>$message_text</div>";
 	echo "</div>";
-	echo "<div style='margin:0px; 0px;'>{$dbresult[$gb][6]}</div>";
+	echo "<div style='margin:0px 0px 20px 0px;'></div>";
+	}
+
+	// show bottom navigation
+	navigation($num_rows1, $gb_step, $gb_width, $backward, $forward, $navigation_char_position);
+?>
+	</div>
 
 
-echo "</div>";
-echo "<div style='margin:0px 0px 20px 0px;'></div>";
-}
 
-//Navigation
-if($num_rows1 > $gb_step) {
-echo "<div style='text-align:center; width:$gb_width;'>";
-echo "$backward $forward";
-echo "</div>"; }
+
+
+<?
+// --- SOME FUNCTIONS ---
+
+	// navigation
+	function navigation($num_rows1, $gb_step, $gb_width, $backward, $forward, $navigation_char_position) {
+			if($num_rows1 > $gb_step) {
+			echo "<div style='$navigation_char_position'>";
+			echo "$backward $forward";
+			echo "</div>";
+	 		}
+		return 0;
+		}
+
+
+	// captcha mathematic
+	function captcha2() {
+		unset($_SESSION[rand1]);
+		unset($_SESSION[rand2]);
+		srand();
+		$rand1 = rand(1, 9);
+		$rand2 = rand(1, 9);
+		echo $rand1 . " + " . $rand2 . " =";
+		$_SESSION[rand1] = $rand1;
+		$_SESSION[rand2] = $rand2;
+		return 0;
+		}
+
 
 
 ?>
-
-<!-- Ende relatives Ausrichren-->
-</div>

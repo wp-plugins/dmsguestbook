@@ -2,9 +2,9 @@
 Contributors: danielschurter
 Donate link: http://danielschurter.net/
 Tags: guestbook, plugin, manage, admin, page
-Requires at least: 2.0
-Tested up to: 2.2.1
-Stable tag: 1.1
+Requires at least: 2.1
+Tested up to: 2.2.3
+Stable tag: 1.2.0
 
 DMSGuestbook is an easy configurable guestbook with a lot of features.
 
@@ -32,7 +32,7 @@ Enjoy it :-)
 == Installation ==
 Requirement:
 
-* Wordpress 2.x
+* Wordpress 2.1
 * Exec-PHP (http://bluesome.net/post/2005/08/18/50/)
 
 1. Download the dmsguestbook.zip
@@ -41,15 +41,8 @@ Requirement:
 4. You will see in the top of navigation the DMSGuestbook admin link.
 
 == Frequently Asked Questions ==
-= Why i don't see my guestbook on my page? =
-- Have you download the Exec-PHP? Exec-PHP (http://bluesome.net/post/2005/08/18/50/)
-- Have you set the right page id?
-
-= When i save my page with this code &lt;? DMSGuestBook(); ?&gt;, a blank char is set inside &lt;? and the code doesn't run. =
-Disable "WordPress should correct invalidly nested XHTML automatically" under "Options -> Writing"
-
-= 05.08.07 - When i select the DMSGuestbook in the plugins section of Wordpress, there is not create a DMSGuestbook database. Whats happen? =
-This was my mistake :-) This problem is solved, sorry for this circumstance.
+= DMSGuestbook FAQ: =
+= http://danielschurter.net/dmsguestbook/faq.php =
 
 == Screenshots ==
 1. Screenshot Admin the DMSGuestbook

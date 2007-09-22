@@ -4,7 +4,7 @@
 
    function randomString($len) {
       srand(date("s"));
-      //Der String $possible enthält alle Zeichen, die verwendet werden sollen
+      // all figures were captcha can use
       $possible="ABCDEFGHJKLMNPRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789";
       $str="";
       while(strlen($str)<$len) {
@@ -13,7 +13,7 @@
    return($str);
    }
 
-	//Konvertier HEX in RGB
+	//convert hex to rgb
 	function html2rgb($color)
 	{
     if ($color[0] == '#')
@@ -33,23 +33,28 @@
     return array($r, $g, $b);
 	}
 
-
    $rgb=html2rgb($_SESSION[gb_captcha_color]);
 
-   $text = randomString(5);  //Die Zahl bestimmt die Anzahl stellen
+   $text = randomString(5);  // how many figures will be display
    $_SESSION['captcha_spam'] = $text;
 
    $abspath = getcwd();
-   
-   header('Content-type: image/png');
-   $img = ImageCreateFromPNG('captcha.png'); //Backgroundimage
-   $color = ImageColorAllocate($img, $rgb[0], $rgb[1], $rgb[2]); //Farbe
-   $ttf = "$abspath/XFILES.TTF"; //Schriftart
-   $ttfsize = 25; //Schriftgrösse
+   $abspath = str_replace("\\","/", $abspath);
+
+   //header('Content-type: image/png');
+   //error_reporting(E_ALL);
+   $img = ImageCreateFromPNG('captcha.png'); // background image
+   $color = ImageColorAllocate($img, $rgb[0], $rgb[1], $rgb[2]); // color
+   $ttf = "$abspath/xfiles.ttf"; //font type
+   $ttfsize = 25; // font size
    $angle = rand(0,5);
    $t_x = rand(5,30);
    $t_y = 35;
    imagettftext($img, $ttfsize, $angle, $t_x, $t_y, $color, $ttf, $text);
    imagepng($img);
    imagedestroy($img);
+
+
+
+
 ?>
