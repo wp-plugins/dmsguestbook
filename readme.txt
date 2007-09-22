@@ -18,7 +18,7 @@ Features:
 * Extended attitude possibility over the css file
 * Preset DMSGuestbook caption text in german, english and swissgerman :-)
 * Set mandatory fields where user must be filled out
-* Set text hidden in the DMSGuestbook (e.g. ip adress)
+* Set text hidden in the DMSGuestbook (e.g. ip address)
 * Captcha antispam (image, mathematically)
 * Manage the DMSGuestbook user entries. (e.g. name, message, url, ip adress)
 
