@@ -2,9 +2,9 @@
 Contributors: danielschurter
 Donate link: http://danielschurter.net/
 Tags: guestbook, plugin, manage, admin, page
-Requires at least: 2.1
-Tested up to: 2.2.1
-Stable tag: 1.2.0
+Requires at least: 2.2
+Tested up to: 2.3
+Stable tag: 1.2.1
 
 DMSGuestbook is an easy configurable guestbook with a lot of features.
 
@@ -27,7 +27,7 @@ Enjoy it :-)
 == Installation ==
 Requirement:
 
-* Wordpress 2.1
+* Wordpress 2.2 or above
 * Exec-PHP (http://bluesome.net/post/2005/08/18/50/)
 
 1. Download the dmsguestbook.zip
