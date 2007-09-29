@@ -224,8 +224,8 @@ echo "<body style='$guestbook_font_color'>"; }
 						$date=date("U");
 						$ip = getenv('REMOTE_ADDR');
 
-						$sql="INSERT INTO $table_name (name, email, url, date, ip, message)
-						VALUES ('$nname', '$_REQUEST[gbemail]', '$newurl', '$date', '$ip', '$mmu')";
+						$sql=$wpdb->query("INSERT INTO $table_name (name, email, url, date, ip, message)
+						VALUES ('$nname', '$_REQUEST[gbemail]', '$newurl', '$date', '$ip', '$mmu')");
 						require_once(ABSPATH . 'wp-admin/upgrade-functions.php');
       					dbDelta($sql);
 
@@ -330,11 +330,11 @@ echo "<body style='$guestbook_font_color'>"; }
 	if($_REQUEST[from]=="") {$_REQUEST[from]=0; $_REQUEST[select]=1;}
 
 	# count all guestbook entrys
-	$query1 = mysql_query("SELECT * FROM  $table_name");
+	$query1 = $wpdb->get_results("SELECT * FROM  $table_name");
 	$num_rows1 = mysql_affected_rows();
 
 	# read the guestbook
-	$query2 = mysql_query("SELECT * FROM $table_name ORDER BY id DESC LIMIT $_REQUEST[from],$gb_step;");
+	$query2 = $wpdb->get_results("SELECT * FROM $table_name ORDER BY id DESC LIMIT $_REQUEST[from],$gb_step;");
 	$num_rows2 = mysql_affected_rows();
 
 	$_REQUEST[next]=$_REQUEST[from]+$gb_step;
@@ -378,46 +378,44 @@ echo "<body style='$guestbook_font_color'>"; }
 	setlocale(LC_TIME, "$gb_setlocale");
 
 
-	// show DMSGuestbook entrys
-	for ($gb=0; $gb<$num_rows2; $gb++) {
-		$_REQUEST[itemnr]=($_REQUEST[from]++)+1;
-		$dbresult[$gb] = mysql_fetch_array($query2);
-
+	// show DMSGuestbook entries
+	foreach ($query2 as $dbresult) {
+	$_REQUEST[itemnr]=($_REQUEST[from]++)+1;
 		// DMSGuestbook post container
 		echo "<div style='$embedded2'>";
 
-		// buid the dta / time variable
-		$sec=date("s", "{$dbresult[$gb][4]}");
-		$min=date("i", "{$dbresult[$gb][4]}");
-		$hour=date("H", "{$dbresult[$gb][4]}");
-		$day=date("d", "{$dbresult[$gb][4]}");
-		$month=date("m", "{$dbresult[$gb][4]}");
-		$year=date("Y", "{$dbresult[$gb][4]}");
+		// build the dta / time variable
+		$sec=date("s", "$dbresult->date");
+		$min=date("i", "$dbresult->date");
+		$hour=date("H", "$dbresult->date");
+		$day=date("d", "$dbresult->date");
+		$month=date("m", "$dbresult->date");
+		$year=date("Y", "$dbresult->date");
 		$displaydate = strftime ("$gb_dateformat", mktime ($hour, $min, $sec, $month, $day, $year));
 		$displaydate=htmlentities($displaydate, ENT_QUOTES);
 
 		// remove quote /
-		$message_name=stripslashes($dbresult[$gb][1]);
-		$message_text=stripslashes($dbresult[$gb][6]);
+		$message_name=stripslashes($dbresult->name);
+		$message_text=stripslashes($dbresult->message);
 
 		// add slash if ip is visible
 		if($gb_show_ip==1) {
 			$slash="&nbsp;/&nbsp;";
-			$show_ip="{$dbresult[$gb][5]}&nbsp;";
+			$show_ip=$dbresult->ip . "&nbsp;";
 		} else {
 			   $show_ip=""; $slash="";
 			   }
 
 		// show email icon
-		if($gb_show_email==1 && $dbresult[$gb][2]!="") {
-			$show_email="<a href='mailto:{$dbresult[$gb][2]}'><img style='$guestbook_email' src='$guestbook_email_image'></a>";
+		if($gb_show_email==1 && $dbresult->email != "") {
+			$show_email="<a href='mailto:$dbresult->email'><img style='$guestbook_email' src='$guestbook_email_image'></a>";
 		} else {
 			   $show_email="";
 			   }
 
 		// show url icon
-		if($gb_show_url==1 && $dbresult[$gb][3]!="http://") {
-			$show_url="<a href='{$dbresult[$gb][3]}' target='_blank'><img style='$guestbook_url' src='$guestbook_url_image' alt='url'></a>&nbsp;";
+		if($gb_show_url==1 && $dbresult->url != "http://") {
+			$show_url="<a href='$dbresult->url' target='_blank'><img style='$guestbook_url' src='$guestbook_url_image' alt='url'></a>&nbsp;";
 		} else {
 			   $show_url="";
 			   }
@@ -443,6 +441,8 @@ echo "<body style='$guestbook_font_color'>"; }
 	echo "</div>";
 	echo "<div style='margin:0px 0px 20px 0px;'></div>";
 	}
+
+
 
 	// show bottom navigation
 	navigation($num_rows1, $gb_step, $gb_width, $backward, $forward, $navigation_char_position);
