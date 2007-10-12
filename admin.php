@@ -880,6 +880,7 @@ function dmsguestbook2_meta_description_option_page() {
 
 <?
 
+			setlocale(LC_TIME, get_option("DMSGuestbook_setlocale"));
 			foreach ($query1 as $result) {
 			$bgcolor="eeeeee";
 	    		if($bgcolor=="dddddd") {$bgcolor="eeeeee";} else {$bgcolor="dddddd";}
@@ -892,7 +893,8 @@ function dmsguestbook2_meta_description_option_page() {
 				$month=date("m", "$result->date");
 				$year=date("Y", "$result->date");
 				$date = strftime (get_option("DMSGuestbook_dateformat"), mktime ($hour, $min, $sec, $month, $day, $year));
-
+				
+				
 ?>
 	 			<tr>
 	 			<form name="edit_form" method="post" action="<?=$location ?>">
