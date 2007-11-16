@@ -253,7 +253,7 @@ echo "<body style='$guestbook_font_color'>"; }
 						if($gb_send_mail==1) {
 							send_email($gb_mail_adress, $nname, $_REQUEST[gbemail], $newurl, $ip, $mmu);
 						}
-						
+
 						// unset variables
 						unset($_REQUEST[gbname]);
 						unset($_REQUEST[gbemail]);
@@ -386,7 +386,7 @@ if($_REQUEST[newentry]!=1) {
 
 		// show url icon
 		if($gb_show_url==1 && $dbresult->url != "http://") {
-			$show_url="<a href='$dbresult->url' target='_blank'><img style='$guestbook_url' src='$guestbook_url_image' alt='url'></a>&nbsp;";
+			$show_url="<a href='$dbresult->url' rel='nofollow' target='_blank'><img style='$guestbook_url' src='$guestbook_url_image' alt='url'></a>&nbsp;";
 		} else {
 			   $show_url="";
 			   }
