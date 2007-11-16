@@ -541,7 +541,7 @@ if($_REQUEST[newentry]!=1) {
 
 	$date=date("d.m.Y, h:i:s");
 	$host = str_replace("www.", "", "$_SERVER[HTTP_HOST]");
-	$mail_recipient="info@danielschurter.net";
+	$mail_recipient="$gb_mail_adress";
 	$mail_sender="DMSGuestbook@".$host;
 	$subject="You have a new guestbook post!";
 	$mail_text="From: $nname\nMail: $gbemail\nWebsite: $newurl\n\nMessage:\n$mmu\n\nIP: $ip\nDate: $date";
