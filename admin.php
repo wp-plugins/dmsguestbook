@@ -516,7 +516,7 @@ function dmsguestbook_meta_description_option_page() {
      		<input type="checkbox" name="DMSGuestbook_send_mail" value="1" <? echo $check1; ?>> Send a mail<br />
 			<input style="width:300px;" name="DMSGuestbook_mail_adress"
      		value="<?=get_option("DMSGuestbook_mail_adress");?>" type="text" />
-     		Email adress<br />
+     		Email address<br />
 			</td>
 	 		<td <? echo $tbc1; ?>>
 	 		Receive a notification email when user write an new guestbook post.<br />
