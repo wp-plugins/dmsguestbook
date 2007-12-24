@@ -4,7 +4,7 @@ Donate link: http://danielschurter.net/
 Tags: guestbook, plugin, manage, admin, page
 Requires at least: 2.2
 Tested up to: 2.3
-Stable tag: 1.4.0
+Stable tag: 1.5.0
 
 DMSGuestbook is an easy configurable guestbook with a lot of features.
 
