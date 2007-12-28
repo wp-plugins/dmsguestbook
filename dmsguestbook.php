@@ -312,9 +312,9 @@ if($_REQUEST[newentry]!=1) {
 	$_REQUEST[next]=$_REQUEST[from]+$gb_step;
 	$_REQUEST[back]=$_REQUEST[from]-$gb_step;
 ?>
-	<div style="<?=$navigation_overview;?>">
-	<div style="<?=$navigation_totalcount;?>">(<?=$num_rows1;?>)</div>
-<?
+	<div style="<?php echo $navigation_overview;?>">
+	<div style="<?php echo $navigation_totalcount;?>">(<?php echo $num_rows1;?>)</div>
+<?php
 	for($x=0; $x<$num_rows1; ($x=$x+$gb_step))
 	{
 	$y++;
@@ -431,7 +431,7 @@ if($_REQUEST[newentry]!=1) {
 
 
 
-<?
+<?php
 // --- SOME FUNCTIONS ---
 
 	// navigation
@@ -463,78 +463,78 @@ if($_REQUEST[newentry]!=1) {
 	function guestbook_position2($guestbook_position, $embedded1, $textfieldspace, $errormessage, $successmessage, $error1, $error2, $error3, $error4, 		 $error5, $success, $url, $gb_page_id, $namefield, $gb_name, $emailfield, $gb_email, $gb_require_email, $urlfield, $gb_url, $gb_require_url, 			  $messagefield, $gb_message, $submitid, $gb_require, $gb_require_antispam, $antispamtext, $gb_antispam, $antispamcontent_position, $antispamcontent, 	   $antispam_inputfield, $submit_position, $submit, $gb_submit) {
 ?>
 
-	<? # DMSGuestbook main input block ?>
-	<div style="<?=$guestbook_position;?>;">
-	<div style="<?=$embedded1;?>">
-	<div style="<?=$textfieldspace;?>"></div>
+	<?php # DMSGuestbook main input block ?>
+	<div style="<?php echo $guestbook_position;?>;">
+	<div style="<?php echo $embedded1;?>">
+	<div style="<?php echo $textfieldspace;?>"></div>
 
-	<? # error & success messages ?>
-	<div style="<?=$errormessage;?>"><?=$error1;?></div>
-	<div style="<?=$errormessage;?>"><?=$error2;?></div>
-	<div style="<?=$errormessage;?>"><?=$error3;?></div>
-	<div style="<?=$errormessage;?>"><?=$error4;?></div>
-	<div style="<?=$errormessage;?>"><?=$error5;?></div>
-	<div style="<?=$successmessage;?>"><?=$success;?></div>
+	<?php # error & success messages ?>
+	<div style="<?php echo $errormessage;?>"><?php echo $error1;?></div>
+	<div style="<?php echo $errormessage;?>"><?php echo $error2;?></div>
+	<div style="<?php echo $errormessage;?>"><?php echo $error3;?></div>
+	<div style="<?php echo $errormessage;?>"><?php echo $error4;?></div>
+	<div style="<?php echo $errormessage;?>"><?php echo $error5;?></div>
+	<div style="<?php echo $successmessage;?>"><?php echo $success;?></div>
 	<br />
 
-	<? #form ?>
-	<form action="<?=$url;?>/index.php?page_id=<?=$gb_page_id;?>" method="post">
+	<?php #form ?>
+	<form action="<?php echo $url;?>/index.php?page_id=<?php echo $gb_page_id;?>" method="post">
 
-	<? # name ?>
-	<div style="<?=$textfieldspace;?>">
-	<input style="<?=$namefield;?>" type="text" name="gbname" value="<?=$_REQUEST[gbname];?>" maxlength="50">&nbsp;<?=$gb_name;?> *</div>
+	<?php # name ?>
+	<div style="<?php echo $textfieldspace;?>">
+	<input style="<?php echo $namefield;?>" type="text" name="gbname" value="<?php echo $_REQUEST[gbname];?>" maxlength="50">&nbsp;<?php echo $gb_name;?> *</div>
 
-	<? #email ?>
-	<div style="<?=$textfieldspace;?>">
-	<input style="<?=$emailfield;?>" type="text" name="gbemail" value="<?=$_REQUEST[gbemail];?>">&nbsp;<?=$gb_email;?>
-		<? # email mandatory or not ?>
-		<? if($gb_require_email==1) {echo "*"; } else {echo ""; } ?></div>
+	<?php #email ?>
+	<div style="<?php echo $textfieldspace;?>">
+	<input style="<?php echo $emailfield;?>" type="text" name="gbemail" value="<?php echo $_REQUEST[gbemail];?>">&nbsp;<?php echo $gb_email;?>
+		<?php  # email mandatory or not ?>
+		<?php if($gb_require_email==1) {echo "*"; } else {echo ""; } ?></div>
 
-	<? #url ?>
-	<div style="<?=$textfieldspace;?>">
-	<input style="<?=$urlfield;?>" type="text" name="gburl" value="<?=$_REQUEST[gburl];?>">&nbsp;<?=$gb_url;?>
-		<? # url mandatory or not ?>
-		<? if($gb_require_url==1) {echo "*"; } else {echo ""; } ?></div>
+	<?php #url ?>
+	<div style="<?php echo $textfieldspace;?>">
+	<input style="<?php echo $urlfield;?>" type="text" name="gburl" value="<?php echo $_REQUEST[gburl];?>">&nbsp;<?php echo $gb_url;?>
+		<?php # url mandatory or not ?>
+		<?php if($gb_require_url==1) {echo "*"; } else {echo ""; } ?></div>
 
-	<? #message ?>
-	<div style="<?=$textfieldspace;?>">
-	<textarea style="<?=$messagefield;?>" name="gbmsg"><?=$_REQUEST[gbmsg];?></textarea>&nbsp;<?=$gb_message;?> *</div>
+	<?php #message ?>
+	<div style="<?php echo $textfieldspace;?>">
+	<textarea style="<?php echo $messagefield;?>" name="gbmsg"><?php echo $_REQUEST[gbmsg];?></textarea>&nbsp;<?php echo $gb_message;?> *</div>
 
 	<input type="hidden" name="newentry" value="1">
-	<input type="hidden" name="Itemid" value="<?=$submitid;?>"><div style="text-align:left;">* <?=$gb_require;?></div>
+	<input type="hidden" name="Itemid" value="<?php echo $submitid;?>"><div style="text-align:left;">* <?php echo $gb_require;?></div>
 	<br /><br /><br />
 
 
-		<? # image antispam switch ?>
-<?		if($gb_require_antispam==1)
+		<?php # image antispam switch ?>
+<?php	if($gb_require_antispam==1)
 		{ ?>
-		<div style="<?=$antispamtext;?>"><?=$gb_antispam;?></div>
-		<div style="<?=$antispamcontent_position;?>">
-		<img style="<?=$antispamcontent;?>" src="<?=$url;?>/wp-content/plugins/dmsguestbook/captcha/captcha.php"></div>
-		<div style="<?=$antispamcontent_position;?>">
-		<input style="<?=$antispam_inputfield;?>" type="text" name="securecode"></div>
-<?		} ?>
+		<div style="<?php echo $antispamtext;?>"><?php echo $gb_antispam;?></div>
+		<div style="<?php echo $antispamcontent_position;?>">
+		<img style="<?php echo $antispamcontent;?>" src="<?php echo $url;?>/wp-content/plugins/dmsguestbook/captcha/captcha.php"></div>
+		<div style="<?php echo $antispamcontent_position;?>">
+		<input style="<?php echo $antispam_inputfield;?>" type="text" name="securecode"></div>
+<?php	} ?>
 
 
-		<? # mathematic antispam switch ?>
-<?		if($gb_require_antispam==2)
+		<?php # mathematic antispam switch ?>
+<?php	if($gb_require_antispam==2)
 		{ ?>
-		<div style="<?=$antispamtext;?>"><?=$gb_antispam;?></div>
-		<div style="<?=$antispamcontent_position;?>">
-		<? captcha2(); ?><input style="<?=$antispam_inputfield;?>" type="text" name="securecode"></div>
-<?		} ?>
+		<div style="<?php echo $antispamtext;?>"><?php echo $gb_antispam;?></div>
+		<div style="<?php echo $antispamcontent_position;?>">
+		<?php captcha2(); ?><input style="<?php echo $antispam_inputfield;?>" type="text" name="securecode"></div>
+<?php	} ?>
 
-		<? # no antispam ?>
-<?		if($gb_require_antispam==0) {} ?>
+		<?php # no antispam ?>
+<?php	if($gb_require_antispam==0) {} ?>
 
 
-	<? # submit button ?>
-	<div style="<?=$submit_position;?>"><input style="<?=$submit;?>" type="submit" value="<?=$gb_submit;?>"></div></form>
+	<?php # submit button ?>
+	<div style="<?php echo $submit_position;?>"><input style="<?php echo $submit;?>" type="submit" value="<?php echo $gb_submit;?>"></div></form>
 	<br /><br />
 		<div style="padding:10px 0px 0px 0px;"> </div>
 	</div>
 	<div style="padding:30px 0px 0px 0px;"> </div>
-<?	}
+<?php	}
 
 
 	// email send function

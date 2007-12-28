@@ -66,9 +66,9 @@ function dmsguestbook_meta_description_option_page() {
 
 
 	<!-- some table color -->
-	<? $tbc1="style='background-color:#eeeeee; padding:0px 2px;'"; ?>
-	<? $tbc2="style='background-color:#dddddd; padding:0px 2px;'"; ?>
-	<? $tbc3="style='background-color:#CFEBF7; text-align:center;'"; ?>
+	<?php $tbc1="style='background-color:#eeeeee; padding:0px 2px;'"; ?>
+	<?php $tbc2="style='background-color:#dddddd; padding:0px 2px;'"; ?>
+	<?php $tbc3="style='background-color:#CFEBF7; text-align:center;'"; ?>
 
 	<!-- header -->
 	<div class="wrap">
@@ -90,7 +90,7 @@ function dmsguestbook_meta_description_option_page() {
 	</script>
 	<br />
 
-<?
+<?php
 	// global var for DMSGuestbook and option database
 	global $wpdb;
 	$table_name = $wpdb->prefix . "dmsguestbook";
@@ -138,7 +138,7 @@ function dmsguestbook_meta_description_option_page() {
 
 
 <!-- table for DMSGuestbook and DMSGuestbook option environment-->
-<?
+<?php
 if($_REQUEST[dbs]==1){$collaps_dbs="<a href='admin.php?page=dmsguestbook&dbs=0'><b>[-] Database settings</b></a>";}
 if($_REQUEST[dbs]==0){$collaps_dbs="<a href='admin.php?page=dmsguestbook&dbs=1'>[+] Database settings</a>";}
 
@@ -151,58 +151,58 @@ if($_REQUEST[advanced]==0){$collaps_advanced="<a href='admin.php?page=dmsguestbo
 
 <table style="width:100%;">
 		<tr>
-			<td><?=$collaps_dbs;?></td>
-			<td><?=$collaps_basic?></td>
-			<td><?=$collaps_advanced?></td>
+			<td><?php echo $collaps_dbs;?></td>
+			<td><?php echo $collaps_basic?></td>
+			<td><?php echo $collaps_advanced?></td>
 		</tr>
 </table>
 <br /><br /><br />
 
-<?
+<?php
 if($_REQUEST[dbs]==1)
 {
 ?>
 	<table style="width:100%;">
 		<tr>
 		<td style="background-color:#dddddd;padding:20px;width:500px;border: #000000 solid 1px;">
-<?
+<?php
 
 		// search prefix_dmsguestbook
         $result = $wpdb->query("SHOW TABLES LIKE '$table_name'");
 		if ($result > 0) {
 ?>
 			<!-- if prefix_dmsguestbook is exist -->
-			<b style="color:#00bb00;"><?=$table_name;?> is exist</b><br /><br />
-  			Type "yes, i am sure" in this textfield if you want delete <?=$table_name;?>.<br />
+			<b style="color:#00bb00;"><?php echo $table_name;?> is exist</b><br /><br />
+  			Type "yes, i am sure" in this textfield if you want delete <?php echo $table_name;?>.<br />
   			<b>All guestbook data will be lost!</b><br />
-  			<form name="form0" method="post" action="<?=$location;?>">
+  			<form name="form0" method="post" action="<?php echo $location;?>">
   			<input type="text" name="delete" value=""><br />
   			<input name="action" value="delete" type="hidden" />
-  			<input style="font-weight:bold; margin:10px 0px; width:250px;" type="submit" value="delete <?=$table_name; ?>" />
+  			<input style="font-weight:bold; margin:10px 0px; width:250px;" type="submit" value="delete <?php echo $table_name; ?>" />
 			</form>
-<?
+<?php
 		} else {
 ?>
 			<!-- if prefix_dmsguestbook isn't exist -->
-			<b style="color:#bb0000;padding:5px;border: #000000 solid 1px;"><?=$table_name;?> isn't exist</b><br /><br />
-			<form name="form0" method="post" action="<?=$location;?>">
+			<b style="color:#bb0000;padding:5px;border: #000000 solid 1px;"><?php echo $table_name;?> isn't exist</b><br /><br />
+			<form name="form0" method="post" action="<?php echo $location;?>">
 				  <select name="collate">
 				  	<option value="DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci">utf8_unicode_ci</option>
 					<option value="DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci">utf8_general_ci</option>
 					<option value="">if you use mySQL 4.0.xx or lower</option>
 				</select><br />
 				<input name="action" value="createnew" type="hidden" />
-				<input style="font-weight:bold; margin:10px 0px; width:300px;" type="submit" value="create <?=$table_name;?>" />
+				<input style="font-weight:bold; margin:10px 0px; width:300px;" type="submit" value="create <?php echo $table_name;?>" />
 			</form>
 			If you want use char like &auml;,&uuml;,&ouml;... and your mysql version is lower than 4.1, be sure the language
 			setting is e.g. "de-iso-8859-1" or similar. Check this with your mysql graphical frontenend like phpmyadmin.
-<?
+<?php
 		}
 ?>
 
 	</td>
 	<td style="background-color:#dddddd;padding:20px;width:500px;border: #000000 solid 1px;">
-<?
+<?php
 	// search all DMSGuestbook option
 	$query_options = $wpdb->get_results("SELECT * FROM $table_option WHERE option_name LIKE 'DMSGuestbook_%'");
 	$num_rows_option = mysql_affected_rows();
@@ -214,26 +214,26 @@ if($_REQUEST[dbs]==1)
 		if($num_rows_option!=$dmsguestbook_options)
 		{
 ?>
-		<b style="color:#bb0000">One or more DMSGuestbook options in <?=$table_option;?> are missing.</b>
-		<form name="form0" method="post" action="<?=$location;?>"'>
+		<b style="color:#bb0000">One or more DMSGuestbook options in <?php echo $table_option;?> are missing.</b>
+		<form name="form0" method="post" action="<?php echo $location;?>"'>
 			<input name="action" value="createoption" type="hidden" />
 			<input style="font-weight:bold; margin:10px 0px; width:400px;" type="submit" value="Create new DMSGuestbook options" />
 		</form>
 	</td></tr></table>
-<?
+<?php
 	}	else
 			{
 ?>			<!-- user can delete all DMSGuestbook options from the wp option page -->
-			<b style="color:#00bb00">[Status OK] <?=$num_rows_option;?> DMSGuestbook option enries in <?=$table_option;?>.</b><br /><br />
-			<form name="form0" method="post" action="<?=$location;?>">
-				Type "delete" to remove all DMSGuestbook option entries from the <?=$table_option;?> table.<br />
+			<b style="color:#00bb00">[Status OK] <?php echo $num_rows_option;?> DMSGuestbook option enries in <?php echo $table_option;?>.</b><br /><br />
+			<form name="form0" method="post" action="<?php echo $location;?>">
+				Type "delete" to remove all DMSGuestbook option entries from the <?php echo $table_option;?> table.<br />
 				<input type="text" name="confirm_delete_option" value=""><br />
 				<input name="action" value="deleteoption" type="hidden" />
 				<input style="font-weight:bold; margin:10px 0px; width:400px;" type="submit" value="Delete DMSGuestbook options fom the database" />
 			</form>
 	</td></tr>
 	</table>
-<?
+<?php
  }
 }
 ?>
@@ -241,13 +241,13 @@ if($_REQUEST[dbs]==1)
 
 
 <!-- main table with all DMSGuestbook options -->
-<?
+<?php
 	if($num_rows_option==$dmsguestbook_options)
 	{
 ?>
 
 
-<?
+<?php
 if($_REQUEST[basic]==1)
 {
 ?>
@@ -261,37 +261,37 @@ if($_REQUEST[basic]==1)
     			<col width="40%">
   			</colgroup>
 	 	 </tr>
-     		<form name="form1" method="post" action="<?=$location ?>">
+     		<form name="form1" method="post" action="<?php echo $location ?>">
 
  	 		<!-- page id -->
- 	 		<td <? echo $tbc1; ?>>Page ID:</td>
- 	 		<td <? echo $tbc1; ?>><input style="width:50px;background-color:#ee8989" name="DMSGuestbook_page_id"\
- 	 		value="<?=get_option("DMSGuestbook_page_id");?>" type="text" /></td>
-	 		<td <? echo $tbc1; ?>>Put the guestbook page id here</td>
+ 	 		<td <?php echo $tbc1; ?>>Page ID:</td>
+ 	 		<td <?php echo $tbc1; ?>><input style="width:50px;background-color:#ee8989" name="DMSGuestbook_page_id"\
+ 	 		value="<?php echo get_option("DMSGuestbook_page_id");?>" type="text" /></td>
+	 		<td <?php echo $tbc1; ?>>Put the guestbook page id here</td>
 	 		</tr>
 
 			<!-- guestbook width -->
-	 		<tr><td <? echo $tbc2; ?>>Guestbook width:</td>
-	 		<td <? echo $tbc2; ?>><input style="width:50px;" name="DMSGuestbook_width"\
-	 		value="<?=get_option("DMSGuestbook_width");?>" type="text" />%</td>
-     		<td <? echo $tbc2; ?>>Guestbook width in percent</td></tr>
+	 		<tr><td <?php echo $tbc2; ?>>Guestbook width:</td>
+	 		<td <?php echo $tbc2; ?>><input style="width:50px;" name="DMSGuestbook_width"\
+	 		value="<?php echo get_option("DMSGuestbook_width");?>" type="text" />%</td>
+     		<td <?php echo $tbc2; ?>>Guestbook width in percent</td></tr>
 
 			<!-- seperator width -->
-     		<tr><td <? echo $tbc1; ?>>Separator width:</td>
-	 		<td <? echo $tbc1; ?>><input style="width:50px;" name="DMSGuestbook_width2"\
-	 		value="<?=get_option("DMSGuestbook_width2");?>" type="text" />%</td>
-     		<td <? echo $tbc1; ?>>Separator width in percent</td></tr>
+     		<tr><td <?php echo $tbc1; ?>>Separator width:</td>
+	 		<td <?php echo $tbc1; ?>><input style="width:50px;" name="DMSGuestbook_width2"\
+	 		value="<?php echo get_option("DMSGuestbook_width2");?>" type="text" />%</td>
+     		<td <?php echo $tbc1; ?>>Separator width in percent</td></tr>
 
 			<!-- guestbook position -->
-	 		<tr><td <? echo $tbc2; ?>>Guestbook position:</td>
-	 		<td <? echo $tbc2; ?>><input style="width:50px;" name="DMSGuestbook_position"\
-	 		value="<?=get_option("DMSGuestbook_position");?>" type="text" /> px</td>
-     		<td <? echo $tbc2; ?>>Relative guestbook position in pixel (left to right)</td></tr>
+	 		<tr><td <?php echo $tbc2; ?>>Guestbook position:</td>
+	 		<td <?php echo $tbc2; ?>><input style="width:50px;" name="DMSGuestbook_position"\
+	 		value="<?php echo get_option("DMSGuestbook_position");?>" type="text" /> px</td>
+     		<td <?php echo $tbc2; ?>>Relative guestbook position in pixel (left to right)</td></tr>
 
 			<!-- post per page -->
-     		<tr><td <? echo $tbc1; ?>>Posts per page:</td>
-     		<td <? echo $tbc1; ?>><select name="DMSGuestbook_step">
-          		<option selected><?=get_option("DMSGuestbook_step");?></option>
+     		<tr><td <?php echo $tbc1; ?>>Posts per page:</td>
+     		<td <?php echo $tbc1; ?>><select name="DMSGuestbook_step">
+          		<option selected><?php echo get_option("DMSGuestbook_step");?></option>
           		<option>1</option>
           		<option>3</option>
           		<option>5</option>
@@ -310,105 +310,105 @@ if($_REQUEST[basic]==1)
 				<option>90</option>
 				<option>100</option>
           		</select></td>
-     		<td <? echo $tbc1; ?>>Number of entry in each page</td></tr>
+     		<td <?php echo $tbc1; ?>>Number of entry in each page</td></tr>
 
 			<!-- outside border color -->
-     		<td <? echo $tbc2; ?>>Outside border color:</td>
-     		<td <? echo $tbc2; ?>>
-			<div id="Color1_div" style="border:1px solid; background-color:#<?=get_option("DMSGuestbook_bordercolor1");?>;
-			float:left;width:25px; height:25px; cursor:pointer;" onclick="show_picker('Color1','<?=get_option("DMSGuestbook_bordercolor1");?>',
-			'<?=get_option("DMSGuestbook_bordercolor1");?>');">&nbsp;</div>
-			<input name="DMSGuestbook_bordercolor1" type="text" size="6" value="<?=get_option("DMSGuestbook_bordercolor1");?>"
-			id="Color1" onclick="show_picker(this.id, '<?=get_option("DMSGuestbook_bordercolor1");?>',
-			'<?=get_option("DMSGuestbook_bordercolor1");?>');" /></td>
-			<td <? echo $tbc2; ?>>Color of the outside box</td></tr>
+     		<td <?php echo $tbc2; ?>>Outside border color:</td>
+     		<td <?php echo $tbc2; ?>>
+			<div id="Color1_div" style="border:1px solid; background-color:#<?php echo get_option("DMSGuestbook_bordercolor1");?>;
+			float:left;width:25px; height:25px; cursor:pointer;" onclick="show_picker('Color1','<?php echo get_option("DMSGuestbook_bordercolor1");?>',
+			'<?php echo get_option("DMSGuestbook_bordercolor1");?>');">&nbsp;</div>
+			<input name="DMSGuestbook_bordercolor1" type="text" size="6" value="<?php echo get_option("DMSGuestbook_bordercolor1");?>"
+			id="Color1" onclick="show_picker(this.id, '<?php echo get_option("DMSGuestbook_bordercolor1");?>',
+			'<?php echo get_option("DMSGuestbook_bordercolor1");?>');" /></td>
+			<td <?php echo $tbc2; ?>>Color of the outside box</td></tr>
 
      		<!-- textfield border color -->
-			<tr><td <? echo $tbc1; ?>>Textfield border color:</td>
-     		<td <? echo $tbc1; ?>>
-     		<div id="Color2_div" style="border:1px solid; background-color:#<?=get_option("DMSGuestbook_bordercolor2");?>;
-     		float:left; width:25px; height:25px; cursor:pointer;" onclick="show_picker('Color2', '<?=get_option("DMSGuestbook_bordercolor2");?>',
-     		'<?=get_option("DMSGuestbook_bordercolor2");?>');">&nbsp;</div>
-			<input name="DMSGuestbook_bordercolor2" type="text" size="6" value="<?=get_option("DMSGuestbook_bordercolor2");?>"
-			id="Color2" onclick="show_picker(this.id, '<?=get_option("DMSGuestbook_bordercolor2");?>',
-			'<?=get_option("DMSGuestbook_bordercolor2");?>');" />
-     		<td <? echo $tbc1; ?>>Color of all textfield borders</td></tr>
+			<tr><td <?php echo $tbc1; ?>>Textfield border color:</td>
+     		<td <?php echo $tbc1; ?>>
+     		<div id="Color2_div" style="border:1px solid; background-color:#<?php echo get_option("DMSGuestbook_bordercolor2");?>;
+     		float:left; width:25px; height:25px; cursor:pointer;" onclick="show_picker('Color2', '<?php echo get_option("DMSGuestbook_bordercolor2");?>',
+     		'<?php echo get_option("DMSGuestbook_bordercolor2");?>');">&nbsp;</div>
+			<input name="DMSGuestbook_bordercolor2" type="text" size="6" value="<?php echo get_option("DMSGuestbook_bordercolor2");?>"
+			id="Color2" onclick="show_picker(this.id, '<?php echo get_option("DMSGuestbook_bordercolor2");?>',
+			'<?php echo get_option("DMSGuestbook_bordercolor2");?>');" />
+     		<td <?php echo $tbc1; ?>>Color of all textfield borders</td></tr>
 
      		<!-- navigation char color -->
-     		<tr><td <? echo $tbc2; ?>>Navigation char color:</td>
-     		<td <? echo $tbc2; ?>>
-   			<div id="Color3_div" style="border:1px solid; background-color:#<?=get_option("DMSGuestbook_bordercolor3");?>;
-   			float:left; width:25px; height:25px; cursor:pointer;" onclick="show_picker('Color3', '<?=get_option("DMSGuestbook_bordercolor3");?>',
-   			'<?=get_option("DMSGuestbook_bordercolor3");?>');">&nbsp;</div>
-			<input name="DMSGuestbook_bordercolor3" type="text" size="6" value="<?=get_option("DMSGuestbook_bordercolor3");?>"
-			id="Color3" onclick="show_picker(this.id, '<?=get_option("DMSGuestbook_bordercolor3");?>',
-			'<?=get_option("DMSGuestbook_bordercolor3");?>');" />
-     		<td <? echo $tbc2; ?>>Define the navigation color</td></tr>
+     		<tr><td <?php echo $tbc2; ?>>Navigation char color:</td>
+     		<td <?php echo $tbc2; ?>>
+   			<div id="Color3_div" style="border:1px solid; background-color:#<?php echo get_option("DMSGuestbook_bordercolor3");?>;
+   			float:left; width:25px; height:25px; cursor:pointer;" onclick="show_picker('Color3', '<?php echo get_option("DMSGuestbook_bordercolor3");?>',
+   			'<?php echo get_option("DMSGuestbook_bordercolor3");?>');">&nbsp;</div>
+			<input name="DMSGuestbook_bordercolor3" type="text" size="6" value="<?php echo get_option("DMSGuestbook_bordercolor3");?>"
+			id="Color3" onclick="show_picker(this.id, '<?php echo get_option("DMSGuestbook_bordercolor3");?>',
+			'<?php echo get_option("DMSGuestbook_bordercolor3");?>');" />
+     		<td <?php echo $tbc2; ?>>Define the navigation color</td></tr>
 
      		<!-- seperator color -->
-			<tr><td <? echo $tbc1; ?>>Separator color:</td>
-     		<td <? echo $tbc1; ?>>
-      		<div id="Color4_div" style="border:1px solid; background-color:#<?=get_option("DMSGuestbook_hairlinecolor");?>;
-      		float:left; width:25px; height:25px; cursor:pointer;" onclick="show_picker('Color4', '<?=get_option("DMSGuestbook_hairlinecolor");?>',
-      		'<?=get_option("DMSGuestbook_hairlinecolor");?>');">&nbsp;</div>
-			<input name="DMSGuestbook_hairlinecolor" type="text" size="6" value="<?=get_option("DMSGuestbook_hairlinecolor");?>"
-			id="Color4" onclick="show_picker(this.id, '<?=get_option("DMSGuestbook_hairlinecolor");?>',
-			'<?=get_option("DMSGuestbook_hairlinecolor");?>');" />
-			<td <? echo $tbc1; ?>>Separator between header and body in each entry</td></tr>
+			<tr><td <?php echo $tbc1; ?>>Separator color:</td>
+     		<td <?php echo $tbc1; ?>>
+      		<div id="Color4_div" style="border:1px solid; background-color:#<?php echo get_option("DMSGuestbook_hairlinecolor");?>;
+      		float:left; width:25px; height:25px; cursor:pointer;" onclick="show_picker('Color4', '<?php echo get_option("DMSGuestbook_hairlinecolor");?>',
+      		'<?php echo get_option("DMSGuestbook_hairlinecolor");?>');">&nbsp;</div>
+			<input name="DMSGuestbook_hairlinecolor" type="text" size="6" value="<?php echo get_option("DMSGuestbook_hairlinecolor");?>"
+			id="Color4" onclick="show_picker(this.id, '<?php echo get_option("DMSGuestbook_hairlinecolor");?>',
+			'<?php echo get_option("DMSGuestbook_hairlinecolor");?>');" />
+			<td <?php echo $tbc1; ?>>Separator between header and body in each entry</td></tr>
 
 			<!-- font color -->
-			<tr><td <? echo $tbc2; ?>>Font color:</td>
-     		<td <? echo $tbc2; ?>>
-    		<div id="Color5_div" style="border:1px solid; background-color:#<?=get_option("DMSGuestbook_fontcolor1");?>;
-    		float:left; width:25px; height:25px; cursor:pointer;" onclick="show_picker('Color5', '<?=get_option("DMSGuestbook_fontcolor1");?>',
-    		'<?=get_option("DMSGuestbook_fontcolor1");?>');">&nbsp;</div>
-			<input name="DMSGuestbook_fontcolor1" type="text" size="6" value="<?=get_option("DMSGuestbook_fontcolor1");?>"
-			id="Color5" onclick="show_picker(this.id, '<?=get_option("DMSGuestbook_fontcolor1");?>', '<?=get_option("DMSGuestbook_fontcolor1");?>');" />
-     		<td <? echo $tbc2; ?>>Overall font color</td></tr>
+			<tr><td <?php echo $tbc2; ?>>Font color:</td>
+     		<td <?php echo $tbc2; ?>>
+    		<div id="Color5_div" style="border:1px solid; background-color:#<?php echo get_option("DMSGuestbook_fontcolor1");?>;
+    		float:left; width:25px; height:25px; cursor:pointer;" onclick="show_picker('Color5', '<?php echo get_option("DMSGuestbook_fontcolor1");?>',
+    		'<?php echo get_option("DMSGuestbook_fontcolor1");?>');">&nbsp;</div>
+			<input name="DMSGuestbook_fontcolor1" type="text" size="6" value="<?php echo get_option("DMSGuestbook_fontcolor1");?>"
+			id="Color5" onclick="show_picker(this.id, '<?php echo get_option("DMSGuestbook_fontcolor1");?>', '<?php echo get_option("DMSGuestbook_fontcolor1");?>');" />
+     		<td <?php echo $tbc2; ?>>Overall font color</td></tr>
 
      		<!-- antispam image text color -->
-     		<tr><td <? echo $tbc1; ?>>Antispam image text color:</td>
-     		<td <? echo $tbc1; ?>>
-    		<div id="Color6_div" style="border:1px solid; background-color:#<?=get_option("DMSGuestbook_captcha_color");?>;
-    		float:left; width:25px; height:25px; cursor:pointer;" onclick="show_picker('Color6', '<?=get_option("DMSGuestbook_captcha_color");?>',
-    		'<?=get_option("DMSGuestbook_captcha_color");?>');">&nbsp;</div>
-			<input name="DMSGuestbook_captcha_color" type="text" size="6" value="<?=get_option("DMSGuestbook_captcha_color");?>"
-			id="Color6" onclick="show_picker(this.id, '<?=get_option("DMSGuestbook_captcha_color");?>',
-			'<?=get_option("DMSGuestbook_captcha_color");?>');" />
-     		<td <? echo $tbc1; ?>>Antispam image text color</td></tr>
+     		<tr><td <?php echo $tbc1; ?>>Antispam image text color:</td>
+     		<td <?php echo $tbc1; ?>>
+    		<div id="Color6_div" style="border:1px solid; background-color:#<?php echo get_option("DMSGuestbook_captcha_color");?>;
+    		float:left; width:25px; height:25px; cursor:pointer;" onclick="show_picker('Color6', '<?php echo get_option("DMSGuestbook_captcha_color");?>',
+    		'<?php echo get_option("DMSGuestbook_captcha_color");?>');">&nbsp;</div>
+			<input name="DMSGuestbook_captcha_color" type="text" size="6" value="<?php echo get_option("DMSGuestbook_captcha_color");?>"
+			id="Color6" onclick="show_picker(this.id, '<?php echo get_option("DMSGuestbook_captcha_color");?>',
+			'<?php echo get_option("DMSGuestbook_captcha_color");?>');" />
+     		<td <?php echo $tbc1; ?>>Antispam image text color</td></tr>
 
      		<!-- navigation char style -->
-     		<tr><td <? echo $tbc2; ?>>Navigation char style:</td>
-     		<td <? echo $tbc2; ?>>
-     		<input style="width:50px;" name="DMSGuestbook_backwardarrowchar" value="<?=get_option("DMSGuestbook_backwardarrowchar");?>" type="text" />
-     		<input style="width:50px;" name="DMSGuestbook_forwardarrowchar" value="<?=get_option("DMSGuestbook_forwardarrowchar");?>"
+     		<tr><td <?php echo $tbc2; ?>>Navigation char style:</td>
+     		<td <?php echo $tbc2; ?>>
+     		<input style="width:50px;" name="DMSGuestbook_backwardarrowchar" value="<?php echo get_option("DMSGuestbook_backwardarrowchar");?>" type="text" />
+     		<input style="width:50px;" name="DMSGuestbook_forwardarrowchar" value="<?php echo get_option("DMSGuestbook_forwardarrowchar");?>"
      		type="text" /></td>
-     		<td <? echo $tbc2; ?>>Use a char, number or word</td></tr>
+     		<td <?php echo $tbc2; ?>>Use a char, number or word</td></tr>
 
      		<!-- navigation char size -->
-     		<tr><td <? echo $tbc1; ?>>Navigation char size:</td>
-     		<td <? echo $tbc1; ?>><input style="width:50px;" name="DMSGuestbook_arrowsize"
-     		value="<?=get_option("DMSGuestbook_arrowsize");?>" type="text" />px</td>
-     		<td <? echo $tbc1; ?>>Size in pixel</td></tr>
+     		<tr><td <?php echo $tbc1; ?>>Navigation char size:</td>
+     		<td <?php echo $tbc1; ?>><input style="width:50px;" name="DMSGuestbook_arrowsize"
+     		value="<?php echo get_option("DMSGuestbook_arrowsize");?>" type="text" />px</td>
+     		<td <?php echo $tbc1; ?>>Size in pixel</td></tr>
 
 			<!-- guestbook form position -->
-     		<tr><td <? echo $tbc2; ?>>Guestbook form position:</td>
-     		<td <? echo $tbc2; ?>><select name="DMSGuestbook_formpos">
-          		<option selected><?=get_option("DMSGuestbook_formpos");?></option>
+     		<tr><td <?php echo $tbc2; ?>>Guestbook form position:</td>
+     		<td <?php echo $tbc2; ?>><select name="DMSGuestbook_formpos">
+          		<option selected><?php echo get_option("DMSGuestbook_formpos");?></option>
           		<option>top</option>
           		<option>bottom</option>
           		</select>&nbsp;Link text: <input style="width:260px;" name="DMSGuestbook_formposlink"
-     		value="<?=get_option("DMSGuestbook_formposlink");?>" type="text" /></td>
-     		<td <? echo $tbc2; ?>>Visible the guestbook input form on top or bottom<br />Define a link text if you selected "bottom"</td></tr>
+     		value="<?php echo get_option("DMSGuestbook_formposlink");?>" type="text" /></td>
+     		<td <?php echo $tbc2; ?>>Visible the guestbook input form on top or bottom<br />Define a link text if you selected "bottom"</td></tr>
 
      		<!-- date / time format / setlocale -->
-     		<? setlocale(LC_TIME, get_option("DMSGuestbook_setlocale")); ?>
-     		<tr><td <? echo $tbc1; ?>>Date / Time format /<br />Time offset:</td>
-     		<td <? echo $tbc1; ?>><input style="width:300px;" name="DMSGuestbook_dateformat"
-     		value="<?=get_option("DMSGuestbook_dateformat");?>" type="text" /><input style="width:100px;" name="DMSGuestbook_setlocale"
-     		value="<?=get_option("DMSGuestbook_setlocale");?>" type="text" />
+     		<?php setlocale(LC_TIME, get_option("DMSGuestbook_setlocale")); ?>
+     		<tr><td <?php echo $tbc1; ?>>Date / Time format /<br />Time offset:</td>
+     		<td <?php echo $tbc1; ?>><input style="width:300px;" name="DMSGuestbook_dateformat"
+     		value="<?php echo get_option("DMSGuestbook_dateformat");?>" type="text" /><input style="width:100px;" name="DMSGuestbook_setlocale"
+     		value="<?php echo get_option("DMSGuestbook_setlocale");?>" type="text" />
      		<select name="DMSGuestbook_offset">
-          		<option selected><?=get_option("DMSGuestbook_offset");?></option>
+          		<option selected><?php echo get_option("DMSGuestbook_offset");?></option>
           		<option>-12</option>
           		<option>-11</option>
           		<option>-10</option>
@@ -436,15 +436,15 @@ if($_REQUEST[basic]==1)
 				<option>+12</option>
 				</select><br />
 
-			<?
+			<?php
 			$offset        = mktime(date("H")+get_option("DMSGuestbook_offset"), date("i"), date("s"), date("m")  , date("d"), date("Y"));
 			?>
 
-     		<? echo htmlentities(strftime(get_option('DMSGuestbook_dateformat'), $offset), ENT_QUOTES); ?></td>
+     		<?php echo htmlentities(strftime(get_option('DMSGuestbook_dateformat'), $offset), ENT_QUOTES); ?></td>
 
 
 
-     		<td <? echo $tbc1; ?>>Set the date and time format. More infos:
+     		<td <?php echo $tbc1; ?>>Set the date and time format. More infos:
      		<a href='http://www.php.net/manual/en/function.strftime.php' target='_blank'>Date & Time parameters</a><br />
      		set your language: e.g. en_EN, de_DE, fr_FR, it_IT, de, ge ... (must be installed on your system)<br />
      		Time offset: Use this offset if you Wordpress installation is not in the same country where you live.<br />
@@ -453,76 +453,76 @@ if($_REQUEST[basic]==1)
      		</tr>
 
      		<!-- caption -->
-     		<tr><td <? echo $tbc2; ?>>Caption: *</td>
+     		<tr><td <?php echo $tbc2; ?>>Caption: *</td>
 
      		<!-- name text -->
-     		<td <? echo $tbc2; ?>>
+     		<td <?php echo $tbc2; ?>>
      		<input style="width:300px;" name="DMSGuestbook_name"
-     		value="<?=get_option("DMSGuestbook_name");?>" type="text" />
+     		value="<?php echo get_option("DMSGuestbook_name");?>" type="text" />
      		Name text<br />
 
      		<!-- email text -->
      		<input style="width:300px;" name="DMSGuestbook_email"
-     		value="<?=get_option("DMSGuestbook_email");?>" type="text" />
+     		value="<?php echo get_option("DMSGuestbook_email");?>" type="text" />
      		Email text<br />
 
 			<!-- url text -->
      		<input style="width:300px;" name="DMSGuestbook_url"
-     		value="<?=get_option("DMSGuestbook_url");?>" type="text" />
+     		value="<?php echo get_option("DMSGuestbook_url");?>" type="text" />
      		Website text<br />
 
      		<!-- message text -->
      		<input style="width:300px;" name="DMSGuestbook_message"
-     		value="<?=get_option("DMSGuestbook_message");?>" type="text" />
+     		value="<?php echo get_option("DMSGuestbook_message");?>" type="text" />
      		Message text<br />
 
      		<!-- antispam text -->
      		<textarea style="width:300px;"
-     		name="DMSGuestbook_antispam" rows="4"/><?=get_option("DMSGuestbook_antispam");?></textarea>
+     		name="DMSGuestbook_antispam" rows="4"/><?php echo get_option("DMSGuestbook_antispam");?></textarea>
      		Antispam text<br />
 
      		<!-- mandatory text -->
      		<input style="width:300px;" name="DMSGuestbook_require"
-     		value="<?=get_option("DMSGuestbook_require");?>" type="text" />
+     		value="<?php echo get_option("DMSGuestbook_require");?>" type="text" />
      		Mandatory text<br />
 
      		<!-- submit text -->
      		<input style="width:300px;" name="DMSGuestbook_submit"
-     		value="<?=get_option("DMSGuestbook_submit");?>" type="text" />
+     		value="<?php echo get_option("DMSGuestbook_submit");?>" type="text" />
      		Submit text<br />
 
 			<!-- name error text -->
 			<input style="width:300px;" name="DMSGuestbook_name_error"
-			value="<?=get_option("DMSGuestbook_name_error");?>" type="text" />
+			value="<?php echo get_option("DMSGuestbook_name_error");?>" type="text" />
 			Name error text<br />
 
 	 		<!-- email error text -->
 	 		<input style="width:300px;" name="DMSGuestbook_email_error"
-	 		value="<?=get_option("DMSGuestbook_email_error");?>" type="text" />
+	 		value="<?php echo get_option("DMSGuestbook_email_error");?>" type="text" />
 	 		Email error text<br />
 
 	 		<!-- url error text -->
 	 		<input style="width:300px;" name="DMSGuestbook_url_error"
-	 		value="<?=get_option("DMSGuestbook_url_error");?>" type="text" />
+	 		value="<?php echo get_option("DMSGuestbook_url_error");?>" type="text" />
 	 		Website error text<br />
 
 	 		<!-- message error text -->
 	 		<input style="width:300px;" name="DMSGuestbook_message_error"
-	 		value="<?=get_option("DMSGuestbook_message_error");?>" type="text" />
+	 		value="<?php echo get_option("DMSGuestbook_message_error");?>" type="text" />
 	 		Message error text<br />
 
 	 		<!-- antispam error text -->
 	 		<input style="width:300px;" name="DMSGuestbook_antispam_error"
-	 		value="<?=get_option("DMSGuestbook_antispam_error");?>" type="text" />
+	 		value="<?php echo get_option("DMSGuestbook_antispam_error");?>" type="text" />
 	 		Antispam error text<br />
 
 	 		<!-- success text -->
 	 		<input style="width:300px;" name="DMSGuestbook_success"
-	 		value="<?=get_option("DMSGuestbook_success");?>" type="text" />
+	 		value="<?php echo get_option("DMSGuestbook_success");?>" type="text" />
 	 		Success text<br /></td>
 
 	 		<!-- caption description -->
-     		<td <? echo $tbc2; ?>>
+     		<td <?php echo $tbc2; ?>>
      		Set the text caption for name, email address, url address,<br />
      		message text and antispam (anti robot) text.<br /><br />
      		Mandatory text informs the user about the<br />
@@ -537,32 +537,32 @@ if($_REQUEST[basic]==1)
      		</td></tr>
 
      		<!-- mantatory -->
-     		<tr><td <? echo $tbc1; ?>>Mandatory:</td>
-     		<td <? echo $tbc1; ?>>
-     		<? if(get_option("DMSGuestbook_require_email")==1) {$check1 = "checked"; } else {$check1="";} ?>
-     		<? if(get_option("DMSGuestbook_require_url")==1) {$check2 = "checked"; } else {$check2="";} ?>
-     		<? if(get_option("DMSGuestbook_require_antispam")==0) {$check3_0 = "checked"; } else {$check3_0="";} ?>
-     		<? if(get_option("DMSGuestbook_require_antispam")==1) {$check3_1 = "checked"; } else {$check3_1="";} ?>
-     		<? if(get_option("DMSGuestbook_require_antispam")==2) {$check3_2 = "checked"; } else {$check3_2="";} ?>
-     		<input type="checkbox" name="DMSGuestbook_require_email" value="1" <? echo $check1; ?>> Email <br />
-     		<input type="checkbox" name="DMSGuestbook_require_url" value="1" <? echo $check2; ?>> Website <br />
-     		<input type="radio" name="DMSGuestbook_require_antispam" value="0" <? echo $check3_0; ?>> Antispam off<br />
-     		<input type="radio" name="DMSGuestbook_require_antispam" value="1" <? echo $check3_1; ?>> Antispam image<br />
-     		<input type="radio" name="DMSGuestbook_require_antispam" value="2" <? echo $check3_2; ?>> Antispam mathematic figures</td>
+     		<tr><td <?php echo $tbc1; ?>>Mandatory:</td>
+     		<td <?php echo $tbc1; ?>>
+     		<?php if(get_option("DMSGuestbook_require_email")==1) {$check1 = "checked"; } else {$check1="";} ?>
+     		<?php if(get_option("DMSGuestbook_require_url")==1) {$check2 = "checked"; } else {$check2="";} ?>
+     		<?php if(get_option("DMSGuestbook_require_antispam")==0) {$check3_0 = "checked"; } else {$check3_0="";} ?>
+     		<?php if(get_option("DMSGuestbook_require_antispam")==1) {$check3_1 = "checked"; } else {$check3_1="";} ?>
+     		<?php if(get_option("DMSGuestbook_require_antispam")==2) {$check3_2 = "checked"; } else {$check3_2="";} ?>
+     		<input type="checkbox" name="DMSGuestbook_require_email" value="1" <?php echo $check1; ?>> Email <br />
+     		<input type="checkbox" name="DMSGuestbook_require_url" value="1" <?php echo $check2; ?>> Website <br />
+     		<input type="radio" name="DMSGuestbook_require_antispam" value="0" <?php echo $check3_0; ?>> Antispam off<br />
+     		<input type="radio" name="DMSGuestbook_require_antispam" value="1" <?php echo $check3_1; ?>> Antispam image<br />
+     		<input type="radio" name="DMSGuestbook_require_antispam" value="2" <?php echo $check3_2; ?>> Antispam mathematic figures</td>
 
-	 		<td <? echo $tbc1; ?>>User must fill out: Email text field / Website address field / Antispam field <br /><br />
+	 		<td <?php echo $tbc1; ?>>User must fill out: Email text field / Website address field / Antispam field <br /><br />
 	 		<hr style="border: 1px solid;"></hr>
 	 		Image: <br /><img src="../wp-content/plugins/dmsguestbook/captcha/captcha.php" alt="[do you see this image?]"><br />
 	 		If you don't see the image here, check the xfiles.ttf and captcha.png permission in your captcha folder.<br /><br />
-	 		<? truetype_permission("xfiles.ttf"); ?><br /><? truetype_permission("captcha.png"); ?><br /><br />
+	 		<?php truetype_permission("xfiles.ttf"); ?><br /><?php truetype_permission("captcha.png"); ?><br /><br />
 	 		Requirement: PNG support ->
-	 			<? if (ImageTypes() & IMG_PNG) {
+	 			<?php if (ImageTypes() & IMG_PNG) {
     				echo "[PNG support is available]"; } ?>
-			    <? $array = gd_info();?>
+			    <?php $array = gd_info();?>
 			<br />
-	 		Requirement: GD 2.0.1 or above -> <? echo $array["GD Version"];?>
+	 		Requirement: GD 2.0.1 or above -> <?php echo $array["GD Version"];?>
 	 		<br />
-	 		Requirement: FreeType support -> <? if($array["FreeType Support"]==1) {echo "[FreeType support enabled]";};?>
+	 		Requirement: FreeType support -> <?php if($array["FreeType Support"]==1) {echo "[FreeType support enabled]";};?>
 	 		<br /><br />
 	 		<hr style="border: 1px solid;"></hr>
 	 		Mathematic figures: <br />4 + 9 = <input style="width:30px;" type="text" name="" value="13"><br />
@@ -570,28 +570,28 @@ if($_REQUEST[basic]==1)
 	 		</tr>
 
 	 		<!-- visible data -->
-	 		<tr><td <? echo $tbc2; ?>>Visible data:</td>
-     		<td <? echo $tbc2; ?>>
-     		<? if(get_option("DMSGuestbook_show_ip")==1) {$check1 = "checked"; } else {$check1="";} ?>
-     		<? if(get_option("DMSGuestbook_show_email")==1) {$check2 = "checked"; } else {$check2="";} ?>
-     		<? if(get_option("DMSGuestbook_show_url")==1) {$check3 = "checked"; } else {$check3="";} ?>
-     		<input type="checkbox" name="DMSGuestbook_show_ip" value="1" <? echo $check1; ?>> IP adress <br />
-     		<input type="checkbox" name="DMSGuestbook_show_email" value="1" <? echo $check2; ?>> Email <br />
-     		<input type="checkbox" name="DMSGuestbook_show_url" value="1" <? echo $check3; ?>> Website
+	 		<tr><td <?php echo $tbc2; ?>>Visible data:</td>
+     		<td <?php echo $tbc2; ?>>
+     		<?php if(get_option("DMSGuestbook_show_ip")==1) {$check1 = "checked"; } else {$check1="";} ?>
+     		<?php if(get_option("DMSGuestbook_show_email")==1) {$check2 = "checked"; } else {$check2="";} ?>
+     		<?php if(get_option("DMSGuestbook_show_url")==1) {$check3 = "checked"; } else {$check3="";} ?>
+     		<input type="checkbox" name="DMSGuestbook_show_ip" value="1" <?php echo $check1; ?>> IP adress <br />
+     		<input type="checkbox" name="DMSGuestbook_show_email" value="1" <?php echo $check2; ?>> Email <br />
+     		<input type="checkbox" name="DMSGuestbook_show_url" value="1" <?php echo $check3; ?>> Website
 			</td>
-	 		<td <? echo $tbc2; ?>>Visible data for everyone in each entry</td>
+	 		<td <?php echo $tbc2; ?>>Visible data for everyone in each entry</td>
 		   </tr>
 
 		   <!-- send mail -->
-	 		<tr><td <? echo $tbc1; ?>>Notification mail:</td>
-     		<td <? echo $tbc1; ?>>
-     		<? if(get_option("DMSGuestbook_send_mail")==1) {$check1 = "checked"; } else {$check1="";} ?>
-     		<input type="checkbox" name="DMSGuestbook_send_mail" value="1" <? echo $check1; ?>> Send a mail<br />
+	 		<tr><td <?php echo $tbc1; ?>>Notification mail:</td>
+     		<td <?php echo $tbc1; ?>>
+     		<?php if(get_option("DMSGuestbook_send_mail")==1) {$check1 = "checked"; } else {$check1="";} ?>
+     		<input type="checkbox" name="DMSGuestbook_send_mail" value="1" <?php echo $check1; ?>> Send a mail<br />
 			<input style="width:300px;" name="DMSGuestbook_mail_adress"
-     		value="<?=get_option("DMSGuestbook_mail_adress");?>" type="text" />
+     		value="<?php echo get_option("DMSGuestbook_mail_adress");?>" type="text" />
      		Email address<br />
 			</td>
-	 		<td <? echo $tbc1; ?>>
+	 		<td <?php echo $tbc1; ?>>
 	 		Receive a notification email when user write an new guestbook post.<br />
 	 		The email address where the message to be sent is.
 	 		</td>
@@ -599,7 +599,7 @@ if($_REQUEST[basic]==1)
 		  </table>
 
 	   <!-- submit button -->
-	   <tr><td <? echo $tbc3; ?>>
+	   <tr><td <?php echo $tbc3; ?>>
 	   <input name="action" value="insert" type="hidden" />
        <input style="font-weight:bold; margin:10px 0px; width:300px;" type="submit" value="Save" />
        </td></tr>
@@ -615,7 +615,7 @@ if($_REQUEST[basic]==1)
 	<tr>
 		<td>
 		<!-- restore default settings button -->
-		<form name="form3" method="post" action="<?=$location ?>">
+		<form name="form3" method="post" action="<?php echo $location ?>">
 		<input name="action2" value="default_settings" type="hidden" />
 		<input style="font-weight:bold; margin:10px 0px;" type="submit"
 		value="Restore default settings - All data will be replaced" onclick="return confirm('Would you really to restore all data?');">
@@ -626,7 +626,7 @@ if($_REQUEST[basic]==1)
 	 	<!-- default language english-->
 	 	<td style="text-align:center;">
 	 	* Switch text caption to english language
-	 	<form method="post" action="<?=$location ?>">
+	 	<form method="post" action="<?php echo $location ?>">
 	 	<input style="border:1px;" name="true" value="default_english"
 	 	type="image" src="../wp-content/plugins/dmsguestbook/img/uk.gif" alt="default english">
 	 	</form>
@@ -636,7 +636,7 @@ if($_REQUEST[basic]==1)
 	 	<!-- default language german -->
 	 	<td style="text-align:center;">
 	 	* Switch text caption to german language
-	 	<form method="post" action="<?=$location ?>">
+	 	<form method="post" action="<?php echo $location ?>">
 	 	<input style="border:1px;" name="true" value="default_german"
 	 	type="image" src="../wp-content/plugins/dmsguestbook/img/ger.gif" alt="default deutsch">
 	 	</form>
@@ -646,19 +646,19 @@ if($_REQUEST[basic]==1)
 	 	<!-- default language swiss german-->
 	 	<td style="text-align:center;">
 	 	* Switch text caption to swiss german language
-	 	<form method="post" action="<?=$location ?>">
+	 	<form method="post" action="<?php echo $location ?>">
 	 	<input style="border:1px;" name="true"
 	 	value="default_swissgerman" type="image" src="../wp-content/plugins/dmsguestbook/img/ch.gif" alt="default deutsch">
 	 	</form>
 	 	</td>
 	 </tr>
 	 </table>
-<?
+<?php
 }
 ?>
 
 
-<?
+<?php
 if($_REQUEST[advanced]==1)
 {
 
@@ -679,21 +679,21 @@ if($_REQUEST[advanced]==1)
 ?>
 	<table style="border:0px solid #000000; width:100%;" cellspacing="0" cellpadding="0">
 	  <tr>
-		<form name="form0" method="post" action="<?=$location;?>">
-		<td><textarea style="width:99%; height:500px;" name="advanced_data"><?=$buffer;?></textarea></td>
+		<form name="form0" method="post" action="<?php echo $location;?>">
+		<td><textarea style="width:99%; height:500px;" name="advanced_data"><?php echo $buffer;?></textarea></td>
 	  </tr>
 		<input name="action3" value="save_advanced_data" type="hidden" />
 	  <tr>
-		<td><?=$save_advanced_button;?></td>
+		<td><?php echo $save_advanced_button;?></td>
   	  </tr>
   		</form>
 	  </tr>
 	 </table>
-<?
+<?php
 }
 ?>
 	 </div>
-<?
+<?php
 	}
 }	//--------------------- end of DMSGuestbook adminpage main function -----------------------------
 
@@ -970,7 +970,7 @@ function dmsguestbook2_meta_description_option_page() {
 	 		<li>You can use HTML tags in the name and text box. But, be care with this :-)</li>
 			<li>If you edit the url field, don't delete the "http(s)://" prefix.</li>
 		</ul>
-<?
+<?php
 		// maximum guestbook entries were displayed on page
 		$gb_step=get_option("DMSGuestbook_step");
 
@@ -992,27 +992,27 @@ function dmsguestbook2_meta_description_option_page() {
 ?>
 
 		<br /><br />
-		<div style="width:<?=$gb_width;?>; text-align:center;">
-		<div style="font-size:11px;">(<?=$num_rows0;?>)</div>
+		<div style="width:<?php echo $gb_width;?>; text-align:center;">
+		<div style="font-size:11px;">(<?php echo $num_rows0;?>)</div>
 
-<?
+<?php
 		for($q=0; $q<$num_rows0; ($q=$q+$gb_step))
 		{
 		$y++;
 			if($_REQUEST[select]==$y) {
-?>			<a style="color:#bb1100; text-decoration:none;" href="admin.php?page=Manage&from=<?=$q;?>&select=<?=$y;?>"><?=$y;?></a>
-<?			}
+?>			<a style="color:#bb1100; text-decoration:none;" href="admin.php?page=Manage&from=<?php echo $q;?>&select=<?php echo $y;?>"><?php echo $y;?></a>
+<?php			}
 			else {
-?>				 <a style="color:#000000; text-decoration:none;" href="admin.php?page=Manage&from=<?=$q;?>&select=<?=$y;?>"><?=$y;?></a>
-<?				 }
+?>				 <a style="color:#000000; text-decoration:none;" href="admin.php?page=Manage&from=<?php echo $q;?>&select=<?php echo $y;?>"><?php echo $y;?></a>
+<?php				 }
 		}
 ?>		</div>
 		<br /><br />
 
-<?		$tbc3="style='background-color:#CFEBF7; text-align:center; height:35px;'";
+<?php		$tbc3="style='background-color:#CFEBF7; text-align:center; height:35px;'";
 ?>
 		<table style="border:1px solid #000000; width:100%;">
-		<tr <? echo $tbc3; ?>>
+		<tr <?php echo $tbc3; ?>>
 			<th>ID</th>
 	 		<th>Name</th>
 	 		<th>Message</th>
@@ -1021,7 +1021,7 @@ function dmsguestbook2_meta_description_option_page() {
 	 		<th></th>
 		</tr>
 
-<?
+<?php
 
 			setlocale(LC_TIME, get_option("DMSGuestbook_setlocale"));
 			foreach ($query1 as $result) {
@@ -1039,54 +1039,54 @@ function dmsguestbook2_meta_description_option_page() {
 
 ?>
 	 			<tr>
-	 			<form name="edit_form" method="post" action="<?=$location ?>">
-	 			<td style="font-size:10px; border:1px solid #eeeeee; background-color:#<? echo $bgcolor; ?>"><?=$result->id;?></td>
-	 			<td style="border:1px solid #eeeeee; background-color:#<?=$bgcolor;?>">
-	 			<input style="font-size:10px; border:1px solid #eeeeee;" type="text" name="gb_name" value="<?=$result->name;?>"></td>
-	 			<td style="border:1px solid #eeeeee; background-color:#<?=$bgcolor;?>">
-	 			<textarea style="height:120px; width:500px;font-size:10px;" name="gb_message"><?=$result->message;?></textarea></td>
-	 			<td style="font-size:10px; border:1px solid #eeeeee; background-color:#<?=$bgcolor;?>">
+	 			<form name="edit_form" method="post" action="<?php echo $location ?>">
+	 			<td style="font-size:10px; border:1px solid #eeeeee; background-color:#<?php echo $bgcolor; ?>"><?php echo $result->id;?></td>
+	 			<td style="border:1px solid #eeeeee; background-color:#<?php echo $bgcolor;?>">
+	 			<input style="font-size:10px; border:1px solid #eeeeee;" type="text" name="gb_name" value="<?php echo $result->name;?>"></td>
+	 			<td style="border:1px solid #eeeeee; background-color:#<?php echo $bgcolor;?>">
+	 			<textarea style="height:120px; width:500px;font-size:10px;" name="gb_message"><?php echo $result->message;?></textarea></td>
+	 			<td style="font-size:10px; border:1px solid #eeeeee; background-color:#<?php echo $bgcolor;?>">
 
 	 			<table border="0">
 	 			<tr><td style="font-size:10px;">Date:</td>
-	 			<td style="font-size:10px;"><?=$date;?><br />
+	 			<td style="font-size:10px;"><?php echo $date;?><br />
 	 			Day.Month.Year,Hour:Minute:Second
-	 			<input style="font-size:10px; width:200px;" type="text" name="gb_date" value="<?=$date2?>"><br />
+	 			<input style="font-size:10px; width:200px;" type="text" name="gb_date" value="<?php echo $date2?>"><br />
 	 			(DD.MM.YYYY,HH:MM:SS)</td></tr>
-	 			<input type="hidden" name="hidden_date" value="<?=$date;?>">
+	 			<input type="hidden" name="hidden_date" value="<?php echo $date;?>">
 
 				<tr><td style="height:5px;"></td></tr>
 
 	 			<tr><td style="font-size:10px;">IP:</td> <td><input style="font-size:10px; width:200px;"
-	 			type="text" name="gb_ip" value="<?=$result->ip; ?>" maxlength="15"></td></tr>
+	 			type="text" name="gb_ip" value="<?php echo $result->ip; ?>" maxlength="15"></td></tr>
 	 			<tr><td style="font-size:10px;">Email: </td> <td><input style="font-size:10px;  width:200px;"
-	 			type="text" name="gb_email" value="<?=$result->email;?>"></td></tr>
+	 			type="text" name="gb_email" value="<?php echo $result->email;?>"></td></tr>
 	 			<tr><td style="font-size:10px;">Website: </td> <td><input style="font-size:10px;  width:200px;"
-	 			type="text" name="gb_url" value="<?=$result->url;?>"></td></tr>
+	 			type="text" name="gb_url" value="<?php echo $result->url;?>"></td></tr>
 				</table>
 
-	 			<td style="font-size:10px; border:1px solid #eeeeee; background-color:#<?=$bgcolor;?>">
-	 			<form name="edit_form" method="post" action="<?=$location ?>">
+	 			<td style="font-size:10px; border:1px solid #eeeeee; background-color:#<?php echo $bgcolor;?>">
+	 			<form name="edit_form" method="post" action="<?php echo $location ?>">
 	 			<input name="editdata" value="edit" type="hidden" />
-	 			<input name="id" value="<?=$result->id;?>" type="hidden" />
+	 			<input name="id" value="<?php echo $result->id;?>" type="hidden" />
 	 			<input style="font-weight:bold; color:#0000bb; margin:10px 0px;"
 	 			type="submit" value="edit" onclick="return confirm('Would you really to edit this dataset?');">
 	 			</form>
 	 			</td>
 
-	 			<td style="font-size:10px; border:1px solid #eeeeee; background-color:#<?=$bgcolor;?>">
-	 			<form name="delete_form" method="post" action="<?=$location ?>">
+	 			<td style="font-size:10px; border:1px solid #eeeeee; background-color:#<?php echo $bgcolor;?>">
+	 			<form name="delete_form" method="post" action="<?php echo $location ?>">
 	 			<input name="deletedata" value="delete" type="hidden" />
-				<input name="id" value="<?=$result->id;?>" type="hidden" />
+				<input name="id" value="<?php echo $result->id;?>" type="hidden" />
 	 			<input style="font-weight:bold; color:#bb0000; margin:10px 0px;" type="submit"
 	 			value="X" onclick="return confirm('Would you really to delete this dataset?');">
 	 			</form>
 	 			</td></tr>
-<?			}
+<?php			}
 ?>
 		</table>
 		</div>
-<?
+<?php
 	} //--------------------- end of manage guestbook entries ---------------------------
 
 
