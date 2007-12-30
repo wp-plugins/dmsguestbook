@@ -76,7 +76,7 @@ function dmsguestbook_meta_description_option_page() {
     <ul>
     <li>1.) Requirement: Exec-PHP must be activated <a href="http://bluesome.net/post/2005/08/18/50/" target="_blank">[download Exec-PHP]</a></li>
     <li>2.) Create a page where you want to display the DMSGuestbook.</li>
-    <li>3.) Set this code into the page: <b style="color:#0000ee; text-decoration:none;">&lt;? DMSGuestBook(); ?&gt;</b>
+    <li>3.) Set this code into the page: <b style="color:#0000ee; text-decoration:none;">&lt;?php DMSGuestbook(); ?&gt;</b>
     (Code section, not visual, not WYSIWYG) <a href="#" onclick="Example();">Show example</a></li>
     <li>4.) Save the page and set the page id value in the red "Page ID" field under "Basic settings".</li>
     <li>5.) Customize the guestbook to your desire!</li>
