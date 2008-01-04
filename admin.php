@@ -1230,7 +1230,7 @@ function dmsguestbook2_meta_description_option_page() {
 			}
 			else	{
 					echo "Wrong page id or missing <b style='color:#0000ee; text-decoration:none;'>
-					&lt;? DMSGuestBook(); ?&gt;</b> in the guestbook page.";
+					&lt;?php DMSGuestBook(); ?&gt;</b> in the guestbook page.";
 					}
 		}
 
