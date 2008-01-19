@@ -2,9 +2,9 @@
 Contributors: danielschurter
 Donate link: http://danielschurter.net/
 Tags: guestbook, plugin, manage, admin, page
-Requires at least: 2.2
+Requires at least: 2.1
 Tested up to: 2.3
-Stable tag: 1.5.0
+Stable tag: 1.6.0
 
 DMSGuestbook is an easy configurable guestbook with a lot of features.
 
@@ -17,19 +17,18 @@ Features:
 * Simple work on the attitudes over front-end (e.g. text color, guestbook width, border color...)
 * Extended attitude possibility over the css file
 * Preset DMSGuestbook caption text in german, english and swissgerman :-)
+* Make your own language template in few minutes
 * Set mandatory fields where user must be filled out
 * Set text hidden in the DMSGuestbook (e.g. ip address)
 * Captcha antispam (image, mathematically)
 * Manage the DMSGuestbook user entries. (e.g. name, message, url, ip adress)
-* Email notification
 
 Enjoy it :-)
 
 == Installation ==
 Requirement:
 
-* Wordpress 2.2 or above
-* Exec-PHP (http://bluesome.net/post/2005/08/18/50/)
+* Wordpress 2.1 or above
 
 1. Download the dmsguestbook.zip
 2. Unpack the file and copy the whole dmsguestbook folder to the wordpress plugins folder.
@@ -42,12 +41,13 @@ Requirement:
 
 == Screenshots ==
 1. Screenshot Admin the DMSGuestbook
-2. Screenshot Manage the guestbook entries
+2. Screenshot Basic settings
+3. Screenshot Advanced settings
 
 == Credits ==
 
 Author: Daniel Schurter<br />
-Email: DMSGuestbook@danielschurter.net<br />
+Email: DMSGuestbook@DanielSchurter.net<br />
 Url: http://DanielSchurter.net<br />
 
 DMSGuestbook is released under the GNU General Public License
@@ -59,3 +59,6 @@ See the GNU General Public License for more details.
 
 Thanks to NoGray for the fine color picker, i like it!<br />
 URL: http://www.nogray.com
+
+Icons by Umut Pulat: http://12m3.deviantart.com/<br />
+http://www.iconarchive.com/category/system/tulliana-2-icons-by-umut-pulat.html
