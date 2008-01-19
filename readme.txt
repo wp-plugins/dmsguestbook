@@ -42,7 +42,7 @@ Requirement:
 == Screenshots ==
 1. Screenshot Database settings
 2. Screenshot Basic settings
-3. Screenshot Advanced settings
+2. Screenshot Advanced settings
 
 == Credits ==
 
