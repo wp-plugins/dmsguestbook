@@ -40,9 +40,7 @@ Requirement:
 = http://danielschurter.net/dmsguestbook/faq.php =
 
 == Screenshots ==
-1. Screenshot Database settings
-2. Screenshot Basic settings
-3. Screenshot Advanced settings
+http://DanielSchurter.net/dmsguestbook/screenshots
 
 == Credits ==
 
