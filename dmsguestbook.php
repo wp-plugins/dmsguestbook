@@ -377,7 +377,9 @@ echo "<div style='$guestbook_font_color'>"; }
 		$message_text=str_replace("\n", " <br /> ", $message_text);
 
 		// smilies
+		if(get_option('use_smilies')==1) {
 		$message_text=preg_replace($wp_smiliessearch, $wp_smiliesreplace, $message_text);
+		}
 
 	echo "<div style='$guestbook_message_body'>$message_text</div>";
 	echo "</div>";
