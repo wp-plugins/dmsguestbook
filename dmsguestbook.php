@@ -35,8 +35,8 @@ $gb_require_email		= $options[13];
 $gb_require_url			= $options[14];
 $gb_require_antispam	= $options[15];
 $gb_show_ip				= $options[16];
-$gb_show_url			= $options[17];
-$gb_show_email			= $options[18];
+$gb_show_email			= $options[17];
+$gb_show_url			= $options[18];
 // captcha image text color will be set later
 $gb_dateformat			= $options[20];
 $gb_setlocale			= $options[21];
