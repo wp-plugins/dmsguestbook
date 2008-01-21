@@ -80,6 +80,76 @@ $gb_message_error	=	html_entity_decode($language[10], ENT_QUOTES);
 $gb_antispam_error	=	html_entity_decode($language[11], ENT_QUOTES);
 $gb_success			=	html_entity_decode($language[12], ENT_QUOTES);
 
+
+// windows systems
+$guestbook_font_color=str_replace("\r\n", "", $guestbook_font_color);
+$guestbook_position=str_replace("\r\n", "", $guestbook_position);
+$namefield=str_replace("\r\n", "", $namefield);
+$emailfield=str_replace("\r\n", "", $emailfield);
+$urlfield=str_replace("\r\n", "", $urlfield);
+$textfieldspace=str_replace("\r\n", "", $textfieldspace);
+$messagefield=str_replace("\r\n", "", $messagefield);
+$antispamtext=str_replace("\r\n", "", $antispamtext);
+$antispamcontent=str_replace("\r\n", "", $antispamcontent);
+$antispamcontent_position=str_replace("\r\n", "", $antispamcontent_position);
+$antispam_inputfield=str_replace("\r\n", "", $antispam_inputfield);
+$submit_position=str_replace("\r\n", "", $submit_position);
+$submit=str_replace("\r\n", "", $submit);
+$errormessage=str_replace("\r\n", "", $errormessage);
+$successmessage=str_replace("\r\n", "", $successmessage);
+$guestbookform_link=str_replace("\r\n", "", $guestbookform_link);
+$navigation_overview=str_replace("\r\n", "", $navigation_overview);
+$navigation_totalcount=str_replace("\r\n", "", $navigation_totalcount);
+$navigation_select=str_replace("\r\n", "", $navigation_select);
+$navigation_notselect=str_replace("\r\n", "", $navigation_notselect);
+$navigation_char=str_replace("\r\n", "", $navigation_char);
+$navigation_char_position=str_replace("\r\n", "", $navigation_char_position);
+$guestbook_message_nr_name=str_replace("\r\n", "", $guestbook_message_nr_name);
+$guestbook_message_email=str_replace("\r\n", "", $guestbook_message_email);
+$guestbook_message_url=str_replace("\r\n", "", $guestbook_message_url);
+$guestbook_message_date_ip=str_replace("\r\n", "", $guestbook_message_date_ip);
+$guestbook_email=str_replace("\r\n", "", $guestbook_email);
+$guestbook_url=str_replace("\r\n", "", $guestbook_url);
+$guestbook_message_hairline=str_replace("\r\n", "", $guestbook_message_hairline);
+$guestbook_message_body=str_replace("\r\n", "", $guestbook_message_body);
+$embedded1=str_replace("\r\n", "", $embedded1);
+$embedded2=str_replace("\r\n", "", $embedded2);
+
+// unix systems
+$guestbook_font_color=str_replace("\n", "", $guestbook_font_color);
+$guestbook_position=str_replace("\n", "", $guestbook_position);
+$namefield=str_replace("\n", "", $namefield);
+$emailfield=str_replace("\n", "", $emailfield);
+$urlfield=str_replace("\n", "", $urlfield);
+$textfieldspace=str_replace("\n", "", $textfieldspace);
+$messagefield=str_replace("\n", "", $messagefield);
+$antispamtext=str_replace("\n", "", $antispamtext);
+$antispamcontent=str_replace("\n", "", $antispamcontent);
+$antispamcontent_position=str_replace("\n", "", $antispamcontent_position);
+$antispam_inputfield=str_replace("\n", "", $antispam_inputfield);
+$submit_position=str_replace("\n", "", $submit_position);
+$submit=str_replace("\n", "", $submit);
+$errormessage=str_replace("\n", "", $errormessage);
+$successmessage=str_replace("\n", "", $successmessage);
+$guestbookform_link=str_replace("\n", "", $guestbookform_link);
+$navigation_overview=str_replace("\n", "", $navigation_overview);
+$navigation_totalcount=str_replace("\n", "", $navigation_totalcount);
+$navigation_select=str_replace("\n", "", $navigation_select);
+$navigation_notselect=str_replace("\n", "", $navigation_notselect);
+$navigation_char=str_replace("\n", "", $navigation_char);
+$navigation_char_position=str_replace("\n", "", $navigation_char_position);
+$guestbook_message_nr_name=str_replace("\n", "", $guestbook_message_nr_name);
+$guestbook_message_email=str_replace("\n", "", $guestbook_message_email);
+$guestbook_message_url=str_replace("\n", "", $guestbook_message_url);
+$guestbook_message_date_ip=str_replace("\n", "", $guestbook_message_date_ip);
+$guestbook_email=str_replace("\n", "", $guestbook_email);
+$guestbook_url=str_replace("\n", "", $guestbook_url);
+$guestbook_message_hairline=str_replace("\n", "", $guestbook_message_hairline);
+$guestbook_message_body=str_replace("\n", "", $guestbook_message_body);
+$embedded1=str_replace("\n", "", $embedded1);
+$embedded2=str_replace("\n", "", $embedded2);
+############################################################################################
+
 	// reset captcha text / mathematics text color
 	unset($_SESSION[gb_captcha_color]);
 	$_SESSION[gb_captcha_color] = $options[19];
