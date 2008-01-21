@@ -295,7 +295,7 @@ echo "<div style='$guestbook_font_color'>"; }
 		// show email icon
 		if($gb_show_email==1 && $dbresult->email != "") {
 					# convert to ascii, better spam protection
-					unset($ascii_email);
+					unset($ascii_email, $ascii_email_array);
 					for($p=0; $p<strlen($dbresult->email); $p++) {
 					$ascii_email_array[]=ord($dbresult->email[$p]);
 					$ascii_email .= "&#" . $ascii_email_array[$p] . ";";
