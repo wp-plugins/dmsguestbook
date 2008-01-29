@@ -1,4 +1,4 @@
-/* Thanks to Manuel Gualda Caballero */
+/* Thanks to Manuel Gualda Caballero *** manuel@utopiaverde.org */
 
 <name>Nombre</name>
 <email>Correo</email>
