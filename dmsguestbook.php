@@ -377,7 +377,7 @@ echo "<div style='$guestbook_font_color'>"; }
 		// show url icon
 		if($gb_show_url==1 && $dbresult->url != "http://") {
 					# convert to ascii, better spam protection
-					unset($ascii_url);
+					unset($ascii_url, $ascii_url_array);
 					for($p=0; $p<strlen($dbresult->url); $p++) {
 					$ascii_url_array[]=ord($dbresult->url[$p]);
 					$ascii_url .= "&#" . $ascii_url_array[$p] . ";";
