@@ -128,7 +128,9 @@ function widget_dmsguestbook($args) {
 			if($showname==0) {
 			} else {echo $namecss1 . $result->name . $namecss2 ."<br />";}
 			if($wordcut!=0) {
-			echo $messagecss1 . substr($result->message, 0, $wordcut) . $messagecss2 . "..." ."<br /><br />";
+			$message = str_replace("[html]", "", $result->message);
+			$message = str_replace("[/html]", "", $message);
+			echo $messagecss1 . substr(strip_tags($message), 0, $wordcut) . $messagecss2 . "..." ."<br /><br />";
 			} else {echo $messagecss1 . $result->message . $messagecss2 . "<br /><br />";}
 		}
 		echo $frame2;
