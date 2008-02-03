@@ -4,7 +4,7 @@ Donate link: http://danielschurter.net/
 Tags: guestbook, plugin, manage, admin, page
 Requires at least: 2.1
 Tested up to: 2.3
-Stable tag: 1.7.0
+Stable tag: 1.8.0
 
 DMSGuestbook is an easy configurable guestbook with a lot of features.
 
@@ -22,6 +22,8 @@ Features:
 * Set text hidden in the DMSGuestbook (e.g. ip address)
 * Captcha antispam (image, mathematically)
 * Manage the DMSGuestbook user entries. (e.g. name, message, url, ip adress)
+* Sidebar widget
+* Administrator can review posts before shown this
 
 Enjoy it :-)
 
