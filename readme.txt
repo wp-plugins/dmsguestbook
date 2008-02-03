@@ -22,6 +22,8 @@ Features:
 * Set text hidden in the DMSGuestbook (e.g. ip address)
 * Captcha antispam (image, mathematically)
 * Manage the DMSGuestbook user entries. (e.g. name, message, url, ip adress)
+* Sidebar widget
+* Administrator can review posts before shown this
 
 Enjoy it :-)
 
