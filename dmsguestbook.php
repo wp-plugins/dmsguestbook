@@ -252,12 +252,12 @@ echo "<div style='$guestbook_font_color'>"; }
 
 						// success text
 						$success = "$gb_success<br />";
-						
+
 						// if admin review (flag=1)
 						if($gb_admin_review==1) {$success.="$gb_admin_review_text<br />";}
-						
+
 						if($gb_formpos=="bottom") {echo "<div style='$successmessage'>$success</div>"; }
-						
+
 						// send mail
 						if($gb_send_mail==1) {
 							send_email($gb_mail_adress, $nname, $_REQUEST[gbemail], $newurl, $ip, $mmu);
@@ -571,9 +571,11 @@ echo "<div style='$guestbook_font_color'>"; }
 		$abspath = str_replace("\\","/", ABSPATH);
 		$handle = fopen ($abspath . "wp-content/plugins/dmsguestbook/language/" . $gb_language, "r");
 		unset($stringtext);
-			while (!feof($handle)) {
-    		$buffer = fgets($handle, 4096);
-			$stringtext=$stringtext . $buffer;
+			if($handle) {
+				while (!feof($handle)) {
+    			$buffer = fgets($handle, 4096);
+				$stringtext=$stringtext . $buffer;
+				}
 			}
 		fclose($handle);
 
