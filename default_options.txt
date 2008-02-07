@@ -1,0 +1,39 @@
+####################################################
+Failback default option data if DMSGuestbook havn't create this.
+
+1.) Create in wp_option a new row "DMSGuestbook_options" (if isn't exist)
+2.) Copy the code below in "wp_options -> DMSGuestbook_options -> option_value" field
+
+####################################################
+
+<step>10</step>										/* step (how many guestbook post will be shown) */
+<page_id>-</page_id>								/* guestbook page id */
+<width1>100</width1>								/* guestbook width */
+<width2>35</width2>									/* separator width */
+<position>0</position>								/* dmsguestbook position */
+<hairlinecolor>EEEEEE</hairlinecolor>				/* hairline color (separator) */
+<bordercolor1>AAAAAA</bordercolor1>					/* outside border color */
+<bordercolor2>DEDEDE</bordercolor2>					/* textfield border color */
+<navigationcolor>000000</navigationcolor>			/* navigation char color*/
+<fontcolor1>000000</fontcolor1>						/* font color */
+<forwardarrowchar>&gt;</forwardarrowchar>			/* forward char */
+<backwardarrowchar>&lt;</backwardarrowchar>			/* backward char */
+<arrowsize>20</arrowsize>							/* forward / backward char size */
+<require_email>0</require_email>					/* require email */
+<require_url>0</require_url>						/* require url */
+<require_antispam>1</require_antispam>				/* require antispam */
+<show_ip>0</show_ip>								/* show ip */
+<show_url>1</show_url>								/* show url */
+<show_email>1</show_email>							/* show email */
+<captcha_color>000000</captcha_color>				/* captcha color */
+<dateformat>%a, %e %B %Y %H:%M:%S %z</dateformat>	/* date format */
+<setlocale>en_EN</setlocale>						/* setlocale */
+<offset>0</offset>									/* date offset */
+<formpos>top</formpos>								/* input form position */
+<formposlink>-</formposlink>						/* input form link if is set formpos = bottom */
+<send_mail>0</send_mail>							/* send notification mail */
+<mail_adress>name@example.com</mail_adress>			/* send notification mail to this adress */
+<sortitem>DESC</sortitem>							/* each guestbook post sort by */
+<dbid>0</dbid>										/* show database id instead continous number */
+<language>english.txt</language>					/* language */
+<admin_review>0</admin_review>						/* admin must review every post before this can display on page */
