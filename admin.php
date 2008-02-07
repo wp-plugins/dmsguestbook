@@ -666,8 +666,23 @@ if($_REQUEST[advanced]==1)
 		}
 
 if($_REQUEST[file]!="") {
-	$handle = fopen ($abspath . "wp-content/plugins/dmsguestbook/" . $_REQUEST[folder] . $_REQUEST[file], "r");
-	if(is_writable($abspath . "wp-content/plugins/dmsguestbook/" . $_REQUEST[folder] . $_REQUEST[file])) {
+
+	clearstatcache();
+	/* check the folder variable */
+	if($_REQUEST[folder]=="language/"){
+	$folder="language/";
+	} else {$folder="";}
+
+	/* check the file variable */
+	if(preg_match('/^[a-z0-9]+\.+[a-z]/i', "$_REQUEST[file]")==1) {
+	$file=$_REQUEST[file];
+		if (file_exists($abspath . "wp-content/plugins/dmsguestbook/" . $folder . $file)) {
+		$valid_file=1;
+		} else {$folder=""; $file="FILENOTFOUND"; echo "<br /><b>File not found</b>";}
+	} else {$folder=""; $file="FILENOTFOUND"; echo "<br /><b>File not found</b>";}
+
+	$handle = @fopen ($abspath . "wp-content/plugins/dmsguestbook/" . $folder . $file, "r");
+	if(is_writable($abspath . "wp-content/plugins/dmsguestbook/" . $folder . $file)) {
 	echo "<br />$_REQUEST[file] <font style='color:#00bb00;'>is writable!</font><br />Set $file readonly again when your finished to customize!";
 	$save_advanced_button = "<input style='font-weight:bold; margin:10px 0px; width:250px;' type='submit' value='save' />";
 	}
@@ -677,15 +692,15 @@ if($_REQUEST[file]!="") {
 	     	}
 	     }
 
-	while (!feof($handle)) {
-    	$buffer .= fgets($handle, 4096);
-	}
+	if ($valid_file==1) {
+		while (!feof($handle)) {
+    		$buffer .= fgets($handle, 4096);
+		}
 	fclose ($handle);
+	}
 }
 
 	$showfiledata = htmlentities($buffer, ENT_QUOTES);
-	//$showfiledata = str_replace("&lt;", "<", $showfiledata);
-	//$showfiledata = str_replace("&gt;", ">", $showfiledata);
 
 ?>
 	<br />
@@ -734,7 +749,7 @@ if($_REQUEST[file]!="") {
 		}
 
 		$save_to_db = str_replace("\"", "&amp;quot;", $save_to_db);
-		update_option("DMSGuestbook_options", $save_to_db);
+		update_option("DMSGuestbook_options", mysql_real_escape_string($save_to_db));
 		message("<b>saved...</b>",200,800);
 	}
 	/* end of write DMSGuestbook option in wordpress options database */
@@ -750,13 +765,27 @@ if($_REQUEST[file]!="") {
 	/* save advanced */
 	if ('save_advanced_data' == $POSTVARIABLE['action3']) {
 	$abspath = str_replace("\\","/", ABSPATH);
-	$handle = fopen($abspath . "wp-content/plugins/dmsguestbook/" . $POSTVARIABLE['folder'] . $POSTVARIABLE['file'], "w");
 
-	$writetofile = str_replace("\\", "", $POSTVARIABLE['advanced_data']);
+	/* check the folder variable */
+	if($POSTVARIABLE['folder']=="language/"){
+	$folder="language/";
+	} else {$folder="";}
 
-	fwrite($handle, $writetofile);
-	fclose($handle);
-	message("<b>saved...</b>",200,800);
+	/* check the file variable */
+	if(preg_match('/^[a-z0-9]+\.+[a-z]/i', $POSTVARIABLE['file'])==1) {
+	$file=$POSTVARIABLE['file'];
+	} else {$folder=""; $file="FILENOTFOUND";}
+
+		clearstatcache();
+		if (file_exists($abspath . "wp-content/plugins/dmsguestbook/" . $folder . $file)) {
+		$handle = fopen($abspath . "wp-content/plugins/dmsguestbook/" . $folder . $file, "w");
+
+		$writetofile = str_replace("\\", "", $POSTVARIABLE['advanced_data']);
+
+		fwrite($handle, $writetofile);
+		fclose($handle);
+		message("<b>saved...</b>",200,800);
+		} else {message("<br /><b>File not found</b>",200,800);}
 	}
 
 
