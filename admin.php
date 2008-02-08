@@ -123,7 +123,7 @@ function dmsguestbook_meta_description_option_page() {
 	  	message longtext NOT NULL,
 	  	flag int(2) NOT NULL,
 	  	UNIQUE KEY id (id)
-	  	) " . mysql_real_escape_string($_REQUEST[collate]) . ")");
+	  	)" . mysql_real_escape_string($_REQUEST[collate]) . "");
 	  	$abspath = str_replace("\\","/", ABSPATH);
 	  	require_once($abspath . 'wp-admin/upgrade-functions.php');
 	  	dbDelta($sql);
