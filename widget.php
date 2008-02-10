@@ -2,7 +2,7 @@
 /*
 Plugin Name: DMSGuestbook widget
 Plugin URI: http://DanielSchurter.net
-Description: Adds a DMSGuestbook widget to your sidebar.
+Description: Add a DMSGuestbook widget to your sidebar.
 Author: Daniel M. Schurter
 Version: 1.2
 Author URI: http://DanielSchurter.net
