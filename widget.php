@@ -156,7 +156,7 @@ function widget_dmsguestbook($args) {
 			$message = str_replace("[/html]", "", $message);
 
 			if($wordcut!=0) {
-			echo $messagecss13 . substr(str_replace("\\","",stripslashes($message)), 0, $wordcut) . $messagecss2 . "..." ."<br /><br />";
+			echo $messagecss13 . substr(str_replace("\\","",stripslashes(strip_tags($message))), 0, $wordcut) . $messagecss2 . "..." ."<br /><br />";
 			} else {echo $messagecss13 . strip_tags(str_replace("\\","",$message)) . $messagecss2 . "<br /><br />";}
 		}
 		echo $frame2;
