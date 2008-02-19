@@ -222,7 +222,7 @@ echo "<div style='$guestbook_font_color'>"; }
 
 
 				/* remove all invalid chars from url field */
-				$_REQUEST[gburl] = preg_replace("/[^a-z-0-9-_,.?&%=\/]+/i", "", $_REQUEST[gburl]);
+				$_REQUEST[gburl] = preg_replace("/[^a-z-0-9-_,.:?&%=\/]+/i", "", $_REQUEST[gburl]);
 				// check url adress were is valid
 				if(strlen($_REQUEST[gburl])>=1 || $gb_require_url == 1)
 				{
