@@ -534,14 +534,14 @@ echo "<div style='$guestbook_font_color'>"; }
 	<div style="<?php echo $successmessage;?>"><?php echo $success;?></div>
 	<br />
 
-	<?php 
+	<?php
 	#Form
-	if(strlen($gb_url_overrule)>4) { 
-	echo "<form action='$gb_url_overrule' method='post'>";
+	if(strlen($gb_url_overrule)>4) {
+	echo "<form action=\"$gb_url_overrule\" method=\"post\">";
 	}
 	else {
 	     //echo "<form action=" . $url . "/?page_id=" . $gb_page_id . " method='post'>";
-	     echo "<form action=" . get_permalink($gb_page_id) . " method='post'>";
+	     echo "<form action=" . "\"" . get_permalink($gb_page_id) . "\"" . " method=\"post\">";
 	     }
 	?>
 
