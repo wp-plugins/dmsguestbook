@@ -4,7 +4,7 @@ Donate link: http://danielschurter.net/
 Tags: guestbook, plugin, manage, admin, page, sidebar, widget
 Requires at least: 2.1
 Tested up to: 2.5
-Stable tag: 1.9.1
+Stable tag: 1.10.0
 
 DMSGuestbook is an easy configurable guestbook with a lot of features.
 
@@ -24,6 +24,7 @@ Features:
 * Manage the DMSGuestbook user entries. (e.g. name, message, url, ip adress)
 * Sidebar widget
 * Administrator can review posts before shown this
+* Create your own guestbook template (new in 1.10.0)
 
 Enjoy it :-)
 
@@ -62,3 +63,5 @@ URL: http://www.nogray.com
 
 Icons by Umut Pulat: http://12m3.deviantart.com/<br />
 http://www.iconarchive.com/category/system/tulliana-2-icons-by-umut-pulat.html
+
+dbx boxes: http://www.brothercake.com/site/resources/scripts/dbx/
