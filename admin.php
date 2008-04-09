@@ -109,7 +109,7 @@ function dmsguestbook_meta_description_option_page() {
     <li>1.) Create a page where you want to display the DMSGuestbook.</li>
     <li>2.) Save the page and set the page id number value in the red "Page ID" field under "Guestbook settings" -> "Basic" .</li>
     <li>3.) Customize the guestbook to your desire!</li>
-    <li>Update from an exist DMSGuestbook: Goto "Database settings" and remove all "DMSGuestbook options" and then create this new one. 
+    <li><b>Update from an exist DMSGuestbook: Goto "Database settings" and remove all "DMSGuestbook options" and then create this new one.</b>
     </ul>
 	<br />
 
