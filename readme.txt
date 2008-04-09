@@ -24,7 +24,8 @@ Features:
 * Manage the DMSGuestbook user entries. (e.g. name, message, url, ip adress)
 * Sidebar widget
 * Administrator can review posts before shown this
-* Create your own guestbook template (new in 1.10.0)
+* Create your own guestbook template (beta)
+* Administrator can search entries in guestbook (beta)
 
 Enjoy it :-)
 
