@@ -42,10 +42,11 @@ $var_language			= $options["language"];
 $var_email_image_path	= $options["email_image_path"];
 $var_website_image_path	= $options["website_image_path"];
 $var_admin_review		= $options["admin_review"];
-$var_url_overrule		= $options["url_overrule"];
+$var_url_overruled		= $options["url_overruled"];
 $var_mandatory_char		= html_entity_decode($options["mandatory_char"], ENT_QUOTES);
 $var_form_template		= $options["form_template"];
 $var_post_template		= $options["post_template"];
+
 
 
 // global var
@@ -230,7 +231,7 @@ echo "<div class='css_guestbook_font_color'>"; }
 
 	// if guestbook form is on top the side
 	if ($var_formpos =="top") {
-	input_form($error1, $error2, $error3, $error4, $error5,$success, $url, $var_page_id, $lang_name, $lang_email, $var_require_email, $lang_url, $var_require_url, $lang_message, $submitid, $lang_require, $var_require_antispam, $lang_antispam, $lang_submit, $var_url_overrule,$var_mandatory_char, $var_form_template);
+	input_form($error1, $error2, $error3, $error4, $error5,$success, $url, $var_page_id, $lang_name, $lang_email, $var_require_email, $lang_url, $var_require_url, $lang_message, $submitid, $lang_require, $var_require_antispam, $lang_antispam, $lang_submit, $var_url_overruled,$var_mandatory_char, $var_form_template);
 	}
 	else {
 	     echo "<a class='css_form_link' href='#guestbookform'>$var_formposlink</a>";
@@ -422,7 +423,7 @@ echo "<div class='css_guestbook_font_color'>"; }
 	// if guestbook form is on bottom the side
 	if ($var_formpos =="bottom") {
 	echo "<a name='guestbookform' class='css_form_link'></a>";
-	input_form($error1, $error2, $error3, $error4, $error5,$success, $url, $var_page_id, $lang_name, $lang_email, $var_require_email, $lang_url, $var_require_url, $lang_message, $submitid, $lang_require, $var_require_antispam, $lang_antispam, $lang_submit, $var_url_overrule,$var_mandatory_char, $var_form_template);
+	input_form($error1, $error2, $error3, $error4, $error5,$success, $url, $var_page_id, $lang_name, $lang_email, $var_require_email, $lang_url, $var_require_url, $lang_message, $submitid, $lang_require, $var_require_antispam, $lang_antispam, $lang_submit, $var_url_overruled,$var_mandatory_char, $var_form_template);
 	}
 ?>
 	</div>
@@ -432,7 +433,7 @@ echo "<div class='css_guestbook_font_color'>"; }
 
 
 <?php
-function input_form($error1, $error2, $error3, $error4, $error5,$success, $url, $var_page_id, $lang_name, $lang_email, $var_require_email, $lang_url, $var_require_url, $lang_message, $submitid, $lang_require, $var_require_antispam, $lang_antispam, $lang_submit, $var_url_overrule, $var_mandatory_char, $var_form_template) {
+function input_form($error1, $error2, $error3, $error4, $error5,$success, $url, $var_page_id, $lang_name, $lang_email, $var_require_email, $lang_url, $var_require_url, $lang_message, $submitid, $lang_require, $var_require_antispam, $lang_antispam, $lang_submit, $var_url_overruled, $var_mandatory_char, $var_form_template) {
 
 	$captcha1 = captcha1($url);
 	$captcha2 = captcha2();
@@ -452,8 +453,9 @@ function input_form($error1, $error2, $error3, $error4, $error5,$success, $url, 
 	echo $var_form1;
 
 	#Form
-	if(strlen($var_url_overrule)>4) {
-	echo "<form action=\"$var_url_overrule\" method=\"post\">";
+	
+	if(strlen($var_url_overruled)>4) {
+	echo "<form action=\"$var_url_overruled\" method=\"post\">";
 	}
 	else {
 	     echo "<form action=" . "\"" . get_permalink($var_page_id) . "\"" . " method=\"post\">";
