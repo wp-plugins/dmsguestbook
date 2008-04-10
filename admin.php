@@ -688,7 +688,7 @@ while (list($key, $val) = each($options)) {
 		$value = $options["mandatory_char"];
 		$char_lenght = 1;
 		$additional = "";
-		$style = "width:15px;";
+		$style = "width:20px;";
 		$tooltip = "Mandatory char were to display on guestbook input form";
 		$return_mandatory_char = OneInput($key, $label, $entries, $value, $char_lenght, $additional, $style, $tooltip);
 	}
@@ -773,7 +773,6 @@ while (list($key, $val) = each($options)) {
 		$label = "URL overrule:";
 		$entries = 0;
 		$value = $options["url_overruled"];
-		$char_lenght = 1;
 		$additional = "";
 		$style = "width:200px;";
 		$tooltip = "You can overrule this link if you have trouble with the guestbook form submit.<br /><br />Examples:<br />$url/?p=$options[page_id]<br />$url/$options[page_id]/<br />$url/YourGuestBookName";
@@ -1113,7 +1112,27 @@ if($_REQUEST[file]!="") {
 					$save_to_db.="<" . $key . ">" . htmlentities($css_customize, ENT_QUOTES) . "</" . $key . ">\r\n";
 				}
 				else {
-				     $save_to_db.="<" . $key . ">" . htmlentities($POSTVARIABLE[$key], ENT_QUOTES) . "</" . $key . ">\r\n";
+						if($key == "page_id") {
+							$save_to_db.="<" . $key . ">" . sprintf("%d",$POSTVARIABLE[$key]) . "</" . $key . ">\r\n";
+							}
+						elseif ($key == "width1") {
+							$save_to_db.="<" . $key . ">" . sprintf("%d",$POSTVARIABLE[$key]) . "</" . $key . ">\r\n";
+							}
+						elseif ($key == "width2") {
+							$save_to_db.="<" . $key . ">" . sprintf("%d",$POSTVARIABLE[$key]) . "</" . $key . ">\r\n";
+							}
+						elseif ($key == "position1") {
+							$save_to_db.="<" . $key . ">" . sprintf("%d",$POSTVARIABLE[$key]) . "</" . $key . ">\r\n";
+							}
+						elseif ($key == "position2") {
+							$save_to_db.="<" . $key . ">" . sprintf("%d",$POSTVARIABLE[$key]) . "</" . $key . ">\r\n";
+							}
+						elseif ($key == "navigationsize") {
+							$save_to_db.="<" . $key . ">" . sprintf("%d",$POSTVARIABLE[$key]) . "</" . $key . ">\r\n";
+							}
+						else {
+				     		$save_to_db.="<" . $key . ">" . htmlentities($POSTVARIABLE[$key], ENT_QUOTES) . "</" . $key . ">\r\n";
+				     		}
 				     }
 		}
 
@@ -1872,19 +1891,40 @@ return $options;
 			/* cut invalid char XSS prevent */
 				/* url overruled, need / */
 				if($key=="url_overruled") {
-						$opt["$key"] = preg_replace("/[^a-z-0-9-_,.:?&%=\/]+/i", "", $part2[0]);
+						$opt["$key"] = preg_replace("/[^a-z-0-9-_,.:?&%=\/]+/i", "", html_entity_decode($part2[0]), ENT_QUOTES);
 				}
 				elseif($key=="email_image_path") {
-						$opt["$key"] = preg_replace("/[^a-z-0-9-_,.:?&%=\/]+/i", "", $part2[0]);
+						$opt["$key"] = preg_replace("/[^a-z-0-9-_,.:?&%=\/]+/i", "", html_entity_decode($part2[0]), ENT_QUOTES);
 				}
 				elseif($key=="website_image_path") {
-						$opt["$key"] = preg_replace("/[^a-z-0-9-_,.:?&%=\/]+/i", "", $part2[0]);
+						$opt["$key"] = preg_replace("/[^a-z-0-9-_,.:?&%=\/]+/i", "", html_entity_decode($part2[0]), ENT_QUOTES);
 				}
 				elseif($key=="css") {
-					   $opt["$key"] = preg_replace("/[\<\>\"\'\`\´]+/i", "", $part2[0]);
+					   $opt["$key"] = preg_replace("/[\<\>\"\'\`\´]+/i", "", html_entity_decode($part2[0]), ENT_QUOTES);
 						}
 				elseif($key=="css_customize") {
-					   $opt["$key"] = preg_replace("/[\<\>\"\'\`\´]+/i", "", $part2[0]);
+					   $opt["$key"] = preg_replace("/[\<\>\"\'\`\´]+/i", "", html_entity_decode($part2[0]), ENT_QUOTES);
+					   }
+				elseif($key=="formposlink") {
+					   $opt["$key"] = preg_replace("/[\"\'\`\´\/\\\\]/i", "", html_entity_decode($part2[0], ENT_QUOTES));
+					   }
+				elseif($key=="forwardchar") {
+					   $opt["$key"] = preg_replace("/[\"\'\`\´\/\\\\]/i", "", html_entity_decode($part2[0], ENT_QUOTES));
+					   }
+				elseif($key=="backwardchar") {
+					   $opt["$key"] = preg_replace("/[\"\'\`\´\/\\\\]/i", "", html_entity_decode($part2[0], ENT_QUOTES));
+					   }
+				elseif($key=="dateformat") {
+					   $opt["$key"] = preg_replace("/[\"\'\`\´\/\\\\]/i", "", html_entity_decode($part2[0], ENT_QUOTES));
+					   }
+				elseif($key=="setlocale") {
+					   $opt["$key"] = preg_replace("/[\"\'\`\´\/\\\\]/i", "", html_entity_decode($part2[0], ENT_QUOTES));
+					   }
+				elseif($key=="mail_adress") {
+					   $opt["$key"] = preg_replace("/[\"\'\`\´\/\\\\]/i", "", html_entity_decode($part2[0], ENT_QUOTES));
+					   }
+				elseif($key=="mandatory_char") {
+					   $opt["$key"] = preg_replace("/[\"\'\`\´\/\\\\]/i", "", html_entity_decode($part2[0], ENT_QUOTES));
 					   }
 						else {
 					 		 $opt["$key"] = preg_replace("/[\"\'\`\´\/\\\\]/i", "", $part2[0]);

@@ -20,8 +20,8 @@ See the GNU General Public License for more details.
 /* collect some variables */
 $var_step 				= $options["step"];
 $var_page_id 			= $options["page_id"];
-$var_forwardchar			= $options["forwardchar"];
-$var_backwardchar		= $options["backwardchar"];
+$var_forwardchar			= html_entity_decode($options["forwardchar"], ENT_QUOTES);
+$var_backwardchar		= html_entity_decode($options["backwardchar"], ENT_QUOTES);
 $var_require_email		= $options["require_email"];
 $var_require_url			= $options["require_url"];
 $var_require_antispam	= $options["require_antispam"];
@@ -33,7 +33,7 @@ $var_dateformat			= $options["dateformat"];
 $var_setlocale			= $options["setlocale"];
 $var_offset				= $options["offset"];
 $var_formpos				= $options["formpos"];
-$var_formposlink			= $options["formposlink"];
+$var_formposlink			= html_entity_decode($options["formposlink"], ENT_QUOTES);
 $var_send_mail			= $options["send_mail"];
 $var_mail_adress			= $options["mail_adress"];
 $var_sortitem			= $options["sortitem"];
@@ -43,7 +43,7 @@ $var_email_image_path	= $options["email_image_path"];
 $var_website_image_path	= $options["website_image_path"];
 $var_admin_review		= $options["admin_review"];
 $var_url_overrule		= $options["url_overrule"];
-$var_mandatory_char		= $options["mandatory_char"];
+$var_mandatory_char		= html_entity_decode($options["mandatory_char"], ENT_QUOTES);
 $var_form_template		= $options["form_template"];
 $var_post_template		= $options["post_template"];
 
@@ -220,9 +220,9 @@ echo "<div class='css_guestbook_font_color'>"; }
 						unset($_REQUEST[gburl]);
 						unset($_REQUEST[gbmsg]);
 					}
-					
+
 	}				if($var_formpos=="bottom") {echo "<a class='css_form_errormessage' href='#guestbookform'>$error1 $error2 $error3 $error4 $error5</a><br /><br />";}
-	
+
 
 }
 
