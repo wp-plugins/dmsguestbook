@@ -1,6 +1,6 @@
 <?php
 if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You are not allowed to call this page directly.'); }
-##################################################################
+#################################################################
 /*
 Author: Daniel Schurter
 Email: DMSGuestbook@danielschurter.net
@@ -13,7 +13,7 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 See the GNU General Public License for more details.
 */
-##################################################################
+#################################################################
 
 @session_start();
 
