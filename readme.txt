@@ -4,7 +4,7 @@ Donate link: http://danielschurter.net/
 Tags: guestbook, plugin, manage, admin, page, sidebar, widget
 Requires at least: 2.1
 Tested up to: 2.5
-Stable tag: 1.10.0
+Stable tag: 1.11.0
 
 DMSGuestbook is an easy configurable guestbook with a lot of features.
 
@@ -26,6 +26,7 @@ Features:
 * Administrator can review posts before shown this
 * Create your own guestbook template (beta)
 * Administrator can search entries in guestbook (beta)
+* Gravatar function
 
 Enjoy it :-)
 
@@ -42,6 +43,9 @@ Requirement:
 == Frequently Asked Questions ==
 = DMSGuestbook FAQ: =
 = http://danielschurter.net/dmsguestbook/faq.php =
+
+= Language template: =
+= http://danielschurter.net/dmsguestbook/language/index.html =
 
 == Screenshots ==
 http://DanielSchurter.net/dmsguestbook/screenshots
