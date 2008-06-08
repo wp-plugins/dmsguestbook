@@ -122,8 +122,9 @@ function dmsguestbook_meta_description_option_page() {
   			<input name='action' value='fix_update' type='hidden' />
   			<input name='fixed' value='$fixed_update' type='hidden' />
   			<input style='font-weight:bold; margin:10px 0px; width:250px;' type='submit' value='Update options database' />
-			</form>";
+			</form>";		
 	missing_options();
+	unset($_SESSION["missing_options"]);
 	}
 
 	/* save the fixed options */
