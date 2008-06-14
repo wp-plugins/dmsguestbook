@@ -274,6 +274,7 @@ echo "<div class='css_guestbook_font_color'>"; }
 
 	$next=$from+$var_step;
 	$back=$from-$var_step;
+	
 ?>
 	<div class="css_navigation_totalcount">(<?php echo $num_rows1;?>)</div>
 	<div class="css_navigation_overview">
@@ -316,7 +317,7 @@ echo "<div class='css_guestbook_font_color'>"; }
 		$itemnr=($from++)+1;
 		}
 	if($var_sortitem=="DESC"){
-	$itemnr=($num_rows1--);
+	$itemnr=($num_rows1 - $from++);
 		}
 
 ####
