@@ -237,18 +237,21 @@ echo "<div class='css_guestbook_font_color'>"; }
 						unset($_REQUEST[gburl]);
 						unset($_REQUEST[gbmsg]);
 
+						unset($antireload);
 						$permalink = get_permalink($var_page_id);
 						if(strstr($permalink, '?')) {
 							if(headers_sent() == 1) {
-							echo "<meta http-equiv='refresh' content='0; URL=$permalink&success=1'>";
+							$antireload = $permalink . "&success=1";
+							echo "<meta http-equiv='refresh' content='0; URL=$antireload'>";
 							}
-							else 	{ 
+							else 	{
 									header('Refresh: 0; url=' . $permalink . '&success=1');
 									}
-						}			
+						}
 						else
 							if(headers_sent() == 1) {
-							echo "<meta http-equiv='refresh' content='0; URL=$permalink?success=1'>";
+							$antireload = $permalink . "?success=1";
+							echo "<meta http-equiv='refresh' content='0; URL=$antireload'>";
 							}
 							else
 								{
