@@ -236,23 +236,30 @@ echo "<div class='css_guestbook_font_color'>"; }
 						unset($_REQUEST[gbgravataremail]);
 						unset($_REQUEST[gburl]);
 						unset($_REQUEST[gbmsg]);
-						
+
 						$permalink = get_permalink($var_page_id);
 						if(strstr($permalink, '?')) {
-						header('Refresh: 0; url=' . $permalink . '&success=1');
-						}
-						else
-							{
-							header('Refresh: 0; url=' . $permalink . '?success=1');
+							if(headers_sent() == 1) {
+							echo "<meta http-equiv='refresh' content='0; URL=$permalink&success=1'>";
 							}
+							else 	{ 
+									header('Refresh: 0; url=' . $permalink . '&success=1');
+									}
+						}			
+						else
+							if(headers_sent() == 1) {
+							echo "<meta http-equiv='refresh' content='0; URL=$permalink?success=1'>";
+							}
+							else
+								{
+								header('Refresh: 0; url=' . $permalink . '?success=1');
+								}
 					}
 
 	}				if($var_formpos=="bottom") {echo "<a class='css_form_errormessage' href='#guestbookform'>$error1 $error2 $error3 $error4 $error5 $error6</a><br /><br />";}
 
 
 }
-
-
 
 	// if guestbook form is on top the side
 	if ($var_formpos =="top") {
