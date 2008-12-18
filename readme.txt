@@ -64,7 +64,7 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 See the GNU General Public License for more details.
 
-Thanks to NoGray for the fine color picker, i like it!<br />
+Thanks to NoGray for the fine color picker, I love this!<br />
 URL: http://www.nogray.com
 
 Icons by Umut Pulat: http://12m3.deviantart.com/<br />
