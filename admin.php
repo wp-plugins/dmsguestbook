@@ -8,6 +8,8 @@ Author: Daniel M. Schurter
 Author URI: http://danielschurter.net/
 */
 
+define('DMSGUESTBOOKVERSION', "1.13.0");
+
 	/* menu (DMSGuestbook, Manage) */
 	add_action('admin_menu', 'add_dmsguestbook');
 
@@ -28,6 +30,11 @@ Author URI: http://danielschurter.net/
 	/* create db while the activation process */
 	add_action('activate_dmsguestbook/admin.php', 'dmsguestbook_install');
 
+	/* version */
+	add_action('wp_head', 'addversion');
+	function addversion() {
+		echo "<meta name=\"DMSGuestbook\" content=\"".DMSGUESTBOOKVERSION."\" />\n";
+	}
 
 	/* backup options */
 	if(isset($_REQUEST[backup_options])) {

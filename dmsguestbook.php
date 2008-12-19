@@ -281,7 +281,7 @@ echo "<div class='css_guestbook_font_color'>"; }
 
 	# count all guestbook entries
 	# if flag = 1 the admin will review this post
-	$query1 = $wpdb->get_results("SELECT id FROM $table_name WHERE flag != '1' && guestbook = '" . sprintf("%d", $var_multi_gb_id) . "' ") or die("Database not available!");
+	$query1 = $wpdb->get_results("SELECT id FROM $table_name WHERE flag != '1' && guestbook = '" . sprintf("%d", $var_multi_gb_id) . "' ");
 	$num_rows1 = $wpdb->num_rows;
 
 	/* if widget <a href="" is activated */
@@ -292,7 +292,7 @@ echo "<div class='css_guestbook_font_color'>"; }
 	$query2 = $wpdb->get_results("SELECT * FROM $table_name
 	WHERE flag != '1' && guestbook = '" . sprintf("%d", $var_multi_gb_id) ."' ORDER BY id
 	" . sprintf("%s", $var_sortitem) . " LIMIT " . $from .
-	"," . sprintf("%d", $var_step) . ";") or die("Database not available!");
+	"," . sprintf("%d", $var_step) . ";");
 	$num_rows2 = $wpdb->num_rows;
 
 	$next=$from+$var_step;

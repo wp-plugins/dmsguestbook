@@ -179,7 +179,7 @@ function widget_dmsguestbook($args) {
 			$guestbook_id_part1 = explode(",", $guestbook_id);
 
 		$query = $wpdb->get_results("SELECT id, name, message FROM $table_name WHERE flag != '1' && guestbook = '" . sprintf("%d", $guestbook_id_part1[0]) . "' ORDER BY id
-		" . sprintf("%s", $part2[0]) . " LIMIT " . sprintf("%d", $entries) . "") or die("Database not available!");
+		" . sprintf("%s", $part2[0]) . " LIMIT " . sprintf("%d", $entries) . "");
 
 		echo $frame1;
 		$itemnr=0;
