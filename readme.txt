@@ -10,13 +10,13 @@ DMSGuestbook is an easy configurable guestbook with a lot of features.
 
 == Description ==
 DMSGuestbook is an easy configurable guestbook with a lot of features.<br />
-You can customize the whole DMSGuestbook to your desire
+You can customize the whole DMSGuestbook to your desire.
 
 Features:
 
 * Simple work on the attitudes over front-end (e.g. text color, guestbook width, border color...)
 * Extended attitude possibility over the css file
-* Preset DMSGuestbook caption text in different language like: german, english or swissgerman :-)
+* Preset DMSGuestbook caption text in different languages (e.g: german, english, swissgerman :-))
 * Make your own language template in few minutes
 * Set mandatory fields where user must be filled out
 * Set text hidden in the DMSGuestbook (e.g. ip address)
@@ -36,10 +36,12 @@ Requirement:
 
 * Wordpress 2.1 or above
 
-1. Download the dmsguestbook.zip
-2. Unpack the file and copy the whole dmsguestbook folder to the wordpress plugins folder.
-3. Activate the DMSGuestbook in the plugins section of wordpress.
-4. You will see in the top of navigation the DMSGuestbook admin link.
+1. Download the DMSGuestbook plugin.
+2. Deactivate the old DMSGuestbook plugin, if is exist.
+3. Unpack the file and copy the whole dmsguestbook folder to the wordpress plugins folder.
+4. Activate the DMSGuestbook in the plugins section of wordpress.
+
+Dont't overwrite an old DMSGuestbook plugin without deactivating it before.
 
 == Frequently Asked Questions ==
 = DMSGuestbook FAQ: =
