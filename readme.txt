@@ -9,6 +9,29 @@ Stable tag: 1.13.0
 DMSGuestbook is an easy configurable guestbook with a lot of features.
 
 == Description ==
+
+= ------------------------------ =
+= DMSGuestbook 1.14.0 RC1 =<br />
+New in this version:
+
+* Support Akismet (microakismet)
+* New E-Mail engine with SMTP support (phpmailer)
+* Add your guestbook page easily with a mouse click
+* Add your own additional selectbox to your guestbook
+* Role settings
+* Widget redesigned
+* UI redesigned
+* Add dashboard
+
+Download and test it and give me feedback on DMSGuestbook@DanielSchurter.net if you want:
+= <a href="http://downloads.wordpress.org/plugin/dmsguestbook.1.14.0.zip">DMSGuestbook 1.14.0 RC1</a> =
+<br />
+Thank you!
+<br />
+= ------------------------------ =
+<br />
+<br />
+
 DMSGuestbook is an easy configurable guestbook with a lot of features.<br />
 You can customize the whole DMSGuestbook to your desire.
 
