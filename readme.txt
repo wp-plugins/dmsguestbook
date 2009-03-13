@@ -23,14 +23,12 @@ New in this version:
 * UI redesigned
 * Add dashboard
 
-Download and test it and give me feedback on DMSGuestbook@DanielSchurter.net if you want:
+Download and test it and give me feedback on DMSGuestbook@DanielSchurter.net if you want: 
 = <a href="http://downloads.wordpress.org/plugin/dmsguestbook.1.14.0.zip">DMSGuestbook 1.14.0 RC1</a> =
 <br />
 Thank you!
 <br />
 = ------------------------------ =
-<br />
-<br />
 
 DMSGuestbook is an easy configurable guestbook with a lot of features.<br />
 You can customize the whole DMSGuestbook to your desire.
