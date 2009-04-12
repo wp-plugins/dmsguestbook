@@ -3309,10 +3309,10 @@ return $options;
 						$opt["$key"] = preg_replace("/[^a-z-0-9-~_,.:?&%=\/]+/i", "", html_entity_decode($part2[0]), ENT_QUOTES);
 				}
 				elseif($key=="css") {
-					   $opt["$key"] = preg_replace("/[\<\>\"\'\`\´]+/i", "", html_entity_decode($part2[0]), ENT_QUOTES);
+					   $opt["$key"] = preg_replace("/[\<\>\"\'\\`\\´]+/i", "", html_entity_decode($part2[0]), ENT_QUOTES);
 					   }
 				elseif($key=="css_customize") {
-					   $opt["$key"] = preg_replace("/[\<\>\"\'\`\´]+/i", "", html_entity_decode($part2[0]), ENT_QUOTES);
+					   $opt["$key"] = preg_replace("/[\<\>\"\'\\`\\´]+/i", "", html_entity_decode($part2[0]), ENT_QUOTES);
 					   }
 				elseif($key=="formposlink") {
 					   $opt["$key"] = preg_replace("/[\"\'\`\´\/\\\\]/i", "", html_entity_decode($part2[0], ENT_QUOTES));

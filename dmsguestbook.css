@@ -146,3 +146,5 @@ line-height:1.4em;}
 a.css_navigation_char:hover {text-decoration:none; color:#000000;}
 a.css_navigation_select:hover {text-decoration:none; color:#bb1100;}
 a.css_navigation_notselect:hover {text-decoration:none; color:#000000;}
+img.css_post_url_image {border:0px;}
+img.css_post_email_image {border:0px;}

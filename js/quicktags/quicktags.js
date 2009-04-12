@@ -125,7 +125,7 @@ new edButton('ed_code'
 
 edButtons[edButtons.length] =
 new edButton('ed_comment1'
-,'comment 1'
+,'comment'
 ,'<div style="color:#666;font-size:11px;margin:20px 0px 0px 0px;padding:20px;font-style:italic;border:1px solid #AAA;"><b>Comment:</b><br />'
 ,'</div>'
 ,'v'

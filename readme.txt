@@ -30,6 +30,9 @@ Features:
 * Gravatar function
 * Multiple guestbooks (NEW in 1.13.0)
 * Define a selectbox and fill this with your own data (NEW in 1.14.0)
+* Akismet support (NEW in 1.14.0)
+
+
 
 Enjoy it :-)
 
