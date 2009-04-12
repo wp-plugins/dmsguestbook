@@ -50,7 +50,7 @@ Dont't overwrite an old DMSGuestbook plugin without deactivating it before.
 
 == Frequently Asked Questions ==
 = DMSGuestbook FAQ: =
-= http://danielschurter.net/dmsguestbook/faq.php =
+= http://www.danielschurter.net/mainsite/2009/03/05/dmsguestbook-faq/ =
 
 = Language template: =
 = http://danielschurter.net/dmsguestbook/language/index.html =
