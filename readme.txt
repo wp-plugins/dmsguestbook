@@ -3,8 +3,8 @@ Contributors: danielschurter
 Donate link: http://danielschurter.net/
 Tags: guestbook, plugin, manage, admin, page, sidebar, widget
 Requires at least: 2.1
-Tested up to: 2.7
-Stable tag: 1.13.0
+Tested up to: 2.7.1
+Stable tag: 1.14.0
 
 DMSGuestbook is an easy configurable guestbook with a lot of features.
 
@@ -16,18 +16,23 @@ Features:
 
 * Simple work on the attitudes over front-end (e.g. text color, guestbook width, border color...)
 * Extended attitude possibility over the css file
-* Preset DMSGuestbook caption text in different languages (e.g: german, english, swissgerman :-))
+* Preset DMSGuestbook caption text in different languages (e.g: german, english, swissgerman :-)...)
 * Make your own language template in few minutes
 * Set mandatory fields where user must be filled out
 * Set text hidden in the DMSGuestbook (e.g. ip address)
 * Captcha antispam (image, mathematically)
-* Manage the DMSGuestbook user entries. (e.g. name, message, url, ip adress)
+* Manage the DMSGuestbook user entries. (e.g. name, message, url, ip address)
 * Sidebar widget
+* Email notification when guestbook post was to submit
 * Administrator can review posts before shown this
 * Create your own guestbook template (beta)
 * Administrator can search entries in guestbook
 * Gravatar function
 * Multiple guestbooks (NEW in 1.13.0)
+* Define a selectbox and fill this with your own data (NEW in 1.14.0)
+* Akismet support (NEW in 1.14.0)
+
+
 
 Enjoy it :-)
 
