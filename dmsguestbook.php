@@ -553,6 +553,8 @@ $gravatar_url = "http://www.gravatar.com/avatar/".$dbresult->gravatar . "?r=" . 
 <?php
 function input_form($error1, $error2, $error3, $error4, $error5, $error6, $success, $url, $var_page_id, $lang_name, $lang_email, $var_require_email, $lang_url, $var_require_url, $lang_message, $submitid, $lang_require, $var_require_antispam, $lang_antispam, $lang_submit, $var_url_overruled, $var_mandatory_char, $var_form_template, $var_antispam_key, $var_captcha_color, $var_gravatar, $var_additional_option, $var_additional_option_title) {
 
+	$abspath = str_replace("\\","/", ABSPATH);
+	
 	###########
 	/* captcha antispam image */
 	if($var_require_antispam==1) {
@@ -596,8 +598,9 @@ function input_form($error1, $error2, $error3, $error4, $error5, $error6, $succe
 		if($var_additional_option != "none") {
 		$buffer = "";
 		$gbadditional_selectbox = "";
-		$handle = fopen ($url . "/wp-content/plugins/dmsguestbook/module/" . $var_additional_option, "r");
-				if(is_file($_SERVER["DOCUMENT_ROOT"] . $_SERVER["SCRIPT_URL"] . "wp-content/plugins/dmsguestbook/module/" . $var_additional_option)) {
+		
+				if(is_file($abspath . "wp-content/plugins/dmsguestbook/module/" . $var_additional_option)) {		
+				$handle = fopen ($url . "/wp-content/plugins/dmsguestbook/module/" . $var_additional_option, "r");
 					while (!feof($handle)) {
     				$buffer .= fgets($handle, 4096);
 					}
