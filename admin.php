@@ -1105,7 +1105,7 @@ while (list($key, $val) = each($options)) {
 		$char_lenght = 20;
 		$additional = "";
 		$style = "width:180px;";
-		$tooltip = "Set a random key to prevent spam.<br />If your key is shorter than 20 characters, the systen will be create a new one.";
+		$tooltip = "Set a random key to prevent spam.<br />If your key is shorter than 20 characters, the system will be create a new one.";
 		$jscript = "";
 		$return_antispam_key = OneInput($key, $label, $type, $entries, $value, $char_lenght, $additional, $style, $tooltip, $jscript);
 	}
