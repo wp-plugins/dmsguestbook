@@ -566,6 +566,7 @@ while (list($key, $val) = each($options)) {
 			$data .= "<tr><td style='font-size:9px;background-color:#dddddd;padding:2px;'>$result->ID</td><td style='font-size:9px;background-color:#eeeeee;padding:2px;'>" . $result->post_title . "</td> ";
 			$data .= "<td style='font-size:9px;background-color:#dddddd;padding:2px;'><a href='page.php?action=edit&post=$result->ID'>$result->post_status</a></td>";
 				for($v=0; $v<count($part_page_id); $v++) {
+				unset($lang);
 					if($result->ID == $part_page_id[$v]) {
 					$vv = $v +1;
 					$set = "#" . $vv;
