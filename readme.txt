@@ -30,9 +30,8 @@ Features:
 * Administrator can search entries in guestbook
 * Gravatar function
 * Multiple guestbooks (NEW in 1.13.0)
-* Every guestbook has his own language template (NEW in 1.15.0)
 * Define a selectbox and fill this with your own data (NEW in 1.14.0)
-* 
+
 
 Enjoy it :-)
 
