@@ -3,7 +3,7 @@
 Plugin Name: DMSGuestbook
 Plugin URI: http://danielschurter.net/
 Description: Create and customize your own guestbook.
-Version: 1.15.0
+Version: 1.15.1
 Author: Daniel M. Schurter
 Author URI: http://danielschurter.net/
 */
