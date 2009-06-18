@@ -547,7 +547,7 @@ while (list($key, $val) = each($options)) {
 					$tmp .= "<select name='langselect' id='langselect'>";
     				while (false !== ($file = readdir($handle))) {
         				if ($file != "." && $file != ".." && $file != "README.txt") {
-           				$tmp .= "<option>$file</option>";
+           				$tmp .= "<option value='$file'>$file</option>";
         				}
     				}
     				$tmp .= "</select>";
@@ -602,9 +602,9 @@ while (list($key, $val) = each($options)) {
   				document.getElementById('page_id').value = newpageid;
   				document.getElementById('pageid' + c).value = '#' + m;
   				document.getElementById('pageid' + c).disabled = true;
-
+  				
   				document.getElementById('language' + c).value = document.getElementById('langselect').value;
-
+  				
   				var newlanguage = document.getElementById('language').value;
   				newlanguage = newlanguage.concat(document.getElementById('langselect').value + ',');
   				document.getElementById('language').value = newlanguage;
