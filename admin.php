@@ -10,7 +10,7 @@ Author URI: http://danielschurter.net/
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-/* Deavtivate the role by setting "0" if the admin panel doesn't appear. | Default: 1 */
+/* Deactivate the role by setting "0" if the admin panel doesn't appear. | Default: 1 */
 define('ROLE', "1");
 
 /* If you using an other reCAPTCHA library than the DMSGuestbook built in, set the correct path to your recaptca plugin */
