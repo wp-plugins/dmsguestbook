@@ -738,6 +738,10 @@ while (list($key, $val) = each($options)) {
 			$forwardchar = base64_decode($options[forwardchar]);
 			$backwardchar = base64_decode($options[backwardchar]);
 			}
+			else {
+			     $forwardchar = $options[forwardchar];
+			     $backwardchar = $options[backwardchar];
+			     }
 		$return_forwardchar = "<li><table style='width:95%;' border='0'><colgroup><col width='40%'><col width='55%'><col width='5%'><colgroup><tr><td>Navigation char style:</td>
 		<td><input style='width:50px;' type='text' name='backwardchar' value='$backwardchar' />
 		<input style='width:50px;' type='text' name='forwardchar' value='$forwardchar' />
