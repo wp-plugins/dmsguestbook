@@ -861,13 +861,15 @@ function input_form($error1, $error2, $error3, $error4, $error5, $error6, $succe
 		$url=get_bloginfo('wpurl');
 		$phpvers = explode(".", phpversion());
 
-		if($phpvers[0] == 4) {
-		include_once('microakismet/func.microakismet.inc.php');
-		}
+	   	if(!class_exists('PHPMailer')) {
+			if($phpvers[0] == 4 && !class_exists('PHPMailer')) {
+			include_once('microakismet/func.microakismet.inc.php');
+			}
 
-		if($phpvers[0] >= 5) {
-		include_once "microakismet/class.microakismet.inc.php";
-		}
+			if($phpvers[0] >= 5 && !class_exists('PHPMailer')) {
+			include_once "microakismet/class.microakismet.inc.php";
+			}
+	   	}
 
 		// The array of data we need
 		$vars    = array();
@@ -908,11 +910,6 @@ function input_form($error1, $error2, $error3, $error4, $error5, $error6, $succe
 		    	}
 			}
 
-}
-
-
-if (class_exists('PHPMailer')) {
-echo "JA";
 }
 
 
