@@ -368,6 +368,8 @@ if($_REQUEST[page]=="dmsguestbook" && ($_REQUEST[dbs]!=1 && $_REQUEST[basic]!=1 
 			<td style='padding:20px;'>";
 			echo "<b style='font-size:14px;text-decoration:underline;'>News</b><br />";
 			include_once(ABSPATH . WPINC . '/rss.php');
+			unset($rss1);
+			unset($items);
 			$rss1 = fetch_rss('http://www.danielschurter.net/mainsite/category/DMSGuestbook/feed/');
 			$maxitems = 3;
 			@$items = array_slice($rss1->items, 0, $maxitems);
