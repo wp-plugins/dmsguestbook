@@ -909,10 +909,7 @@ function input_form($error1, $error2, $error3, $error4, $error5, $error6, $succe
 		    	return(0);
 		    	}
 			}
-
 }
-
-
 /* end guestbook container */
 $DMSGuestbookContent .= "</div>";
 ?>

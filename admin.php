@@ -82,13 +82,17 @@ define('DMSGUESTBOOKVERSION', "1.15.4");
 	}
 
 	/* backup options */
-	if(isset($_REQUEST[backup_options])) {
-	$filename = "DMSGuestbook_options_" . date("d-m-Y") . ".txt";
-	@header("Content-Type: text/plain");
-	@header("Content-Disposition: attachment; filename=$filename");
-	echo get_option("DMSGuestbook_options");
-	exit;
-	}
+	//if(isset($_REQUEST[backup_options])) {
+	//echo "<textarea>" . get_option("DMSGuestbook_options") ."</textarea>";
+	//}
+	
+	//if(isset($_REQUEST[backup_options])) {
+	//$filename = "DMSGuestbook_options_" . date("d-m-Y") . ".txt";
+	//@header("Content-Type: text/plain");
+	//@header("Content-Disposition: attachment; filename=$filename");
+	//echo get_option("DMSGuestbook_options");
+	//exit;
+	//}
 
 	/* restore options*/
 	if($_REQUEST[restore_options]==1 && $_REQUEST[restore_data]!="") {
@@ -469,11 +473,13 @@ if($_REQUEST[dbs]==1) {
 	<br />If there is something wrong with my<br />DMSGuestbook_options in $table_option: <a style='font-weight:bold;background-color:#bb1100;color:#fff;padding:3px;text-decoration:none;' href='../wp-content/plugins/dmsguestbook/default_options.txt' target='_blank'>Help</a>";
 
 /* backup */
-		$return_dmsguestbook_options_backup = "<a class='button-secondary action' style='text-decoration:none;font-weight:bold;' href='$location?backup_options'>Backup DMSGuestbook_options</a>
+		//$return_dmsguestbook_options_backup = "<a class='button-secondary action' style='text-decoration:none;font-weight:bold;' href='$location?backup_options'>Backup DMSGuestbook_options</a>
+		$return_dmsguestbook_options_backup = "Copy this content to a text file in case if you need a backup.<br />
+		<textarea style='width:450px; height:200px;' name='save_data'>" . get_option("DMSGuestbook_options") . "</textarea><br />
 		<br />
 		<br />
 		Restore DMSGuestbook_options:<br />
-		Open a DMSGuestbook_options_DATE.txt file, copy the whole content and put these to the textfield below.<br />
+		Open your option backup text file and put the content in the textfield below.<br />
 		All data will be overwrite.
 		<form action='$location' method='post'>
 		<textarea style='width:450px; height:200px;' name='restore_data'></textarea><br />
@@ -3753,6 +3759,4 @@ return $options;
 		}
 	return $role;
 	}
-
 ?>
-
