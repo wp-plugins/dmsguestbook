@@ -1,0 +1,82 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: DMSGuestbook 1.15.6\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-02-13 03:44+0100\n"
+"PO-Revision-Date: 2010-02-13 03:44+0100\n"
+"Last-Translator: Daniel Schurter <DMSGuestbook@DanielSchurter.net>\n"
+"Language-Team: Daniel Schurter <DMSGuestbook@DanielSchurter.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: SWITZERLAND\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: C:\\Dokumente und Einstellungen\\Anonymous666\\Desktop\\dmsguestbook_translate\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin.php:54
+msgid "Options"
+msgstr "Optionen"
+
+#: admin.php:54
+msgid "<span style='font-size:12px;'>DMSGuestbook</span>"
+msgstr "<span style='font-size:12px;'>DMSGuestbook</span>"
+
+#: admin.php:58
+msgid "Entries"
+msgstr "Einträge"
+
+#: admin.php:63
+msgid "Spam"
+msgstr "Spam"
+
+#: admin.php:68
+msgid "phpinfo"
+msgstr "phpinfo"
+
+#: admin.php:153
+#, fuzzy
+msgid "Create a page which you want to display the DMSGuestbook."
+msgstr "Erstelle eine neue Seite welche dann angezeigt werden soll."
+
+#: admin.php:164
+msgid "One or more options are missing."
+msgstr "Eine oder mehrere Optionen fehlen"
+
+#: admin.php:178
+msgid "Update database..."
+msgstr "Update Datenbank..."
+
+#: admin.php:218
+#, fuzzy
+msgid "DMSGuestbook options"
+msgstr "DMSGuestbook Optionen"
+
+#: admin.php:218
+msgid "Don't forget to set the page id."
+msgstr "Vergiss nicht die Seiten ID zu setzen"
+
+#: admin.php:379
+msgid "No items"
+msgstr "Kein Eintrag"
+
+#: admin.php:489
+msgid "Would you really like to restore all data?"
+msgstr "Willst du wirklich alle Daten wiederherstellen?"
+
+#~ msgid "DMSGuestbook"
+#~ msgstr "DMSGuestbook"
+#~ msgid "Manage"
+#~ msgstr "Bearbeiten"
+#~ msgid "FAQ"
+#~ msgstr "Fragen & Antwort"
+#~ msgid ""
+#~ "Save the page and set the page id number value in the red \"Page ID\" "
+#~ "field under \"Guestbook settings\" -> \"Basic\"."
+#~ msgstr ""
+#~ "Speichere die Seite und füge die Seitennummer in das rote Feld unter "
+#~ "\"Page ID\" -> \"Basic\" ein."
+#~ msgid "was created..."
+#~ msgstr "wurde erstellt..."
+
