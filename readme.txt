@@ -31,7 +31,7 @@ Features:
 * Gravatar function
 * Multiple guestbooks (NEW in 1.13.0)
 * Define a selectbox and fill this with your own data (NEW in 1.14.0)
-* Super Guestbook: One guestbook can have more than one languages (NEW in 1.17.0)
+* SuperGuestbook: One guestbook can have more than one language (NEW in 1.17.0)
 
 
 Enjoy it :-)
