@@ -4,7 +4,7 @@ Donate link: http://danielschurter.net/
 Tags: guestbook, plugin, manage, admin, page, sidebar, widget
 Requires at least: 2.1
 Tested up to: 3.0
-Stable tag: 1.16.0
+Stable tag: 1.17.0
 
 DMSGuestbook is an easy configurable guestbook with a lot of features.
 
@@ -31,6 +31,7 @@ Features:
 * Gravatar function
 * Multiple guestbooks (NEW in 1.13.0)
 * Define a selectbox and fill this with your own data (NEW in 1.14.0)
+* SuperGuestbook: One guestbook can have more than one language (NEW in 1.17.0)
 
 
 Enjoy it :-)
