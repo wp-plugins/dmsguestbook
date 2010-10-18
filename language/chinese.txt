@@ -1,0 +1,16 @@
+﻿/* winds *** winds1563(at)gmail(dot)com ***ChineseVision*/
+
+<name>姓名</name>
+<email>Email</email>
+<url>网址</url>
+<message>留言</message>
+<antispam><b>验证码</b><br />请在提交留言之前输入验证码</antispam>
+<mandatory>必须填写的</mandatory>
+<submit>提交</submit>
+<name_error>名字太短！</name_error>
+<email_error>错误的邮件格式！</email_error>
+<url_error>错误的网址格式！</url_error>
+<message_error>留言太短！</message_error>
+<antispam_error>错误的验证码信息</antispam_error>
+<success>谢谢您的留言！</success>
+<admin_review>管理员将会审查您的留言!<br />感谢您的等待!</admin_review>
