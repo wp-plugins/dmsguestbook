@@ -3,7 +3,7 @@ Contributors: danielschurter
 Donate link: http://danielschurter.net/
 Tags: guestbook, plugin, manage, admin, page, sidebar, widget
 Requires at least: 2.1
-Tested up to: 3.0.1
+Tested up to: 3.1.3
 Stable tag: 1.17.1
 
 DMSGuestbook is an easy configurable guestbook with a lot of features.
