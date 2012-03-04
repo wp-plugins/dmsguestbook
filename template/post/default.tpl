@@ -53,9 +53,7 @@ Edit these variables on DMSGuestbook admin panel
 		</div>
 		<!-- message -->
 
-								<!-- $additional_text can be place where ever you want.
-								Using html and css tags to format the appearance of this.
-								-->
+		<!-- $additional_text can be place where ever you want. Using html and css tags to format the appearance of this. -->
 		<div class='css_post_message'>$message_text<br /><br /><i>$additional_text</i></div>
 		";
 
