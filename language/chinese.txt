@@ -1,16 +1,17 @@
-﻿/* winds *** winds1563(at)gmail(dot)com ***ChineseVision*/
+/* Christopher Meng *** cickumqt(at)Gmail(dot)com */
 
 <name>姓名</name>
-<email>Email</email>
-<url>网址</url>
+<email>邮箱</email>
+<url>网站</url>
 <message>留言</message>
-<antispam><b>验证码</b><br />请在提交留言之前输入验证码</antispam>
-<mandatory>必须填写的</mandatory>
+<antispam><b>反垃圾措施</b><br />请在您提交留言之前输入验证码！</antispam>
+<mandatory>必须填写</mandatory>
 <submit>提交</submit>
-<name_error>名字太短！</name_error>
-<email_error>错误的邮件格式！</email_error>
-<url_error>错误的网址格式！</url_error>
-<message_error>留言太短！</message_error>
-<antispam_error>错误的验证码信息</antispam_error>
-<success>谢谢您的留言！</success>
-<admin_review>管理员将会审查您的留言!<br />感谢您的等待!</admin_review>
+<name_error>姓名太短啦！</name_error>
+<email_error>邮箱地址非法！</email_error>
+<url_error>网站地址非法！</url_error>
+<message_error>留言太少啦！</message_error>
+<antispam_error>验证码错误！</antispam_error>
+<success>感谢您的留言！</success>
+<admin_review>评论正在等待审核，请稍候！<br />感谢您的耐心！</admin_review>
+<spam_detect>您的输入可能包含垃圾信息!<br />评论正在等待审核，暂时不会显示，请耐心等待</spam_detect>

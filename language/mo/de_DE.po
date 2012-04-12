@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DMSGuestbook 1.15.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-02 19:05+0100\n"
-"PO-Revision-Date: 2010-10-02 19:06+0100\n"
-"Last-Translator: Daniel Schurter <DMSGuestbook@DanielSchurter.net>\n"
+"POT-Creation-Date: 2010-11-06 14:23+0100\n"
+"PO-Revision-Date: 2012-04-13 00:53+0100\n"
+"Last-Translator: \n"
 "Language-Team: Daniel Schurter <DMSGuestbook@DanielSchurter.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,7 +28,7 @@ msgstr "<span style='font-size:12px;'>DMSGuestbook</span>"
 #: admin.php:1460
 #: admin.php:2126
 msgid "Entries"
-msgstr "Enträge"
+msgstr "Einträge"
 
 #: admin.php:76
 #: admin.php:1471
@@ -1498,10 +1498,13 @@ msgstr "Das ist mein Gravatar Bild"
 
 #~ msgid "Mail"
 #~ msgstr "E-Mail"
+
 #~ msgid "Website image path:"
 #~ msgstr "Webseite Icon Pfad:"
+
 #~ msgid "DMSGuestbook"
 #~ msgstr "DMSGuestbook"
+
 #~ msgid ""
 #~ "More infos: <a href=\\'http://www.php.net/manual/en/function.strftime.php"
 #~ "\\' target=\\'_blank\\'>http://www.php.net/manual/en/function.strftime."
@@ -1510,6 +1513,7 @@ msgstr "Das ist mein Gravatar Bild"
 #~ "Mehr Information: <a href=\\'http://www.php.net/manual/en/function."
 #~ "strftime.php\\' target=\\'_blank\\'>http://www.php.net/manual/en/function."
 #~ "strftime.php</a>"
+
 #~ msgid "More infos:"
 #~ msgstr "Mehr Informationen:"
 
@@ -1520,8 +1524,10 @@ msgstr "Das ist mein Gravatar Bild"
 #, fuzzy
 #~ msgid "Website, "
 #~ msgstr "Webseite"
+
 #~ msgid "File not found"
 #~ msgstr "Datei nicht gefunden"
+
 #~ msgid ""
 #~ "If dmsguestbook.css is exist and writable, all CSS settings will be read "
 #~ "from it.<br />\n"
@@ -1553,42 +1559,53 @@ msgstr "Das ist mein Gravatar Bild"
 #, fuzzy
 #~ msgid "Examples"
 #~ msgstr "Beispiel:"
+
 #~ msgid "Class heredity"
 #~ msgstr "Klassenvererbung"
 
 #, fuzzy
 #~ msgid "Size of both navigation chars"
 #~ msgstr "Grösse des Navigationszeichen"
+
 #~ msgid "Guestbook width:"
 #~ msgstr "Gästebuch Breite:"
+
 #~ msgid "Separator width:"
 #~ msgstr "Trenner Breite:"
+
 #~ msgid "Antispam image text color:"
 #~ msgstr "Antispam Textfarbe:"
+
 #~ msgid ""
 #~ "Enter here you reCAPTCHA private key.<br /><a href=\\'http://recaptcha."
 #~ "net/\\' target=\\'_blank\\'>Learn more about reCAPTCHA</a>."
 #~ msgstr ""
 #~ "Gib hier den privaten reCAPTCHA Schlüssel ein.<br /><a href=\\'http://"
 #~ "recaptcha.net/\\' target=\\'_blank\\'>Mehr über  reCAPTCHA</a>."
+
 #~ msgid ""
 #~ "Enter here you reCAPTCHA public key.<br /><a href=\\'http://recaptcha.net/"
 #~ "\\' target=\\'_blank\\'>Learn more about reCAPTCHA</a>."
 #~ msgstr ""
 #~ "Gib hier den öffentlichen reCAPTCHA Schlüssel ein.<br /><a href=\\'http://"
 #~ "recaptcha.net/\\' target=\\'_blank\\'>Mehr über  reCAPTCHA</a>."
+
 #~ msgid ""
 #~ "More infos: <a href=\\'http://akismet.com/\\' target=\\'_blank\\'>http://"
 #~ "akismet.com</a>"
 #~ msgstr ""
 #~ "Mehr Informationen: <a href=\\'http://akismet.com/\\' target=\\'_blank"
 #~ "\\'>http://akismet.com</a>"
+
 #~ msgid "Database settings:"
 #~ msgstr "Datenbank Einstellungen:"
+
 #~ msgid "Guestbook settings:"
 #~ msgstr "Gästebuch Einstellungen:"
+
 #~ msgid "Language settings:"
 #~ msgstr "Spracheinstellungen:"
+
 #~ msgid "phpinfo:"
 #~ msgstr "phpinfo:"
 
@@ -1603,10 +1620,12 @@ msgstr "Das ist mein Gravatar Bild"
 #, fuzzy
 #~ msgid "Actuallsy image:"
 #~ msgstr "Aktuelles Icon:"
+
 #~ msgid "%"
 #~ msgstr "Optionen"
+
 #~ msgid "disabled"
 #~ msgstr "daktiviert"
+
 #~ msgid "Users"
 #~ msgstr "Benutzer"
-
