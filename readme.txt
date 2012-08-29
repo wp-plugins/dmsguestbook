@@ -106,7 +106,7 @@ http://www.iconarchive.com/category/system/tulliana-2-icons-by-umut-pulat.html
 * Fixed PHP notice
 * Fixed jQuery namespace 
 * Language list in 'Basic' is sorted now
-* Update jQuery to version 1.7.2
+* Updated jQuery to version 1.7.2
 * ###
 * Das Problem mit dem hinzufuegen des Widgets wurde behoben
 * PHP Meldungen abgefangen
