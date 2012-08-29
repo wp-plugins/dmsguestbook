@@ -106,7 +106,7 @@ http://www.iconarchive.com/category/system/tulliana-2-icons-by-umut-pulat.html
 * Fixed jQuery namespace 
 * Language list in 'Basic' is sorted now
 * - - -
-* Das Problem mit dem hinzufuegen des Widget wurde behoben
+* Das Problem mit dem hinzufuegen des Widgets wurde behoben
 * PHP Meldungen abgefangen
 * jQuery Namensbereich angepasst 
 * Die Sprachauswahl unter 'Basic' ist nun sortiert
