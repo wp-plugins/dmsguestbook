@@ -5,6 +5,7 @@ Tags: guestbook, plugin, manage, admin, page, sidebar, widget
 Requires at least: 2.1
 Tested up to: 3.4.1
 Stable tag: 1.17.2
+License: GPLv2
 
 DMSGuestbook is an easy configurable guestbook with a lot of features.
 
@@ -105,11 +106,13 @@ http://www.iconarchive.com/category/system/tulliana-2-icons-by-umut-pulat.html
 * Fixed PHP notice
 * Fixed jQuery namespace 
 * Language list in 'Basic' is sorted now
-* - - -
+* Update jQuery to version 1.7.2
+* ###
 * Das Problem mit dem hinzufuegen des Widgets wurde behoben
 * PHP Meldungen abgefangen
 * jQuery Namensbereich angepasst 
 * Die Sprachauswahl unter 'Basic' ist nun sortiert
+* jQuery Bibliothek Update nach 1.7.2
 
 
 = 1.17.1 - 18.10.10 =
@@ -117,7 +120,7 @@ http://www.iconarchive.com/category/system/tulliana-2-icons-by-umut-pulat.html
 * New jQuery color picker
 * New jQuery quicktags
 * Russian .mo File by Mykola Buryak
-* - - -
+* ###
 * DMSGuestbook ist nun Chrome kompatibel
 * Neuer jQuery Color Picker
 * Neue jQuery Quicktags
@@ -126,34 +129,34 @@ http://www.iconarchive.com/category/system/tulliana-2-icons-by-umut-pulat.html
 
 = 1.17.0 - 20.08.10 =
 * SuperGuestbook: One guestbook can have more than one language
-* - - -
+* ###
 * SuperGuestbook: Ein Gaestebuch kann nun in mehreren Sprachen angezeigt werden
 
 
 = 1.16.0 - 16.03.10 =
 * DMSGuestbook is now I18n compatible
 * Update of the jQuery library
-* - - -
+* ###
 * DMSGuestbook ist nun I18n Kompatibel
 * jQuery Bibliothek Update
 
 
 = 1.15.6 - 22.01.10 =
 * A minor bug with URL’s and “Google Analytics for WordPress” has been fixed
-* - - -
+* ###
 * Ein kleiner Fehler mit URL’s und “Google Analytics for WordPress” wurde behoben
 
 
 = 1.15.5 - 07.12.09 =
 * A minor bug in the mail function has been fixed
-* - - -
+* ###
 * Ein kleiner Bug in der Mail Funktion wurde behoben
 
 
 = 1.15.4 - 03.12.09 =
 * The the_content() problem has been solved
 * The backup header() function has been removed
-* - - -
+* ###
 * Das the_content() Problem wurde geloest
 * Die Backup header() Funktion wurde entfernt
 
@@ -162,7 +165,7 @@ http://www.iconarchive.com/category/system/tulliana-2-icons-by-umut-pulat.html
 * Base64 coding has been added. This feature can be switched on in admin.php
 * The Gravatar e-mail address is not longer case sensitive
 * Editing an external reCAPTCHA plugin path in admin.php
-* - - -
+* ###
 * Base64 Codierung wurde fuer ein paar Textfelder im Adminpanel hinzugefuegt. Dies kann bei Bedarf unter admin.php aufgeschaltet werden.
 * Die Gravatar E-mail Adresse ist jetzt nicht mehr laenger case sensitive
 * Der Pfad eines reCAPTCHA Plugin kann nun unter admin.php geaendert werden
@@ -170,14 +173,14 @@ http://www.iconarchive.com/category/system/tulliana-2-icons-by-umut-pulat.html
 
 = 1.15.2 - 17.06.09 =
 * A smilies problem has been fixed (Many thanks to Herbert!)
-* - - -
+* ###
 * Ein Problem bei der Anzeige von Smilies wurde behoben (Vielen Dank Herbert!)
 
 
 = 1.15.1 - 13.06.09 =
 * A multiple guestbook language selection problem has been fixed
 * The Widget runs now without errors
-* - - -
+* ###
 * Ein Problem in der multiplen Gaestebuch Sprachauswahl wurde behoben
 * Das Widget laeuft nun wieder korrekt
 
@@ -188,7 +191,7 @@ http://www.iconarchive.com/category/system/tulliana-2-icons-by-umut-pulat.html
 * Multiple notification mails
 * Define the maximum length of the message text
 * Gravatar widget support (Thank you Trina!)
-* - - -
+* ###
 * reCHAPTCHA Unterstuetzung
 * Individuelle Sprachauswahl fuer jedes Gaestebuch
 * Multiple Bestaetigungsmail
@@ -205,7 +208,7 @@ http://www.iconarchive.com/category/system/tulliana-2-icons-by-umut-pulat.html
 * Widget was redesigned
 * UI was redesigned (WP 2.7 style)
 * Add dashboard
-* - - -
+* ###
 * Akismet Unterstuetzung (microakismet)
 * Neue E-Mail Engine mit SMTP Unterstuetzung (phpmailer)
 * Einfaches Hinzufuegen der Gaestebuecher mit einem Mausklick
@@ -221,7 +224,7 @@ http://www.iconarchive.com/category/system/tulliana-2-icons-by-umut-pulat.html
 * Guestbook(s) can be placed on protected site(s)
 * Few UI changes
 * Changed widget tags
-* - - -
+* ###
 * Multiple Gaestebuecher sind nun moeglich.
 * Kleine aenderungen wurden am UI vorgenommen.
 * Die Tags im Widget wurden geaendert.
@@ -231,7 +234,7 @@ http://www.iconarchive.com/category/system/tulliana-2-icons-by-umut-pulat.html
 * Removed admin and editor role. Why?
 * After submit a guestbook post, user can not longer add the same post again which refreshing page
 * Italian language template. Thanks to Lucky
-* - - -
+* ###
 * Admin und Editor Rechte wieder entfernt. Warum?
 * Nach einem Gaestebuch Eintrag wird bei einem Seiten-Refresh nicht noch einmal der selbe Eintrag gespeichert.
 * Italienisches Sprach-Template von Lucky.
@@ -243,7 +246,7 @@ http://www.iconarchive.com/category/system/tulliana-2-icons-by-umut-pulat.html
 * Select or deselect the nofollow tag.
 * Russia language template. Thanks to Willi Waefler
 * Turkish language template. Thanks to Ersin Dogan
-* - - -
+* ###
 * Verschiedene Admin und Editor Rechte vergeben.
 * Die CSS Eintraege werden jetzt auch in einem File gespeichert, sofern der Zugriff darauf erlaubt ist.
 * Russisches Sprach-Template von Willi Waefler.
@@ -257,7 +260,7 @@ http://www.iconarchive.com/category/system/tulliana-2-icons-by-umut-pulat.html
 * Danish language template. Thanks to Thomas Jorgensen
 * Romana language template. Thanks to RO
 * Swedish language template. Thanks to Lisa Smith
-* - - -
+* ###
 * Gravatar Funktion wurde hinzugefuegt.
 * Antispam $_SESSION wurde entfernt und durch einem MD5 Hash key ersetzt.
 * Die Update Funktion der Optionen wurde verbessert.
@@ -275,7 +278,7 @@ http://www.iconarchive.com/category/system/tulliana-2-icons-by-umut-pulat.html
 * Six ways to mask the ip adress
 * Administrator can search entries in guestbook (beta)
 * Polish language template. Thanks to Grzegorz Gibas
-* - - -
+* ###
 * Admin Menu wurde ueberarbeitet, Menues werden als Docking boxes (dbx) dargestellt.
 * Alle CSS Einstellungen werden nun direkt in der wp_options gespeichert. Das Bearbeiten der Einstellungen wurde vereinfacht.
 * Das Gaestebuch Eingabeformular und die Gaestebuch Eintraege koennen ueber ein Template komplett veraendert werden. (beta)
@@ -292,7 +295,7 @@ http://www.iconarchive.com/category/system/tulliana-2-icons-by-umut-pulat.html
 * Add an guestbook URL overruler
 * French language template. Thanks to blancreg
 * Dutch language template. Thanks to Joris Heyndrickx
-* - - -
+* ###
 * Das Total der Gaestebuch Eintraege wurde bei manchen Personen nicht angezeigt -> behoben
 * Das URL Icon wurde angezeigt wenn das http:// in der DB fehlte -> behoben
 * Die Guestbuch URL kann nun manuell ueberschrieben werden.
@@ -305,8 +308,10 @@ http://www.iconarchive.com/category/system/tulliana-2-icons-by-umut-pulat.html
 * Set an direct linkt from widget to the guestbook post with SHOW_POST
 * Widget: SHOW_NR and SHOW_ID added
 * Norwegian language template. Thanks to Torjus Faersnes
-* - - -
+* ###
 * Das XSS Problem wurde behoben
 * Es lassen sich direkte links zum Gaestebuch mit SHOW_POST im Widget hinzufuegen
 * SHOW_NR und SHOW_ID im Widget hinzugefuegt
 * Norwegisches Sprach-Template von Torjus Faersnes
+
+
