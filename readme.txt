@@ -3,8 +3,8 @@ Contributors: danielschurter
 Donate link: http://danielschurter.net/
 Tags: guestbook, plugin, manage, admin, page, sidebar, widget
 Requires at least: 2.1
-Tested up to: 3.4.1
-Stable tag: 1.17.2
+Tested up to: 3.5.1
+Stable tag: 1.17.3
 License: GPLv2
 
 DMSGuestbook is an easy configurable guestbook with a lot of features.
@@ -100,6 +100,12 @@ Icons by Umut Pulat: http://12m3.deviantart.com/<br />
 http://www.iconarchive.com/category/system/tulliana-2-icons-by-umut-pulat.html
 
 == Changelog == 
+
+= 1.17.3 - 27.02.13 =
+* Fixed adding widget if more than one sidebar is available. Thank you kj.rehsi!
+* ###
+* Das Problem mit dem Widget bei mehr als einer Sidebar wurde behoben. Danke kj.rehsi!
+
 
 = 1.17.2 - 29.08.12 =
 * Fixed adding widget
