@@ -107,7 +107,7 @@ http://www.iconarchive.com/category/system/tulliana-2-icons-by-umut-pulat.html
 * Fixed problem if using another reCAPTCHA plugin 
 * ###
 * Das Problem mit dem Versenden von mehreren Benachrichtigungsmails wurde behoben
-* UTF-8 fuer Bestätigungsmail hinzugefuegt (Dank an Marc Wiegand!)
+* UTF-8 fuer Bestaetigungsmail hinzugefuegt (Dank an Marc Wiegand!)
 * Das Problem beim Einbinden eines anderen reCAPTCHA Plugins wurde behoben
 
 
