@@ -4,7 +4,7 @@ Donate link: http://danielschurter.net/
 Tags: guestbook, plugin, manage, admin, page, sidebar, widget
 Requires at least: 2.1
 Tested up to: 3.5.1
-Stable tag: 1.17.3
+Stable tag: 1.17.4
 License: GPLv2
 
 DMSGuestbook is an easy configurable guestbook with a lot of features.
@@ -100,6 +100,16 @@ Icons by Umut Pulat: http://12m3.deviantart.com/<br />
 http://www.iconarchive.com/category/system/tulliana-2-icons-by-umut-pulat.html
 
 == Changelog == 
+
+= 1.17.4 - 15.04.13 =
+* Fixed sending multiple notification mails
+* Add utf-8 handler for notification mails (Thanks to Marc Wiegand!) 
+* Fixed problem if using another reCAPTCHA plugin 
+* ###
+* Das Problem mit dem Versenden von mehreren Benachritigsmails wurde behoben
+* utf-8 für Bestätigungsmail hinzugefügt (Dank an Marc Wiegand!)
+* Das Problem beim Einbinden eines anderen reCAPTCHA Plugins wurde behoben
+
 
 = 1.17.3 - 27.02.13 =
 * Fixed adding widget if more than one sidebar is available. Thank you kj.rehsi!
