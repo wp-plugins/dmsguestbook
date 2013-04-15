@@ -103,11 +103,11 @@ http://www.iconarchive.com/category/system/tulliana-2-icons-by-umut-pulat.html
 
 = 1.17.4 - 15.04.13 =
 * Fixed sending multiple notification mails
-* Add utf-8 handler for notification mails (Thanks to Marc Wiegand!) 
+* Add UTF-8 handler for notification mails (Thanks to Marc Wiegand!) 
 * Fixed problem if using another reCAPTCHA plugin 
 * ###
-* Das Problem mit dem Versenden von mehreren Benachritigsmails wurde behoben
-* utf-8 für Bestätigungsmail hinzugefügt (Dank an Marc Wiegand!)
+* Das Problem mit dem Versenden von mehreren Benachrichtigungsmails wurde behoben
+* UTF-8 fuer Bestaetigungsmail hinzugefuegt (Dank an Marc Wiegand!)
 * Das Problem beim Einbinden eines anderen reCAPTCHA Plugins wurde behoben
 
 
