@@ -3,7 +3,7 @@ Contributors: danielschurter
 Donate link: http://danielschurter.net/
 Tags: guestbook, plugin, manage, admin, page, sidebar, widget
 Requires at least: 2.1
-Tested up to: 3.5.1
+Tested up to: 3.6
 Stable tag: 1.17.4
 License: GPLv2
 
