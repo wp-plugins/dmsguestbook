@@ -77,9 +77,6 @@ Dont't overwrite an old DMSGuestbook plugin without deactivating it before.
 = DMSGuestbook FAQ: =
 = http://danielschurter.net/dmsguestbook/faq.php =
 
-= Language template: =
-= http://danielschurter.net/dmsguestbook/language/index.html =
-
 == Screenshots ==
 http://DanielSchurter.net/dmsguestbook/screenshots
 
