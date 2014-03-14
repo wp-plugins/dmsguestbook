@@ -3,13 +3,16 @@ Contributors: danielschurter
 Donate link: http://danielschurter.net/
 Tags: guestbook, plugin, manage, admin, page, sidebar, widget
 Requires at least: 2.1
-Tested up to: 3.6
+Tested up to: 3.8.1
 Stable tag: 1.17.4
 License: GPLv2
 
 DMSGuestbook is an easy configurable guestbook with a lot of features.
 
 == Description ==
+**After about 7 years and more than 320'000 downloads, DMSGuestbook has reached end of life and will not longer supported by the owner.**<br />
+**Nach über 7 Jahren und mehr als 320'000 Downloads wird die Entwicklung und der Support von DMSGuestbook eingestellt.**<br />
+
 DMSGuestbook is an easy configurable guestbook with a lot of features.<br />
 You can customize the whole DMSGuestbook to your desire.
 
@@ -75,10 +78,80 @@ Dont't overwrite an old DMSGuestbook plugin without deactivating it before.
 
 == Frequently Asked Questions ==
 = DMSGuestbook FAQ: =
-= http://danielschurter.net/dmsguestbook/faq.php =
+
+**English**
+
+**1.) The guestbook isn’t shown**<br />
+Was the page added in “Guestbook settings -> Basic”?<br />
+
+**2.) The guestbook isn’t shown correctly, what could I do?**<br />
+- Switch to an standard theme and test it again.<br />
+- Deactivate all plugins except DMSGuestbook and test it again.<br />
+
+**3.) Role group in “Guestbook settings -> Role” has no effect**<br />
+The role can be disable. Open the file “admin.php” in “dmsguestbook” folder and search to this entry: define('ROLE', "1");. Replace this with this one: define('ROLE', "0");<br />
+
+**4.) Although DMSGuestbook is activated I don’t see any entries in the adminpanel, why?**<br />
+It could be a problem with the user roles.<br />
+The role can be disable. Open the file “admin.php” in “dmsguestbook” folder and search to this entry: define('ROLE', "1");. Replace this with this one: define('ROLE', "0");<br />
+
+**5.) I got a error message like this:: Warning: fopen(/xxxxx/wp-content/plugins/dmsguestbook/language/0) What can I do?**<br />
+- Release your guestbook allocation by pressing “Clear” on the “Basic” page<br />
+- Chose your favourite language from the list<br />
+- Bind new language to your guestbook page by pressing “Set”<br />
+- Finalize that by pressing “Save” button<br />
+
+**6.) I got a error message like this:: Fatal error: Allowed memory size of ****** bytes exhausted**<br />
+A possible solution: http://codex.wordpress.org/Editing_wp-config.php#Increasing_memory_allocated_to_PHP <br />
+
+**7.) Although I’ve set a valid email address, no notification email I got.**<br />
+Some hoster needs a sender email address where you are registered otherwise it won’t works. See here: http://faq.hosteurope.de/index.php?cpid=11073. To change this open dmsguestbook.php and goto this code: ‘$mail->From = "DMSGuestbook@".$host;‘. Replace this part ‘DMSGuestbook@".$host‘ with your email address which it’s works.<br />
+Attention: You have to repeat these steps after a DMSGuestbook update!<br />
+
+**8.) Image and Math Captcha won’t work**<br />
+Maybe the Suhosin patch is installed (http://www.hardened-php.net/suhosin/) that setting could prevent any codes after submitting a post.<br />
+You can apparently bypass this behavior by setting the following in your php.ini. If don’t have permission on this file ask you ISP or using reCAPTCHA, the next generation captcha method.<br />
+suhosin.srand.ignore = Off<br />
+suhosin.mt_srand.ignore = Off<br />
+
+**Deutsch**
+
+**1.) Das Gästebuch wird nicht angezeigt**<br />
+Wurde die Seite unter “Guestbook settings -> Basic” hinzugefügt?<br />
+
+**2.) Das Gästebuch wird nicht richtig angezeigt, was soll ich tun?**<br />
+- Teste das Gästebuch auf ein Standard Theme<br />
+- Deaktiviere zu Testzwecke alle Plugins ausser DMSGuestbook<br />
+
+**3.) Die Rollenzuteilung unter “Guestbook settings -> Role” zeigt keinen Effekt**<br />
+Die Benutzerverwaltung kann deaktiviert werden. Öffne dazu die Datei “admin.php” im Ordner “dmsguestbook” und suche den Eintrag: define('ROLE', "1"); und ändere diesen ab auf: define('ROLE', "0");<br />
+
+**4.) Obwohl DMSGuestbook aktiviert ist, sehe ich keinen Eintrag im Adminpanel, warum?**<br />
+Dies kann auf ein Problem der Benutzerverwaltung zurückzuführen sein.<br />
+Die Benutzerverwaltung kann deaktiviert werden. Öffne dazu die Datei “admin.php” im Ordner “dmsguestbook” und suche den Eintrag: define('ROLE', "1"); und ändere diesen ab auf: define('ROLE', "0");<br />
+
+**5.) Ich bekomme eine Fehlermeldung in der Art: Warning: fopen(/xxxxx/wp-content/plugins/dmsguestbook/language/0) Was soll ich tun?**<br />
+- Benutze den “Clear” Button unter “Basic” um die Zuordnung des Gästebuches zu lösen.<br />
+- Wähle nun aus der Liste die gewünschte Sprache aus.<br />
+- Drücke nun auf “Set” bei der gewünschten Seite, welche das Gästebuch anzeigen soll.<br />
+- Drücke “Save” um es zu speichern.<br />
+
+**6.) Ich bekomme eine Fehlermeldung in der Art: Fatal error: Allowed memory size of ****** bytes exhausted**<br />
+Eine mögliche Lösung: http://faq.wordpress-deutschland.org/exhausted-php-memory <br />
+
+**7.)Ich bekomme keine E-Mail Benachrichtigung, obwohl ich die entsprechende Option aktiviert habe.**<br />
+Es könnte sein, dass dein Provider (sicher ist es bei Hosteurope) für die mail()-Funktion die Angabe einer gültigen Absenderadresse verlangt. Siehe http://faq.hosteurope.de/index.php?cpid=11073. <br />
+Öffne die Datei dmsguestbook.php und suche die Zeile mit dem Eintrag: ‘$mail->From = "DMSGuestbook@".$host;‘.<br />
+Ersetze nun den Teil ‘DMSGuestbook@".$host‘ durch die E-Mail Adresse die dein Hoster fordert.<br />
+Achtung: Dieser Vorgang muss nach einem Update von DMSGuestbook wiederholt werden!<br />
+
+**8.) Image and Math Captcha funktionieren nicht**<br />
+Möglicherweise ist der Suhosin Patch auf dem Server installiert (http://www.hardened-php.net/suhosin/). Dieser kann verhindern, dass ein Gästebucheintrag versendet werden kann. Dies lässt sich evt. mittels Einstellung in der php.ini beheben. Solltest du keinen Zugriff auf diese Datei haben, so frage deinen Provider oder benutze das neue reCAPTCHA.<br />
+suhosin.srand.ignore = Off<br />
+suhosin.mt_srand.ignore = Off<br />
 
 == Screenshots ==
-http://DanielSchurter.net/dmsguestbook/screenshots
+http://www.danielschurter.net/dmsguestbook/screenshots/
 
 == Credits ==
 
@@ -97,6 +170,10 @@ Icons by Umut Pulat: http://12m3.deviantart.com/<br />
 http://www.iconarchive.com/category/system/tulliana-2-icons-by-umut-pulat.html
 
 == Changelog == 
+
+= 14.04.14 =
+**After about 7 years and more than 320'000 downloads, DMSGuestbook has reached end of life and will not longer supported by the owner.**<br />
+**Nach über 7 Jahren und mehr als 320'000 Downloads wird die Entwicklung und der Support von DMSGuestbook eingestellt.**
 
 = 1.17.4 - 15.04.13 =
 * Fixed sending multiple notification mails
