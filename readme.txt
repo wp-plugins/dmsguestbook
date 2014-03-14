@@ -1,4 +1,4 @@
-=== DMSGuestbook ===
+ï»¿=== DMSGuestbook ===
 Contributors: danielschurter
 Donate link: http://danielschurter.net/
 Tags: guestbook, plugin, manage, admin, page, sidebar, widget
@@ -11,7 +11,7 @@ DMSGuestbook is an easy configurable guestbook with a lot of features.
 
 == Description ==
 **After about 7 years and more than 320'000 downloads, DMSGuestbook has reached end of life and will not longer supported by the owner.**<br />
-**Nach über 7 Jahren und mehr als 320'000 Downloads wird die Entwicklung und der Support von DMSGuestbook eingestellt.**<br />
+**Nach Ã¼ber 7 Jahren und mehr als 320'000 Downloads wird die Entwicklung und der Support von DMSGuestbook eingestellt.**<br />
 
 DMSGuestbook is an easy configurable guestbook with a lot of features.<br />
 You can customize the whole DMSGuestbook to your desire.
@@ -48,7 +48,7 @@ Enjoy it :-)
 * Navigations-Style und Textfarbe
 * Datum, Zeitformat und Offset
 * Das Input-Formular kann oben oder unten angezeigt werden
-* Vorgefertige Beschreibungstetxe wie Deutsch, Englisch, Schweizerdeutsch  …
+* Vorgefertige Beschreibungstetxe wie Deutsch, Englisch, Schweizerdeutsch  :-)
 * Eigene Sprachvorlagen lassen sich in wenigen Minuten erstellen
 * Setze die Felder welche zwingend ausgefuellt werden muessen
 * Verstecke Felder im DMSGuestbook (z.B. IP Adresse)
