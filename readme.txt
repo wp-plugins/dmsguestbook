@@ -11,7 +11,7 @@ DMSGuestbook is an easy configurable guestbook with a lot of features.
 
 == Description ==
 **After about 7 years and more than 320'000 downloads, DMSGuestbook has reached end of life and will not longer supported by the owner.**<br />
-**Nach über 7 Jahren und mehr als 300'000 Downloads wird die Entwicklung und den Support von DMSGuestbook eingestellt.**<br />
+**Nach über 7 Jahren und mehr als 300'000 Downloads wird die Entwicklung und der Support von DMSGuestbook eingestellt.**<br />
 
 DMSGuestbook is an easy configurable guestbook with a lot of features.<br />
 You can customize the whole DMSGuestbook to your desire.
@@ -173,7 +173,7 @@ http://www.iconarchive.com/category/system/tulliana-2-icons-by-umut-pulat.html
 
 = 14.04.14 =
 **After about 7 years and more than 320'000 downloads, DMSGuestbook has reached end of life and will not longer supported by the owner.**<br />
-**Nach über 7 Jahren und mehr als 300'000 Downloads wird die Entwicklung und den Support von DMSGuestbook eingestellt.**
+**Nach über 7 Jahren und mehr als 300'000 Downloads wird die Entwicklung und der Support von DMSGuestbook eingestellt.**
 
 = 1.17.4 - 15.04.13 =
 * Fixed sending multiple notification mails
