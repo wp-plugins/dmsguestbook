@@ -11,6 +11,7 @@ DMSGuestbook is an easy configurable guestbook with a lot of features.
 
 == Description ==
 **After about 7 years and more than 320'000 downloads, DMSGuestbook has reached end of life and will not longer supported by the owner.**<br />
+
 **Nach über 7 Jahren und mehr als 320'000 Downloads wird die Entwicklung und der Support von DMSGuestbook eingestellt.**<br />
 
 DMSGuestbook is an easy configurable guestbook with a lot of features.<br />
@@ -20,7 +21,7 @@ Features:
 
 * Simple work on the attitudes over front-end (e.g. text color, guestbook width, border color...)
 * Extended attitude possibility over the css file
-* Preset DMSGuestbook caption text in different languages (e.g: german, english, swissgerman :-)...)
+* Preset DMSGuestbook caption text in different languages (e.g: german, english, swissgerman :-))
 * Every guestbook have his own language template (NEW in 1.15.0)
 * Make your own language template in few minutes
 * Set mandatory fields where user must be filled out
@@ -173,6 +174,7 @@ http://www.iconarchive.com/category/system/tulliana-2-icons-by-umut-pulat.html
 
 = 14.04.14 =
 **After about 7 years and more than 320'000 downloads, DMSGuestbook has reached end of life and will not longer supported by the owner.**<br />
+
 **Nach über 7 Jahren und mehr als 320'000 Downloads wird die Entwicklung und der Support von DMSGuestbook eingestellt.**
 
 = 1.17.4 - 15.04.13 =
