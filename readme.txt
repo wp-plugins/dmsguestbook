@@ -157,7 +157,6 @@ http://www.danielschurter.net/dmsguestbook/screenshots/
 == Credits ==
 
 Author: Daniel Schurter<br />
-Email: DMSGuestbook@DanielSchurter.net<br />
 Url: http://DanielSchurter.net<br />
 
 DMSGuestbook is released under the GNU General Public License
