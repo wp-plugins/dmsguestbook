@@ -187,7 +187,7 @@ function dmsguestbook_meta_description_option_page() {
 	  	additional varchar(50) NOT NULL,
 	  	flag int(2) NOT NULL,
 	  	UNIQUE KEY id (id)
-	  	)" . mysql_real_escape_string($_REQUEST['collate']) . "");
+	  	)" . esc_sql($_REQUEST['collate']) . "");
 	  	$abspath = str_replace("\\","/", ABSPATH);
 	  	require_once($abspath . 'wp-admin/upgrade-functions.php');
 	  	dbDelta($sql);
@@ -2137,7 +2137,7 @@ if($_REQUEST['file']!="") {
 				     }
 		}
 		$save_to_db = str_replace("\"", "&amp;quot;", $save_to_db);
-		update_option("DMSGuestbook_options", mysql_real_escape_string($save_to_db));
+		update_option("DMSGuestbook_options", esc_sql($save_to_db));
 		message("<b>" . __("saved", "dmsguestbook") . "...</b>",300,800);
 
 		/* save to dmsguestbook.css if is writable */
@@ -2279,7 +2279,7 @@ function dmsguestbook2_meta_description_option_page() {
 		$table_name = $wpdb->prefix . "dmsguestbook";
 		$table_posts = $wpdb->prefix . "posts";
 
-		/* count all search database entries / mysql_query */
+		/* count all search database entries / $wpdb->query */
     	$query0 = $wpdb->get_results("SELECT * FROM $table_name $search_param $editor $flag");
     	$num_rows0 = $wpdb->num_rows;
 
@@ -2726,7 +2726,7 @@ function dmsguestbook2_meta_description_option_page() {
 		$query1 = $wpdb->get_results("SELECT * FROM $table_name WHERE spam = '1'");
     	$num_rows1 = $wpdb->num_rows;
 
-		/* count all search database entries / mysql_query */
+		/* count all search database entries / $wpdb->query */
     	$query0 = $wpdb->get_results("SELECT * FROM $table_name WHERE spam = '1' ORDER BY id " . sprintf("%s", $options["sortitem"]) . " LIMIT
 		" . sprintf("%d", $_REQUEST['from']) . "," . sprintf("%d", $gb_step) . ";");
     	$num_rows0 = $wpdb->num_rows;
@@ -2925,16 +2925,16 @@ function dmsguestbook2_meta_description_option_page() {
 
 		$table_name = $wpdb->prefix . "dmsguestbook";
 		$updatedata = $wpdb->query("UPDATE $table_name SET
-		name 		= 	'" . mysql_real_escape_string(addslashes($_REQUEST['gb_name'])) . "',
-		email 		= 	'" . mysql_real_escape_string($_REQUEST['gb_email']) . "',
-		url 		= 	'" . mysql_real_escape_string($_REQUEST['gb_url']) . "',
-		ip	 		= 	'" . mysql_real_escape_string($_REQUEST['gb_ip']) . "',
-		message 	= 	'" . mysql_real_escape_string(addslashes($gbmessage)) ."',
+		name 		= 	'" . esc_sql(addslashes($_REQUEST['gb_name'])) . "',
+		email 		= 	'" . esc_sql($_REQUEST['gb_email']) . "',
+		url 		= 	'" . esc_sql($_REQUEST['gb_url']) . "',
+		ip	 		= 	'" . esc_sql($_REQUEST['gb_ip']) . "',
+		message 	= 	'" . esc_sql(addslashes($gbmessage)) ."',
 		guestbook	=	'" . sprintf("%d", $_REQUEST['gb_guestbook']) . "',
 		additional	=	'" . $_REQUEST['gb_additional'] . "',
 		flag		=	'" . sprintf("%d", $_REQUEST['gb_flag']) . "'
 		WHERE id = '" . sprintf("%d", $_REQUEST['id']) . "' ");
-  		$update = mysql_query($updatedata);
+  		$update = $wpdb->query($updatedata);
 
 		if(strlen($_REQUEST['gb_date'])!=0) {
 		$part0 = explode(",", $_REQUEST['gb_date']);
@@ -2953,7 +2953,7 @@ function dmsguestbook2_meta_description_option_page() {
 			$updatedata2 = $wpdb->query("UPDATE $table_name SET
 			date 		= 	'$timestamp'
 			WHERE id = '" . sprintf("%d", $_REQUEST['id']) . "'");
-  			$update2 = mysql_query($updatedata2);
+  			$update2 = $wpdb->query($updatedata2);
 		}
 		message("<b>" . sprintf(__("Dataset (%) was saved", "dmsguestbook"), $_REQUEST['id']) . "</b>", 50, 800);
 	}
@@ -2966,7 +2966,7 @@ function dmsguestbook2_meta_description_option_page() {
 	$dataset="";
 		for($c=0; $c<count($_REQUEST['selectpost']); $c++) {
 		$deletedata = $wpdb->query("DELETE FROM $table_name WHERE id = '" . sprintf("%d", "{$_REQUEST['selectpost'][$c]}") . "'");
-		$delete = mysql_query($deletedata);
+		$delete = $wpdb->query($deletedata);
 		$dataset .= "{$_REQUEST['selectpost'][$c]}, ";
 		}
 
@@ -2980,7 +2980,7 @@ function dmsguestbook2_meta_description_option_page() {
 	if($_REQUEST['action'] == 'deletepost') {
 	$table_name = $wpdb->prefix . "dmsguestbook";
 		$deletedata = $wpdb->query("DELETE FROM $table_name WHERE id = '" . sprintf("%d", "$_REQUEST[id]") . "'");
-		$delete = mysql_query($deletedata);
+		$delete = $wpdb->query($deletedata);
 		message("<b>" . sprintf(__("Dataset (%) was deleted", "dmsguestbook"), $_REQUEST['id']) . "...</b>", 50, 800);
 	}
 
@@ -2988,7 +2988,7 @@ function dmsguestbook2_meta_description_option_page() {
 	if($_REQUEST['action'] == 'deleteallpost') {
 	$table_name = $wpdb->prefix . "dmsguestbook";
 		$deletealldata = $wpdb->query("DELETE FROM $table_name WHERE spam = '1'");
-		$delete = mysql_query($deletealldata);
+		$delete = $wpdb->query($deletealldata);
 		message("<b>" . __("All Dataset were deleted", "dmsguestbook") . "...</b>", 140, 800);
 	}
 
@@ -2998,7 +2998,7 @@ function dmsguestbook2_meta_description_option_page() {
 		$updatedata3 = $wpdb->query("UPDATE $table_name SET
 		spam 		= 	'1'
 		WHERE id = '" . sprintf("%d", $_REQUEST['id']) . "'");
-  		$update3 = mysql_query($updatedata3);
+  		$update3 = $wpdb->query($updatedata3);
 		SpamHam($_REQUEST['id'], "spam");
 	}
 
@@ -3011,7 +3011,7 @@ function dmsguestbook2_meta_description_option_page() {
 			$updatedata4 = $wpdb->query("UPDATE $table_name SET
 			spam 		= 	'1'
 			WHERE id = '" . sprintf("%d", "{$_REQUEST['selectpost'][$c]}") . "'");
-  			$update4 = mysql_query($updatedata4);
+  			$update4 = $wpdb->query($updatedata4);
   			SpamHam("{$_REQUEST['selectpost'][$c]}", "spam");
   		}
 	}
@@ -3024,7 +3024,7 @@ function dmsguestbook2_meta_description_option_page() {
 			$updatedata4 = $wpdb->query("UPDATE $table_name SET
 			spam 		= 	'0'
 			WHERE id = '" . sprintf("%d", "{$_REQUEST['selectpost'][$c]}") . "'");
-  			$update4 = mysql_query($updatedata4);
+  			$update4 = $wpdb->query($updatedata4);
   			SpamHam("{$_REQUEST['selectpost'][$c]}", "ham");
   		}
 	}
@@ -3035,7 +3035,7 @@ function dmsguestbook2_meta_description_option_page() {
 		$updatedata4 = $wpdb->query("UPDATE $table_name SET
 		spam 		= 	'0'
 		WHERE id = '" . sprintf("%d", "$_REQUEST[id]") . "'");
-  		$update4 = mysql_query($updatedata4);
+  		$update4 = $wpdb->query($updatedata4);
   		SpamHam($_REQUEST['id'], "ham");
 	}
 
@@ -3045,7 +3045,7 @@ function dmsguestbook2_meta_description_option_page() {
 		$updatedata5 = $wpdb->query("UPDATE $table_name SET
 		flag 		= 	'" . sprintf("%d", "$_REQUEST[flag]") . "'
 		WHERE id = '" . sprintf("%d", "$_REQUEST[id]") . "'");
-  		$update5 = mysql_query($updatedata5);
+  		$update5 = $wpdb->query($updatedata5);
 	}
 
 	/* multi set admin review set hidden */
@@ -3055,7 +3055,7 @@ function dmsguestbook2_meta_description_option_page() {
 			$updatedata6 = $wpdb->query("UPDATE $table_name SET
 			flag 		= 	'1'
 			WHERE id = '" . sprintf("%d", "{$_REQUEST['selectpost'][$c]}") . "'");
-  			$update6 = mysql_query($updatedata6);
+  			$update6 = $wpdb->query($updatedata6);
   		}
 	}
 
@@ -3066,7 +3066,7 @@ function dmsguestbook2_meta_description_option_page() {
 			$updatedata7 = $wpdb->query("UPDATE $table_name SET
 			flag 		= 	'0'
 			WHERE id = '" . sprintf("%d", "{$_REQUEST['selectpost'][$c]}") . "'");
-  			$update7 = mysql_query($updatedata7);
+  			$update7 = $wpdb->query($updatedata7);
   		}
 	}
 
