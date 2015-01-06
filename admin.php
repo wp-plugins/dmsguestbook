@@ -27,7 +27,7 @@ define('BASE64', "0");
 /* DMSGuestbook version */
 define('DMSGUESTBOOKVERSION', "1.17.4");
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-	
+		
 	$_REQUEST['restore_options'] 	= (isset($_REQUEST['restore_options'])) ? $_REQUEST['restore_options'] : '';
 	
 	/* menu (DMSGuestbook, Manage) */
@@ -79,10 +79,8 @@ define('DMSGUESTBOOKVERSION', "1.17.4");
 		add_submenu_page( 'dmsguestbook' , __('phpinfo', 'dmsguestbook'), __('phpinfo', 'dmsguestbook'), $Role1,
 		'phpinfo', 'dmsguestbook3_meta_description_option_page');
 		}
-	}
-
-
-
+	}	
+	
 	/* create db while the activation process */
 	add_action('activate_dmsguestbook/admin.php', 'dmsguestbook_install');
 
@@ -107,6 +105,7 @@ define('DMSGUESTBOOKVERSION', "1.17.4");
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 /* DMSGuestbook adminpage main function */
+
 
 function dmsguestbook_meta_description_option_page() {
 
@@ -2173,16 +2172,23 @@ if($_REQUEST['file']!="") {
 	$file=$POSTVARIABLE['file'];
 	} else {$file="";}
 
-		clearstatcache();
-		if (file_exists($abspath . "wp-content/plugins/dmsguestbook/" . $folder . $file)) {
-		$handle = fopen($abspath . "wp-content/plugins/dmsguestbook/" . $folder . $file, "w");
+		include_once "../wp-includes/pluggable.php";
 
-		$writetofile = str_replace("\\", "", $POSTVARIABLE['advanced_data']);
+		// prevent data injection
+		if( !is_user_logged_in() ) {
+			clearstatcache();
+			if (file_exists($abspath . "wp-content/plugins/dmsguestbook/" . $folder . $file)) {
+			$handle = fopen($abspath . "wp-content/plugins/dmsguestbook/" . $folder . $file, "w");
 
-		fwrite($handle, $writetofile);
-		fclose($handle);
-		message("<b>" . __("saved", "dmsguestbook") . "...</b>",300,800);
-		} else {message("<br /><b>" . __("File not found!", "dmsguestbook") . "</b>",300,800);}
+			$writetofile = str_replace("\\", "", $POSTVARIABLE['advanced_data']);
+			fwrite($handle, $writetofile);
+			fclose($handle);
+			message("<b>" . __("saved", "dmsguestbook") . "...</b>",300,800);
+			} else {message("<br /><b>" . __("File not found!", "dmsguestbook") . "</b>",300,800);}	
+		} else {
+			message("<b>NOT LOGGED IN!</b>",300,800);
+		}
+		
 	}
 
 
@@ -3929,4 +3935,5 @@ return $options;
 		}
 	return $role;
 	}
+
 ?>

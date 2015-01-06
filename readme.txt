@@ -1,4 +1,4 @@
-ï»¿=== DMSGuestbook ===
+=== DMSGuestbook ===
 Contributors: danielschurter
 Donate link: http://danielschurter.net/
 Tags: guestbook, plugin, manage, admin, page, sidebar, widget
@@ -12,7 +12,7 @@ DMSGuestbook is an easy configurable guestbook with a lot of features.
 == Description ==
 **After about 7 years and more than 320'000 downloads, DMSGuestbook has reached end of life and will not longer supported by the owner.**<br />
 
-**Nach Ã¼ber 7 Jahren und mehr als 320'000 Downloads wird die Entwicklung und der Support von DMSGuestbook eingestellt.**<br />
+**Nach über 7 Jahren und mehr als 320'000 Downloads wird die Entwicklung und der Support von DMSGuestbook eingestellt.**<br />
 
 DMSGuestbook is an easy configurable guestbook with a lot of features.<br />
 You can customize the whole DMSGuestbook to your desire.
@@ -117,37 +117,37 @@ suhosin.mt_srand.ignore = Off<br />
 
 **Deutsch**
 
-**1.) Das GÃ¤stebuch wird nicht angezeigt**<br />
-Wurde die Seite unter "Guestbook settings -> Basic" hinzugefÃ¼gt?<br />
+**1.) Das Gästebuch wird nicht angezeigt**<br />
+Wurde die Seite unter "Guestbook settings -> Basic" hinzugefügt?<br />
 
-**2.) Das GÃ¤stebuch wird nicht richtig angezeigt, was soll ich tun?**<br />
-- Teste das GÃ¤stebuch auf ein Standard Theme<br />
+**2.) Das Gästebuch wird nicht richtig angezeigt, was soll ich tun?**<br />
+- Teste das Gästebuch auf ein Standard Theme<br />
 - Deaktiviere zu Testzwecke alle Plugins ausser DMSGuestbook<br />
 
 **3.) Die Rollenzuteilung unter "Guestbook settings -> Role" zeigt keinen Effekt**<br />
-Die Benutzerverwaltung kann deaktiviert werden. Ã–ffne dazu die Datei "admin.php" im Ordner "dmsguestbook" und suche den Eintrag: define('ROLE', "1"); und Ã¤ndere diesen ab auf: define('ROLE', "0");<br />
+Die Benutzerverwaltung kann deaktiviert werden. Öffne dazu die Datei "admin.php" im Ordner "dmsguestbook" und suche den Eintrag: define('ROLE', "1"); und ändere diesen ab auf: define('ROLE', "0");<br />
 
 **4.) Obwohl DMSGuestbook aktiviert ist, sehe ich keinen Eintrag im Adminpanel, warum?**<br />
-Dies kann auf ein Problem der Benutzerverwaltung zurÃ¼ckzufÃ¼hren sein.<br />
-Die Benutzerverwaltung kann deaktiviert werden. Ã–ffne dazu die Datei "admin.php" im Ordner "dmsguestbook" und suche den Eintrag: define('ROLE', "1"); und Ã¤ndere diesen ab auf: define('ROLE', "0");<br />
+Dies kann auf ein Problem der Benutzerverwaltung zurückzuführen sein.<br />
+Die Benutzerverwaltung kann deaktiviert werden. Öffne dazu die Datei "admin.php" im Ordner "dmsguestbook" und suche den Eintrag: define('ROLE', "1"); und ändere diesen ab auf: define('ROLE', "0");<br />
 
 **5.) Ich bekomme eine Fehlermeldung in der Art: Warning: fopen(/xxxxx/wp-content/plugins/dmsguestbook/language/0) Was soll ich tun?**<br />
-- Benutze den "Clear" Button unter "Basic" um die Zuordnung des GÃ¤stebuches zu lÃ¶sen.<br />
-- WÃ¤hle nun aus der Liste die gewÃ¼nschte Sprache aus.<br />
-- DrÃ¼cke nun auf "Set" bei der gewÃ¼nschten Seite, welche das GÃ¤stebuch anzeigen soll.<br />
-- DrÃ¼cke "Save" um es zu speichern.<br />
+- Benutze den "Clear" Button unter "Basic" um die Zuordnung des Gästebuches zu lösen.<br />
+- Wähle nun aus der Liste die gewünschte Sprache aus.<br />
+- Drücke nun auf "Set" bei der gewünschten Seite, welche das Gästebuch anzeigen soll.<br />
+- Drücke "Save" um es zu speichern.<br />
 
 **6.) Ich bekomme eine Fehlermeldung in der Art: Fatal error: Allowed memory size of ****** bytes exhausted**<br />
-Eine mÃ¶gliche LÃ¶sung: http://faq.wordpress-deutschland.org/exhausted-php-memory <br />
+Eine mögliche Lösung: http://faq.wordpress-deutschland.org/exhausted-php-memory <br />
 
 **7.)Ich bekomme keine E-Mail Benachrichtigung, obwohl ich die entsprechende Option aktiviert habe.**<br />
-Es kÃ¶nnte sein, dass dein Provider (sicher ist es bei Hosteurope) fÃ¼r die mail()-Funktion die Angabe einer gÃ¼ltigen Absenderadresse verlangt. Siehe http://faq.hosteurope.de/index.php?cpid=11073. <br />
-Ã–ffne die Datei "dmsguestbook.php" und suche die Zeile mit dem Eintrag: '$mail->From = "DMSGuestbook@".$host;'.<br />
+Es könnte sein, dass dein Provider (sicher ist es bei Hosteurope) für die mail()-Funktion die Angabe einer gültigen Absenderadresse verlangt. Siehe http://faq.hosteurope.de/index.php?cpid=11073. <br />
+Öffne die Datei "dmsguestbook.php" und suche die Zeile mit dem Eintrag: '$mail->From = "DMSGuestbook@".$host;'.<br />
 Ersetze nun den Teil 'DMSGuestbook@".$host' durch die E-Mail Adresse die dein Hoster fordert.<br />
 Achtung: Dieser Vorgang muss nach einem Update von DMSGuestbook wiederholt werden!<br />
 
 **8.) Image and Math Captcha funktionieren nicht**<br />
-MÃ¶glicherweise ist der Suhosin Patch auf dem Server installiert (http://www.hardened-php.net/suhosin/). Dieser kann verhindern, dass ein GÃ¤stebucheintrag versendet werden kann. Dies lÃ¤sst sich evt. mittels Einstellung in der php.ini beheben. Solltest du keinen Zugriff auf diese Datei haben, so frage deinen Provider oder benutze das neue reCAPTCHA.<br />
+Möglicherweise ist der Suhosin Patch auf dem Server installiert (http://www.hardened-php.net/suhosin/). Dieser kann verhindern, dass ein Gästebucheintrag versendet werden kann. Dies lässt sich evt. mittels Einstellung in der php.ini beheben. Solltest du keinen Zugriff auf diese Datei haben, so frage deinen Provider oder benutze das neue reCAPTCHA.<br />
 suhosin.srand.ignore = Off<br />
 suhosin.mt_srand.ignore = Off<br />
 
@@ -174,7 +174,7 @@ http://www.iconarchive.com/category/system/tulliana-2-icons-by-umut-pulat.html
 = 14.04.14 =
 **After about 7 years and more than 320'000 downloads, DMSGuestbook has reached end of life and will not longer supported by the owner.**<br />
 
-**Nach Ã¼ber 7 Jahren und mehr als 320'000 Downloads wird die Entwicklung und der Support von DMSGuestbook eingestellt.**
+**Nach über 7 Jahren und mehr als 320'000 Downloads wird die Entwicklung und der Support von DMSGuestbook eingestellt.**
 
 = 1.17.4 - 15.04.13 =
 * Fixed sending multiple notification mails
@@ -404,5 +404,4 @@ http://www.iconarchive.com/category/system/tulliana-2-icons-by-umut-pulat.html
 * Es lassen sich direkte links zum Gaestebuch mit SHOW_POST im Widget hinzufuegen
 * SHOW_NR und SHOW_ID im Widget hinzugefuegt
 * Norwegisches Sprach-Template von Torjus Faersnes
-
 
