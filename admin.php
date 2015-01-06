@@ -1905,93 +1905,31 @@ if($_REQUEST['advanced']==1) {
 
 	clearstatcache();
 	$color3=settablecolor(3,0);
-	unset($buffer);
+	$plugins_url = plugins_url();
 	
-	$buffer 				= (isset($buffer)) ? $buffer : '';
-	$save_advanced_button 	= (isset($save_advanced_button)) ? $save_advanced_button : '';
-	$valid_file 			= (isset($valid_file)) ? $valid_file : '';
-	$_REQUEST['file'] 		= (isset($_REQUEST['file'])) ? $_REQUEST['file'] : '';
+	echo "<b style='font-size:20px;'>" . __("Language settings", "dmsguestbook") . "</b><br /><br />";
 	
-	echo "<b style='font-size:20px;'>" . __("Language settings", "dmsguestbook") . "</b><br />";
+	echo "<b>Installed languages:</b><br /><br />";
+	
 	$abspath = str_replace("\\","/", ABSPATH);
 
 		if ($handle = opendir($abspath . 'wp-content/plugins/dmsguestbook/language/')) {
     		/* language */
     		while (false !== ($file = readdir($handle))) {
         		if ($file != "." && $file != ".." && $file != "mo") {
-        			if($file=="README.txt") {
-           			echo "<a style='color:#bb0000;' href='admin.php?page=dmsguestbook&advanced=1&folder=language/&file=$file'>$file</a>, ";
+        			if($file!="README.txt") {
+           			echo "<div>$file</div>";
         			}
-        			else 	{
-        					echo "<a href='admin.php?page=dmsguestbook&advanced=1&folder=language/&file=$file'>$file</a>, ";
-        					}
         		}
     		}
     		echo "<br />";
     		closedir($handle);
 		}
-
-
-if($_REQUEST['file']!="") {
-
-	clearstatcache();
-
-	/* check the file variable for language text file */
-	if(preg_match('/^[a-z0-9_]+\.+(txt)/i', "$_REQUEST[file]")==1) {
-	$file=$_REQUEST['file'];
-
-	if(file_exists($abspath . "wp-content/plugins/dmsguestbook/language/" . $file)) {
-	$folder="language/";
-	$valid_file=1;
-	$save_advanced_button = check_writable($folder, $file);
-	} else
-	  		{
-	  		$valid_file=0;
-	  		echo "<br /><b>" . __("File not found!", "dmsguestbook") . "</b>";
-	  		}
-	}
-
-
-	/* error handling */
-	if($file=="") {
-	echo "<br /><b>" . __("Not a valid file, must be a language file with .txt prefix.") . "</b>";
-	}
-
-
-		if ($valid_file==1) {
-		$handle = @fopen ($abspath . "wp-content/plugins/dmsguestbook/" . $folder . $file, "r");
-			while (!feof($handle)) {
-    		$buffer .= fgets($handle, 4096);
-			}
-		fclose ($handle);
-		}
-
-
+	echo "<b>All language files can be edited with a text editor in your DMSGuestbook plugin folder: (../plugins/dmsguestbook/language)</b><br /><br />";
+	echo "<br />";
+	
 }
-
-	$showfiledata = htmlentities($buffer, ENT_QUOTES);
-
-?>
-	<br />
-	<table style="border:0px solid #000000; width:100%;background-color:#<?php echo $color3; ?>;" cellspacing="0" cellpadding="0">
-	  <tr>
-		<form name="form0" method="post" action="<?php echo $location;?>">
-		<td><textarea style="width:99%; height:500px;" name="advanced_data"><?php echo $showfiledata;?></textarea></td>
-	  </tr>
-		<input name="action" value="save_advanced_data" type="hidden" />
-	  	<input name="folder" value="<?php echo $folder; ?>" type="hidden" />
-	  	<input name="file" value="<?php echo $file; ?>" type="hidden" />
-	  <tr>
-		<td style="text-align:center;"><?php echo $save_advanced_button;?></td>
-  	  </tr>
-  		</form>
-	  </tr>
-	 </table>
-<?php
-}
-?>
-	 </div>
-<?php
+	 echo "</div>";
 	}
 }	/* end of DMSGuestbook adminpage main function */
 
@@ -2158,38 +2096,6 @@ if($_REQUEST['file']!="") {
 	default_option();
 	}
 
-	/* save advanced */
-	if ($POSTVARIABLE['action'] =='save_advanced_data') {
-	$abspath = str_replace("\\","/", ABSPATH);
-
-	/* check the folder variable */
-	if($POSTVARIABLE['folder']=="language/"){
-	$folder="language/";
-	} else {$folder="";}
-
-	/* check the file variable xxxx.txt */
-	if(preg_match('/^[a-z0-9]+\.+(txt)/i', $POSTVARIABLE['file'])==1) {
-	$file=$POSTVARIABLE['file'];
-	} else {$file="";}
-
-		include_once "../wp-includes/pluggable.php";
-
-		// prevent data injection
-		if( !is_user_logged_in() ) {
-			clearstatcache();
-			if (file_exists($abspath . "wp-content/plugins/dmsguestbook/" . $folder . $file)) {
-			$handle = fopen($abspath . "wp-content/plugins/dmsguestbook/" . $folder . $file, "w");
-
-			$writetofile = str_replace("\\", "", $POSTVARIABLE['advanced_data']);
-			fwrite($handle, $writetofile);
-			fclose($handle);
-			message("<b>" . __("saved", "dmsguestbook") . "...</b>",300,800);
-			} else {message("<br /><b>" . __("File not found!", "dmsguestbook") . "</b>",300,800);}	
-		} else {
-			message("<b>NOT LOGGED IN!</b>",300,800);
-		}
-		
-	}
 
 
 
@@ -3714,21 +3620,7 @@ return $options;
 	}
 
 
-	/* advanced file */
-	function check_writable($folder, $file) {
-	$abspath = str_replace("\\","/", ABSPATH);
-		if(is_writable($abspath . "wp-content/plugins/dmsguestbook/" . $folder . $file)) {
-		echo "<br />$_REQUEST[file] <font style='color:#00bb00;'>" . __("is writable!", "dmsguestbook") . "</font><br />" . sprintf(__("Set %s readonly again when your finished to customize!", "dmsguestbook"), $file);
-		$save_advanced_button = "<input class='button-primary action' style='font-weight:bold; margin:10px 0px; width:250px;' type='submit' value='" . __("Save", "dmsguestbook") . "' />";
-		return $save_advanced_button;
-		}
-		else {
-	         echo "<br />" . sprintf(__("%s is <font style='color:#bb0000;'>not writable!", "dmsguestbook"), $_REQUEST['file']) . "
-	         </font><br />" . sprintf(__("Set the write permission for %s to customize this file.", "dmsguestbook"), $_REQUEST['file']);
-	         return $save_advanced_button="";
-	         }
 
-	}
 
 
 	/* missing options */
