@@ -1905,7 +1905,6 @@ if($_REQUEST['advanced']==1) {
 
 	clearstatcache();
 	$color3=settablecolor(3,0);
-	$plugins_url = plugins_url();
 	
 	echo "<b style='font-size:20px;'>" . __("Language settings", "dmsguestbook") . "</b><br /><br />";
 	
